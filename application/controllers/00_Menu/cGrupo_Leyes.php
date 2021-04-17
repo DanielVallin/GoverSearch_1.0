@@ -69,4 +69,11 @@ class cGrupo_Leyes extends CI_Controller {
 		}
 	}
 
+	public function view($pk_Gpo_Ley){
+		$data = array(
+			'vista'=>$this->Grupo_Leyes_Model->getGrupo_Modelid($pk_Gpo_Ley),
+		);
+		$this->load->view("admin/01_Menu/vGrupo_Leyes/list",$data);
+	}
+
 }

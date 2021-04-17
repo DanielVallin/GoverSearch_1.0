@@ -66,13 +66,13 @@ $(document).ready(function () {
     
     
     $(".btn-view").on("click", function(){
-        var id = $(this).val();
+        var pk_Gpo_Ley = $(this).val();
         $.ajax({
-            url: base_url + "mantenimiento/categorias/view/" + id,
+            url: base_url + "00_Menu/cGrupo_Leyes/view/" + pk_Gpo_Ley,
             type:"POST",
             success:function(resp){
                 $("#modal-default .modal-body").html(resp);
-                alert(resp);
+                //alert(resp);
             }
 
         });
