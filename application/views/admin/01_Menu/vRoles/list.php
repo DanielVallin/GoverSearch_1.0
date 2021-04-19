@@ -17,6 +17,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <a href="<?php echo base_url();?>00_Menu/cRoles/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Usuario</a>
+                                    <a href="<?php echo base_url();?>00_Menu/cReg_Leyes/add" class="btn btn-success btn-flat"><span class="fa fa-file-excel-o"></span> Exportar Excel</a>
                                 </div>
                             </div>
                         <hr>

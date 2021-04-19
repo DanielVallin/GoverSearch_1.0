@@ -19,7 +19,6 @@
                             <div class="alert alert-danger alert-dismissible">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                 <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
-                                
                              </div>
                         <?php endif;?>
                         <form action="<?php echo base_url();?>mantenimiento/categorias/update" method="POST">

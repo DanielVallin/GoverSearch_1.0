@@ -71,9 +71,17 @@ class cGrupo_Leyes extends CI_Controller {
 
 	public function view($pk_Gpo_Ley){
 		$data = array(
-			'vista'=>$this->Grupo_Leyes_Model->getGrupo_Modelid($pk_Gpo_Ley),
+			'vista' => $this->Grupo_Leyes_Model->getGrupo_Modelid($pk_Gpo_Ley),
 		);
-		$this->load->view("admin/01_Menu/vGrupo_Leyes/list",$data);
+		$this->load->view("admin/01_Menu/vGrupo_Leyes/view", $data);
+	}
+
+	public function delete($pk_Gpo_Ley){
+		$data  = array(
+			'Estado' => "0", 
+		);
+		$this->Grupo_Leyes_Model->update($pk_Gpo_Ley, $data);
+		echo "00_Menu/cGrupo_Leyes";
 	}
 
 }

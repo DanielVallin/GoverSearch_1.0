@@ -60,15 +60,20 @@
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label for="Nombre">Fecha Alta:</label></span>
+                                <label for="Fecha_Alta">Fecha Alta:</label></span>
                                 <input type="date" class="form-control" placeholder="Usuario" id="Fecha_Alta" name="Fecha_Alta">
                                 <span class="">
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label for="Nombre">User Rol:</label>
-                                <input type="text" class="form-control" placeholder="Usuario" id="User_Rol_pk" name="User_Rol_pk">
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                <label for="User_Rol_pk">User Rol:</label>
+                                <select name="User_Rol_pk" id="User_Rol_pk" class="form-control">
+                                    
+                                    <?php foreach($roles as $rol):?>
+                                        <option value="<?php echo $rol->pk_Rol?>"><?php echo $rol->Nombre_Rol;?></option>
+                                    <?php endforeach;?>
+
+                                </select>
                             </div>
 
                             <div class="form-group">

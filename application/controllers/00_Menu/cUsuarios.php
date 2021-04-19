@@ -6,10 +6,10 @@ class cUsuarios extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("User_Model");
+		$this->load->model("Roles_Model");
 	}
 
-	public function index()
-	{
+	public function index(){
 		$data = array(
 			 'usuarios' =>$this->User_Model->getUsuarios(),
 		);
@@ -20,7 +20,9 @@ class cUsuarios extends CI_Controller {
 	}
 
 	public function add(){
-
+		$data = array(
+			'roles' =>$this->Roles_Model->getRoles()
+	   );
 	   $this->load->view("layouts/header");
 	   $this->load->view("layouts/aside");
 	   $this->load->view("admin/01_Menu/vUsuarios/add");

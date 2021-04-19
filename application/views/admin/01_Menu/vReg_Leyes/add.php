@@ -19,10 +19,10 @@
                             <div class="alert alert-danger alert-dismissible">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                 <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
+                             
                              </div>
                         <?php endif;?>
-                        <form action="<?php echo base_url();?>00_Menu/cRoles/store" method="POST">
-
+                        <form action="<?php echo base_url();?>00_Menu/cReg_Leyes/store" method="POST">
 
                             <div class="form-group">
                                 <label for="Nombre_de_Ley">Nombre de Ley:</label>
@@ -35,6 +35,16 @@
                             <div class="form-group">
                                 <label for="Detalle_Art">Detalle Art:</label>
                                 <input type="text" class="form-control" id="Detalle_Art" name="Detalle_Art">
+                            </div>
+                            <div class="form-group">
+                                <label for="Grupo">Grupo:</label>
+                                <select name="Grupo_pk" id="Grupo_pk" class="form-control">
+                                    
+                                    <?php foreach($gpleyes as $Grupo):?>
+                                        <option value="<?php echo $Grupo->pk_Gpo_Ley?>"><?php echo $Grupo->Nombre_de_Grupo;?></option>
+                                    <?php endforeach;?>
+
+                                </select>
                             </div>
                             
 

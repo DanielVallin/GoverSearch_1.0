@@ -21,7 +21,7 @@ class Grupo_Leyes_Model extends CI_Model {
 	}
 
     public function update($pk_Gpo_Ley, $data){
-        $this->db->where("pk_Gpo_Ley",$pk_Gpo_Ley);
+        $this->db->where("pk_Gpo_Ley", $pk_Gpo_Ley);
         return $this->db->update("tbl_gpo_leyes", $data);
     }
 

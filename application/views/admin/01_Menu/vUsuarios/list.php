@@ -17,6 +17,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <a href="<?php echo base_url();?>00_Menu/cUsuarios/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Usuario</a>
+                                <a href="<?php echo base_url();?>00_Menu/cReg_Leyes/add" class="btn btn-success btn-flat"><span class="fa fa-file-excel-o"></span> Exportar Excel</a>
                             </div>
                         </div>
                         <hr>
@@ -30,17 +31,18 @@
                                         <th>Correo</th>
                                         <th>Fecha de Alta</th>
                                         <th>opciones</th>
+                                        <th>Rol</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php if(!empty($usuarios)):?>
                                     <?php foreach($usuarios as $usuario):?>
                                         <tr>
-                                            <td><?php echo $usuario->Nombre;?></td>
+                                            <td><?php echo $usuario->Nombre;?> <?php echo $usuario->Apellidos;?></td>
                                             <td><?php echo $usuario->Usuario;?></td>
                                             <td><?php echo $usuario->Correo;?></td>
                                             <td><?php echo $usuario->Fecha_Alta;?></td>
-                                            
+                                            <td><?php echo $usuario->rol;?></td>
                                             <td>
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $usuario->pk_Usuario;?>"><span class="fa fa-search"></span>

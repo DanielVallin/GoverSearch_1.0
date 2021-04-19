@@ -33,8 +33,8 @@ $(document).ready(function () {
             url: ruta,
             type:"POST",
             success:function(resp){
-                //http://localhost/ventas_ci/mantenimiento/productos
-                window.location.href = base_url + resp;
+               //http://localhost/ventas_ci/ mantenimiento/productos
+               window.location.href = base_url + resp;
             }
         });
     });
@@ -66,9 +66,9 @@ $(document).ready(function () {
     
     
     $(".btn-view").on("click", function(){
-        var pk_Gpo_Ley = $(this).val();
+        var id = $(this).val();
         $.ajax({
-            url: base_url + "00_Menu/cGrupo_Leyes/view/" + pk_Gpo_Ley,
+            url: base_url + "00_Menu/cGrupo_Leyes/view/" + id,
             type:"POST",
             success:function(resp){
                 $("#modal-default .modal-body").html(resp);

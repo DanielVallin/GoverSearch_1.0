@@ -17,6 +17,7 @@
                         <div class="row">
                                 <div class="col-md-12">
                                     <a href="<?php echo base_url();?>00_Menu/cReg_Leyes/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Usuario</a>
+                                    <a href="<?php echo base_url();?>00_Menu/cReg_Leyes/add" class="btn btn-success btn-flat"><span class="fa fa-file-excel-o"></span> Exportar Excel</a>
                                 </div>
                             </div>
                         <hr>
@@ -36,7 +37,7 @@
                                                     <tr>
                                                         <td><?php echo $regley->Nombre_de_Ley;?></td>
                                                         <td><?php echo $regley->Numero_de_Articulo;?></td>
-                                                        <td><?php echo $regley->Grupo_pk;?></td>
+                                                        <td><?php echo $regley->grupos;?></td>
                                                         <td>
                                                             <div class="btn-group">
                                                                 <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $regley->pk_Datos_Ley;?>">

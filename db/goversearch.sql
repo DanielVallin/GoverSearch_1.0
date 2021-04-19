@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 17, 2021 at 12:51 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 5.6.40
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 20-04-2021 a las 00:33:45
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `goversearch`
+-- Base de datos: `goversearch`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_cat`
+-- Estructura de tabla para la tabla `tbl_cat`
 --
 
 CREATE TABLE `tbl_cat` (
@@ -33,20 +33,20 @@ CREATE TABLE `tbl_cat` (
   `Termino_Clave` varchar(50) NOT NULL,
   `Usuario_pk` int(20) NOT NULL,
   `Fecha_Alta` date NOT NULL,
-  `Estatus` bit(1) NOT NULL
+  `Estado` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_cat`
+-- Volcado de datos para la tabla `tbl_cat`
 --
 
-INSERT INTO `tbl_cat` (`pk_Ter_Clave`, `Termino_Clave`, `Usuario_pk`, `Fecha_Alta`, `Estatus`) VALUES
+INSERT INTO `tbl_cat` (`pk_Ter_Clave`, `Termino_Clave`, `Usuario_pk`, `Fecha_Alta`, `Estado`) VALUES
 (1, 'CAJA', 2, '2021-04-08', b'1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_gpo_leyes`
+-- Estructura de tabla para la tabla `tbl_gpo_leyes`
 --
 
 CREATE TABLE `tbl_gpo_leyes` (
@@ -56,16 +56,18 @@ CREATE TABLE `tbl_gpo_leyes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_gpo_leyes`
+-- Volcado de datos para la tabla `tbl_gpo_leyes`
 --
 
 INSERT INTO `tbl_gpo_leyes` (`pk_Gpo_Ley`, `Nombre_de_Grupo`, `Estado`) VALUES
-(1, 'Contabilidad', b'1');
+(1, 'Contabilidad', b'1'),
+(2, 'Contabilidad 2', b'1'),
+(3, 'Contabilidad 23', b'1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_leyes`
+-- Estructura de tabla para la tabla `tbl_leyes`
 --
 
 CREATE TABLE `tbl_leyes` (
@@ -78,16 +80,17 @@ CREATE TABLE `tbl_leyes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_leyes`
+-- Volcado de datos para la tabla `tbl_leyes`
 --
 
 INSERT INTO `tbl_leyes` (`pk_Datos_Ley`, `Nombre_de_Ley`, `Numero_de_Articulo`, `Detalle_Art`, `Grupo_pk`, `Estado`) VALUES
-(1, 'Ley General de Contabilidad', 1, 'aquí va todo el texto del articulo', 1, b'1');
+(1, 'Ley General de Contabilidad', 1, 'aquí va todo el texto del articulo', 1, b'1'),
+(2, 'Nueva ley', 5, 'Esta ley es nueva', 2, b'1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_pagos`
+-- Estructura de tabla para la tabla `tbl_pagos`
 --
 
 CREATE TABLE `tbl_pagos` (
@@ -102,7 +105,7 @@ CREATE TABLE `tbl_pagos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_pagos`
+-- Volcado de datos para la tabla `tbl_pagos`
 --
 
 INSERT INTO `tbl_pagos` (`pk_Pago`, `Usuario_pk`, `Descripcion`, `Folio_Pago`, `Fecha_Pago`, `Consepto_Pago`, `Importe`, `Estado`) VALUES
@@ -111,7 +114,7 @@ INSERT INTO `tbl_pagos` (`pk_Pago`, `Usuario_pk`, `Descripcion`, `Folio_Pago`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_permisos`
+-- Estructura de tabla para la tabla `tbl_permisos`
 --
 
 CREATE TABLE `tbl_permisos` (
@@ -123,7 +126,7 @@ CREATE TABLE `tbl_permisos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_roles`
+-- Estructura de tabla para la tabla `tbl_roles`
 --
 
 CREATE TABLE `tbl_roles` (
@@ -134,7 +137,7 @@ CREATE TABLE `tbl_roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_roles`
+-- Volcado de datos para la tabla `tbl_roles`
 --
 
 INSERT INTO `tbl_roles` (`pk_Rol`, `Nombre_Rol`, `Descripcion`, `Estado`) VALUES
@@ -145,7 +148,7 @@ INSERT INTO `tbl_roles` (`pk_Rol`, `Nombre_Rol`, `Descripcion`, `Estado`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ter_clave`
+-- Estructura de tabla para la tabla `tbl_ter_clave`
 --
 
 CREATE TABLE `tbl_ter_clave` (
@@ -158,7 +161,7 @@ CREATE TABLE `tbl_ter_clave` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_ter_clave`
+-- Volcado de datos para la tabla `tbl_ter_clave`
 --
 
 INSERT INTO `tbl_ter_clave` (`pk_Datos_ley`, `Agp_Termino_Clave`, `Termino_Clave_pk`, `Ley_pk`, `Articulo`, `Estado`) VALUES
@@ -167,7 +170,7 @@ INSERT INTO `tbl_ter_clave` (`pk_Datos_ley`, `Agp_Termino_Clave`, `Termino_Clave
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_usuarios`
+-- Estructura de tabla para la tabla `tbl_usuarios`
 --
 
 CREATE TABLE `tbl_usuarios` (
@@ -184,18 +187,18 @@ CREATE TABLE `tbl_usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_usuarios`
+-- Volcado de datos para la tabla `tbl_usuarios`
 --
 
 INSERT INTO `tbl_usuarios` (`pk_Usuario`, `Nombre`, `Apellidos`, `Telefono`, `Correo`, `Usuario`, `Contrasena`, `Fecha_Alta`, `User_Rol_pk`, `Estado`) VALUES
 (2, 'Daniel', 'Vallin', '4492793463', 'dan@gmail.com', 'Admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '2021-04-08', 2, b'1');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `tbl_cat`
+-- Indices de la tabla `tbl_cat`
 --
 ALTER TABLE `tbl_cat`
   ADD PRIMARY KEY (`pk_Ter_Clave`),
@@ -203,14 +206,14 @@ ALTER TABLE `tbl_cat`
   ADD KEY `fk_UsuarioCat` (`Usuario_pk`);
 
 --
--- Indexes for table `tbl_gpo_leyes`
+-- Indices de la tabla `tbl_gpo_leyes`
 --
 ALTER TABLE `tbl_gpo_leyes`
   ADD PRIMARY KEY (`pk_Gpo_Ley`),
   ADD UNIQUE KEY `pk_Gpo_Ley` (`pk_Gpo_Ley`);
 
 --
--- Indexes for table `tbl_leyes`
+-- Indices de la tabla `tbl_leyes`
 --
 ALTER TABLE `tbl_leyes`
   ADD PRIMARY KEY (`pk_Datos_Ley`),
@@ -218,7 +221,7 @@ ALTER TABLE `tbl_leyes`
   ADD KEY `fk_LeyesG` (`Grupo_pk`);
 
 --
--- Indexes for table `tbl_pagos`
+-- Indices de la tabla `tbl_pagos`
 --
 ALTER TABLE `tbl_pagos`
   ADD PRIMARY KEY (`pk_Pago`),
@@ -226,21 +229,21 @@ ALTER TABLE `tbl_pagos`
   ADD KEY `fk_Pagos` (`Usuario_pk`);
 
 --
--- Indexes for table `tbl_permisos`
+-- Indices de la tabla `tbl_permisos`
 --
 ALTER TABLE `tbl_permisos`
   ADD PRIMARY KEY (`pk_Permiso`),
   ADD UNIQUE KEY `pk_Permiso` (`pk_Permiso`);
 
 --
--- Indexes for table `tbl_roles`
+-- Indices de la tabla `tbl_roles`
 --
 ALTER TABLE `tbl_roles`
   ADD PRIMARY KEY (`pk_Rol`),
   ADD UNIQUE KEY `pk_Rol` (`pk_Rol`);
 
 --
--- Indexes for table `tbl_ter_clave`
+-- Indices de la tabla `tbl_ter_clave`
 --
 ALTER TABLE `tbl_ter_clave`
   ADD PRIMARY KEY (`pk_Datos_ley`),
@@ -249,7 +252,7 @@ ALTER TABLE `tbl_ter_clave`
   ADD KEY `fk_Ley` (`Ley_pk`);
 
 --
--- Indexes for table `tbl_usuarios`
+-- Indices de la tabla `tbl_usuarios`
 --
 ALTER TABLE `tbl_usuarios`
   ADD PRIMARY KEY (`pk_Usuario`),
@@ -257,88 +260,88 @@ ALTER TABLE `tbl_usuarios`
   ADD KEY `fk_UserRol` (`User_Rol_pk`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `tbl_cat`
+-- AUTO_INCREMENT de la tabla `tbl_cat`
 --
 ALTER TABLE `tbl_cat`
   MODIFY `pk_Ter_Clave` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_gpo_leyes`
+-- AUTO_INCREMENT de la tabla `tbl_gpo_leyes`
 --
 ALTER TABLE `tbl_gpo_leyes`
-  MODIFY `pk_Gpo_Ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `pk_Gpo_Ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_leyes`
+-- AUTO_INCREMENT de la tabla `tbl_leyes`
 --
 ALTER TABLE `tbl_leyes`
-  MODIFY `pk_Datos_Ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `pk_Datos_Ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbl_pagos`
+-- AUTO_INCREMENT de la tabla `tbl_pagos`
 --
 ALTER TABLE `tbl_pagos`
   MODIFY `pk_Pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_permisos`
+-- AUTO_INCREMENT de la tabla `tbl_permisos`
 --
 ALTER TABLE `tbl_permisos`
   MODIFY `pk_Permiso` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_roles`
+-- AUTO_INCREMENT de la tabla `tbl_roles`
 --
 ALTER TABLE `tbl_roles`
-  MODIFY `pk_Rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `pk_Rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tbl_ter_clave`
+-- AUTO_INCREMENT de la tabla `tbl_ter_clave`
 --
 ALTER TABLE `tbl_ter_clave`
   MODIFY `pk_Datos_ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_usuarios`
+-- AUTO_INCREMENT de la tabla `tbl_usuarios`
 --
 ALTER TABLE `tbl_usuarios`
-  MODIFY `pk_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `pk_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `tbl_cat`
+-- Filtros para la tabla `tbl_cat`
 --
 ALTER TABLE `tbl_cat`
   ADD CONSTRAINT `fk_UsuarioCat` FOREIGN KEY (`Usuario_pk`) REFERENCES `tbl_usuarios` (`pk_Usuario`);
 
 --
--- Constraints for table `tbl_leyes`
+-- Filtros para la tabla `tbl_leyes`
 --
 ALTER TABLE `tbl_leyes`
-  ADD CONSTRAINT `fk_LeyesG` FOREIGN KEY (`Grupo_pk`) REFERENCES `tbl_gpo_leyes` (`pk_Gpo_Ley`);
+  ADD CONSTRAINT `fk_LeyesG` FOREIGN KEY (`Grupo_pk`) REFERENCES `tbl_gpo_leyes` (`pk_Gpo_Ley`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tbl_pagos`
+-- Filtros para la tabla `tbl_pagos`
 --
 ALTER TABLE `tbl_pagos`
   ADD CONSTRAINT `fk_Pagos` FOREIGN KEY (`Usuario_pk`) REFERENCES `tbl_usuarios` (`pk_Usuario`);
 
 --
--- Constraints for table `tbl_ter_clave`
+-- Filtros para la tabla `tbl_ter_clave`
 --
 ALTER TABLE `tbl_ter_clave`
-  ADD CONSTRAINT `fk_Ley` FOREIGN KEY (`Ley_pk`) REFERENCES `tbl_usuarios` (`pk_Usuario`),
+  ADD CONSTRAINT `fk_Ley` FOREIGN KEY (`Ley_pk`) REFERENCES `tbl_leyes` (`pk_Datos_Ley`),
   ADD CONSTRAINT `fk_Ter_Clave` FOREIGN KEY (`Termino_Clave_pk`) REFERENCES `tbl_cat` (`pk_Ter_Clave`);
 
 --
--- Constraints for table `tbl_usuarios`
+-- Filtros para la tabla `tbl_usuarios`
 --
 ALTER TABLE `tbl_usuarios`
   ADD CONSTRAINT `fk_UserRol` FOREIGN KEY (`User_Rol_pk`) REFERENCES `tbl_roles` (`pk_Rol`) ON DELETE NO ACTION ON UPDATE NO ACTION;
