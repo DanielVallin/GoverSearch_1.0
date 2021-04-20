@@ -7,8 +7,7 @@ class cBuscador extends CI_Controller {
 	{
 		$this->load->view("layouts/header");
 		$this->load->view("layouts/aside");
-		$this->load->view("admin/00_Menu/vLeyes/list");
+		$this->load->view("admin/01_Menu/vBuscador/list");
 		$this->load->view("layouts/footer");
-
 	}
 }

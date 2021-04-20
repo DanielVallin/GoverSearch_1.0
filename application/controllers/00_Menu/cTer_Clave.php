@@ -6,6 +6,9 @@ class cTer_Clave extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("Ter_Clave_Model");
+
+		$this->load->model("Claves_Model");
+		$this->load->model("Reg_Leyes_Model");
 	}
 
 	public function index()
@@ -22,10 +25,34 @@ class cTer_Clave extends CI_Controller {
 
 	public function add()
 	{
+		$data = array(
+			'cClaves' =>$this->Claves_Model->getClave(),
+			'regleyes' =>$this->Reg_Leyes_Model->getRegLey(),
+	   );
+		
 		$this->load->view("layouts/header");
 		$this->load->view("layouts/aside");
-		$this->load->view("admin/01_Menu/vTer_Clave/add");
+		$this->load->view("admin/01_Menu/vTer_Clave/add", $data);
 		$this->load->view("layouts/footer");
+	}
 
+	public function store(){
+		$Agp_Termino_Clave 	= $this->input->post("Agp_Termino_Clave");
+		$Termino_Clave_pk 	= $this->input->post("Termino_Clave_pk");
+		$Ley_pk 	= $this->input->post("Ley_pk");
+		$Articulo 	= $this->input->post("Articulo");
+			$data  		= array(
+				'Agp_Termino_Clave' => $Agp_Termino_Clave, 
+				'Termino_Clave_pk' => $Termino_Clave_pk,
+				'Ley_pk' => $Ley_pk, 
+				'Articulo' => $Articulo,
+				'Estado' => "1"
+			);
+			if ($this->Ter_Clave_Model->save($data)) {
+				redirect(base_url()."00_Menu/cTer_Clave");
+			}else{
+				$this->session->set_flashdata("error","No se pudo guardar la informacion");
+				redirect(base_url()."00_Menu/cTer_Clave/add");
+			}
 	}
 }

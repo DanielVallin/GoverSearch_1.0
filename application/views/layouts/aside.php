@@ -22,63 +22,69 @@
                     <!-- =============================================== -->
                         <li class="treeview">
                             <li>
-                            <a href="<?php echo base_url();?>00_Menu/cCuenta"><i class="fa fa-user-circle-o"></i> Cuenta</a>
+                            <a href="<?php echo base_url();?>00_Menu/cCuenta"><i class="fa fa-user-circle-o"></i> <span>Cuenta</span></a>
                             </li>
                         </li>
                     <!-- =============================================== -->
                     <li class="treeview">
                             <li>
-                            <a href="<?php echo base_url();?>00_Menu/cUsuarios"><i class="fa fa-list"></i> 1_Usuarios</a>
+                            <a href="<?php echo base_url();?>00_Menu/cBuscador"><i class="fa fa-search"></i><span> Buscador Inteligente</span></a>
                             </li>
                         </li>
                     <!-- =============================================== -->
                     <li class="treeview">
                             <li>
-                            <a href="<?php echo base_url();?>00_Menu/cPagos"><i class="fa fa-credit-card"></i> 2_Aplicación de Pagos</a>
+                            <a href="<?php echo base_url();?>00_Menu/cUsuarios"><i class="fa fa-list"></i><span> 1_Usuarios</span> </a>
                             </li>
                         </li>
                     <!-- =============================================== -->
                     <li class="treeview">
                             <li>
-                            <a href="<?php echo base_url();?>00_Menu/cRoles"><i class="fa fa-bookmark"></i> 3_Catalogo de Roles</a>
+                            <a href="<?php echo base_url();?>00_Menu/cPagos"><i class="fa fa-credit-card"></i><span> 2_Aplicación de Pagos</span></a>
                             </li>
                         </li>
                     <!-- =============================================== -->
                     <li class="treeview">
                             <li>
-                            <a href="<?php echo base_url();?>00_Menu/cGrupo_Leyes"><i class="fa fa-list"></i> 4_Grupo de Leyes</a>
+                            <a href="<?php echo base_url();?>00_Menu/cRoles"><i class="fa fa-bookmark"></i><span> 3_Catalogo de Roles</span></a>
                             </li>
                         </li>
                     <!-- =============================================== -->
                     <li class="treeview">
                             <li>
-                            <a href="<?php echo base_url();?>00_Menu/cReg_Leyes"><i class="fa fa-id-card-o"></i> 5_Registro de Leyes</a>
+                            <a href="<?php echo base_url();?>00_Menu/cGrupo_Leyes"><i class="fa fa-list"></i><span> 4_Grupo de Leyes</span></a>
                             </li>
                         </li>
                     <!-- =============================================== -->
                     <li class="treeview">
                             <li>
-                            <a href="<?php echo base_url();?>00_Menu/cCat_Clave"><i class="fa fa-list"></i> 6_Cat. Terminos Clave</a>
+                            <a href="<?php echo base_url();?>00_Menu/cReg_Leyes"><i class="fa fa-id-card-o"></i><span> 5_Registro de Leyes</span></a>
                             </li>
                         </li>
                     <!-- =============================================== -->
                     <li class="treeview">
                             <li>
-                            <a href="<?php echo base_url();?>00_Menu/cTer_Clave"><i class="fa fa-cog fa-spin fa-fw"></i> 7_Conf. Terminos Clave</a>
+                            <a href="<?php echo base_url();?>00_Menu/cClaves"><i class="fa fa-list"></i><span> 6_Cat. Terminos Clave</span></a>
                             </li>
                         </li>
                     <!-- =============================================== -->
                     <li class="treeview">
                             <li>
-                            <a href="<?php echo base_url();?>00_Menu/cTer_Clave"><i class="fa fa-cog fa-spin fa-fw"></i> 8_Gestion de Leyes</a>
+                            <a href="<?php echo base_url();?>00_Menu/cTer_Clave"><i class="fa fa-cog fa-spin fa-fw"></i><span> 7_Conf. Terminos Clave</span></a>
                             </li>
                         </li>
                     <!-- =============================================== -->
                     <li class="treeview">
                             <li>
-                            <a href="<?php echo base_url();?>auth/logout"><i class="fa fa-sign-out"></i> Cerrar Sesión</a>
+                            <a href="<?php echo base_url();?>00_Menu/cGestion"><i class="fa fa-cog fa-spin fa-fw"></i><span> 8_Gestion de Leyes</span></a>
                             </li>
                         </li>
+                    <!-- =============================================== -->
+                    <li class="treeview">
+                            <li>
+                            <a href="<?php echo base_url();?>auth/logout"><i class="fa fa-sign-out"></i><span> Cerrar Sesión</span></a>
+                            </li>
+                    </li>
                     <!-- =============================================== -->
                     
                 </ul>

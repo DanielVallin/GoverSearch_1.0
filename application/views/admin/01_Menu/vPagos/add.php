@@ -14,7 +14,7 @@
         <div class="box box-solid">
             <div class="box-body">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <?php if($this->session->flashdata("error")):?>
                             <div class="alert alert-danger alert-dismissible">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -22,46 +22,50 @@
                              </div>
                         <?php endif;?>
                         <form action="<?php echo base_url();?>00_Menu/cPagos/store" method="POST">
-                            
+
                             <div class="form-group has-feedback">
-                                <label for="Nombre">Usuario_pk:</label>
-                                <input type="text" class="form-control" placeholder="Usuario" id="Nombre" name="Nombre">
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                <label for="User_Rol_pk">Usuario:</label>
+                                <select name="User_Rol_pk" id="User_Rol_pk" class="form-control">
+                                    
+                                    <?php foreach($usuarios as $usuario):?>
+                                        <option value="<?php echo $usuario->pk_Usuario?>"><?php echo $usuario->Nombre; echo " "; echo $usuario->Apellidos;?></option>
+                                    <?php endforeach;?>
+
+                                </select>
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label for="Nombre">Descripcion:</label>
-                                <input type="text" class="form-control" placeholder="Usuario" id="Apellidos" name="Apellidos">
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                <label for="Descripcion">Descripción:</label>
+                                <textarea class="form-control" placeholder="Descripción" id="Descripcion" name="Descripcion" rows="8" cols="60"></textarea>
+                                <span class=" form-control-feedback"></span>
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label for="Nombre">Folio_Pago:</label>
-                                <input type="text" class="form-control" placeholder="Usuario" id="Telefono" name="Telefono">
+                                <label for="Folio_Pago">Folio de Pago:</label>
+                                <input type="text" class="form-control" placeholder="xxxxx" id="Folio_Pago" name="Folio_Pago">
                                 <span class="fa fa-cc-visa form-control-feedback"></span>
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label for="Nombre">Fecha_Pago:</label>
-                                <input type="date" class="form-control" placeholder="Usuario" id="Correo" name="Correo">
+                                <label for="Fecha_Pago">Fecha_Pago:</label>
+                                <input type="date" class="form-control" placeholder="Usuario" id="Fecha_Pago" name="Fecha_Pago">
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label for="Nombre">Consepto_Pago:</label>
-                                <input type="text" class="form-control" placeholder="Usuario" id="Usuario" name="Usuario">
+                                <label for="Consepto_Pago">Consepto_Pago:</label>
+                                <input type="text" class="form-control" placeholder="Mensualidad" id="Consepto_Pago" name="Consepto_Pago">
                                 <span class="fa fa-money form-control-feedback"></span>
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label for="Nombre">Importe:</label>
-                                <input type="text" class="form-control" placeholder="Usuario" id="Contrasena" name="Contrasena">
+                                <label for="Importe">Importe:</label>
+                                <input type="number" class="form-control" placeholder="00.00" id="Importe" name="Importe">
                                 <span class="fa fa-money form-control-feedback"></span>
                             </div>
 
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success btn-flat">Guardar</button>
-                                
+                            <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>                                
                             </div>
                         </form>
                     </div>

@@ -36,26 +36,26 @@
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label for="Nombre">Telefono:</label>
-                                <input type="text" class="form-control" placeholder="Usuario" id="Telefono" name="Telefono">
+                                <label for="Telefono">Teléfono:</label>
+                                <input type="text" class="form-control" placeholder="449..." id="Telefono" name="Telefono">
                                 <span class="fa fa-phone-square form-control-feedback"></span>
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label for="Nombre">Correo:</label>
-                                <input type="text" class="form-control" placeholder="Usuario" id="Correo" name="Correo">
+                                <label for="Correo">e-mail:</label>
+                                <input type="email" class="form-control" placeholder="correo@gmail.com" id="Correo" name="Correo">
                                 <span class="fa fa-envelope form-control-feedback"></span>
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label for="Nombre">Usuario:</label>
+                                <label for="Usuario">Usuario:</label>
                                 <input type="text" class="form-control" placeholder="Usuario" id="Usuario" name="Usuario">
                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label for="Nombre">Contrasena:</label>
-                                <input type="text" class="form-control" placeholder="Usuario" id="Contrasena" name="Contrasena">
+                                <label for="Contrasena">Contraseña:</label>
+                                <input type="password" class="form-control" placeholder="Contrasena" id="Contrasena" name="Contrasena">
                                 <span class="fa fa-key form-control-feedback"></span>
                             </div>
 
@@ -77,7 +77,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success btn-flat">Guardar</button>
+                                <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>
                                 
                             </div>
                         </form>

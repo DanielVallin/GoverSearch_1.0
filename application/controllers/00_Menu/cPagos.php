@@ -6,6 +6,7 @@ class cPagos extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("Pagos_Model");
+		$this->load->model("User_Model");
 	}
 
 	public function index()
@@ -22,9 +23,12 @@ class cPagos extends CI_Controller {
 
 	public function add()
 	{
+		$data = array(
+			'usuarios' =>$this->User_Model->getUsuarios(),
+	   );
 		$this->load->view("layouts/header");
 		$this->load->view("layouts/aside");
-		$this->load->view("admin/01_Menu/vPagos/add");
+		$this->load->view("admin/01_Menu/vPagos/add", $data);
 		$this->load->view("layouts/footer");
 
 	}

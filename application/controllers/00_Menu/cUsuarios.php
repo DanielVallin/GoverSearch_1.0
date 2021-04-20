@@ -25,7 +25,7 @@ class cUsuarios extends CI_Controller {
 	   );
 	   $this->load->view("layouts/header");
 	   $this->load->view("layouts/aside");
-	   $this->load->view("admin/01_Menu/vUsuarios/add");
+	   $this->load->view("admin/01_Menu/vUsuarios/add", $data);
 	   $this->load->view("layouts/footer");
 	}
 

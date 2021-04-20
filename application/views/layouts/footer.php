@@ -64,7 +64,6 @@ $(document).ready(function () {
         $("#modal-default .modal-body").html(html);
     });
     
-    
     $(".btn-view").on("click", function(){
         var id = $(this).val();
         $.ajax({
@@ -74,13 +73,12 @@ $(document).ready(function () {
                 $("#modal-default .modal-body").html(resp);
                 //alert(resp);
             }
-
         });
-
     });
+
 	$('#example1').DataTable({
         "language": {
-            "lengthMenu": "Mostrar _MENU_ registros por pagina",
+            "lengthMenu": "Mostrar _MENU_ registros por página",
             "zeroRecords": "No se encontraron resultados en su busqueda",
             "searchPlaceholder": "Buscar registros",
             "info": "Mostrando registros de _START_ al _END_ de un total de  _TOTAL_ registros",

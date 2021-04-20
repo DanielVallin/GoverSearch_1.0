@@ -38,7 +38,7 @@
                                     <?php if(!empty($usuarios)):?>
                                     <?php foreach($usuarios as $usuario):?>
                                         <tr>
-                                            <td><?php echo $usuario->Nombre;?> <?php echo $usuario->Apellidos;?></td>
+                                            <td><?php echo $usuario->Nombre; echo " "; echo $usuario->Apellidos;?></td>
                                             <td><?php echo $usuario->Usuario;?></td>
                                             <td><?php echo $usuario->Correo;?></td>
                                             <td><?php echo $usuario->Fecha_Alta;?></td>

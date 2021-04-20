@@ -17,6 +17,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <a href="<?php echo base_url();?>00_Menu/cPagos/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Pago</a>
+                                <a href="<?php echo base_url();?>00_Menu/cReg_Leyes/add" class="btn btn-success btn-flat"><span class="fa fa-file-excel-o"></span> Exportar Excel</a>
                             </div>
                         </div>
                         <hr>
@@ -25,18 +26,18 @@
                                 <table id="example1" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>Usuario_pk</th>
-                                        <th>Descripcion</th>
-                                        <th>Fecha_Pago</th>
+                                        <th>Usuario</th>
+                                        <th>Descripción</th>
+                                        <th>Fecha de Pago</th>
                                         <th>Importe</th>
-                                        <th>opciones</th>
+                                        <th>Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php if(!empty($pagos)):?>
                                     <?php foreach($pagos as $pago):?>
                                         <tr>
-                                            <td><?php echo $pago->Usuario_pk;?></td>
+                                            <td><?php echo $pago->Nombre; echo " "; echo $pago->Apellidos; ?></td>
                                             <td><?php echo $pago->Descripcion;?></td>
                                             <td><?php echo $pago->Fecha_Pago;?></td>
                                             <td><?php echo $pago->Importe;?></td>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-04-2021 a las 00:33:45
+-- Tiempo de generación: 21-04-2021 a las 00:19:18
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 5.6.40
 
@@ -25,10 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_cat`
+-- Estructura de tabla para la tabla `tbl_claves`
 --
 
-CREATE TABLE `tbl_cat` (
+CREATE TABLE `tbl_claves` (
   `pk_Ter_Clave` int(11) NOT NULL,
   `Termino_Clave` varchar(50) NOT NULL,
   `Usuario_pk` int(20) NOT NULL,
@@ -37,11 +37,13 @@ CREATE TABLE `tbl_cat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `tbl_cat`
+-- Volcado de datos para la tabla `tbl_claves`
 --
 
-INSERT INTO `tbl_cat` (`pk_Ter_Clave`, `Termino_Clave`, `Usuario_pk`, `Fecha_Alta`, `Estado`) VALUES
-(1, 'CAJA', 2, '2021-04-08', b'1');
+INSERT INTO `tbl_claves` (`pk_Ter_Clave`, `Termino_Clave`, `Usuario_pk`, `Fecha_Alta`, `Estado`) VALUES
+(1, 'CAJA', 2, '2021-04-08', b'1'),
+(2, 'Alta 5', 3, '2021-01-01', b'1'),
+(3, 'Baja', 3, '2022-12-30', b'1');
 
 -- --------------------------------------------------------
 
@@ -62,7 +64,8 @@ CREATE TABLE `tbl_gpo_leyes` (
 INSERT INTO `tbl_gpo_leyes` (`pk_Gpo_Ley`, `Nombre_de_Grupo`, `Estado`) VALUES
 (1, 'Contabilidad', b'1'),
 (2, 'Contabilidad 2', b'1'),
-(3, 'Contabilidad 23', b'1');
+(3, 'Contabilidad 23', b'1'),
+(4, 'Contabilidad 25', b'1');
 
 -- --------------------------------------------------------
 
@@ -142,8 +145,8 @@ CREATE TABLE `tbl_roles` (
 
 INSERT INTO `tbl_roles` (`pk_Rol`, `Nombre_Rol`, `Descripcion`, `Estado`) VALUES
 (2, 'Administrador', 'Acceso a todo x.', b'1'),
-(3, 'Usuario', 'Acceso limitado', b'1'),
-(4, 'Usuario', 'Solo acceso basico', b'1');
+(4, 'Usuario', 'Solo acceso basico', b'1'),
+(7, 'Subscriptopr', 'asd', b'1');
 
 -- --------------------------------------------------------
 
@@ -165,7 +168,9 @@ CREATE TABLE `tbl_ter_clave` (
 --
 
 INSERT INTO `tbl_ter_clave` (`pk_Datos_ley`, `Agp_Termino_Clave`, `Termino_Clave_pk`, `Ley_pk`, `Articulo`, `Estado`) VALUES
-(1, 1, 1, 2, 2, b'1');
+(1, 1, 1, 1, 2, b'1'),
+(2, 5, 2, 2, 5, b'1'),
+(3, 8, 1, 2, 6, b'1');
 
 -- --------------------------------------------------------
 
@@ -191,16 +196,17 @@ CREATE TABLE `tbl_usuarios` (
 --
 
 INSERT INTO `tbl_usuarios` (`pk_Usuario`, `Nombre`, `Apellidos`, `Telefono`, `Correo`, `Usuario`, `Contrasena`, `Fecha_Alta`, `User_Rol_pk`, `Estado`) VALUES
-(2, 'Daniel', 'Vallin', '4492793463', 'dan@gmail.com', 'Admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '2021-04-08', 2, b'1');
+(2, 'Daniel', 'Vallin', '4492793463', 'dan@gmail.com', 'Admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '2021-04-08', 2, b'1'),
+(3, 'Admin', '', '4491235555', 'admin@gmail.com', 'Admin', '123', '2021-04-08', 2, b'1');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `tbl_cat`
+-- Indices de la tabla `tbl_claves`
 --
-ALTER TABLE `tbl_cat`
+ALTER TABLE `tbl_claves`
   ADD PRIMARY KEY (`pk_Ter_Clave`),
   ADD UNIQUE KEY `pk_Ter_Clave` (`pk_Ter_Clave`),
   ADD KEY `fk_UsuarioCat` (`Usuario_pk`);
@@ -264,16 +270,16 @@ ALTER TABLE `tbl_usuarios`
 --
 
 --
--- AUTO_INCREMENT de la tabla `tbl_cat`
+-- AUTO_INCREMENT de la tabla `tbl_claves`
 --
-ALTER TABLE `tbl_cat`
-  MODIFY `pk_Ter_Clave` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `tbl_claves`
+  MODIFY `pk_Ter_Clave` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_gpo_leyes`
 --
 ALTER TABLE `tbl_gpo_leyes`
-  MODIFY `pk_Gpo_Ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `pk_Gpo_Ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_leyes`
@@ -297,28 +303,28 @@ ALTER TABLE `tbl_permisos`
 -- AUTO_INCREMENT de la tabla `tbl_roles`
 --
 ALTER TABLE `tbl_roles`
-  MODIFY `pk_Rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pk_Rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_ter_clave`
 --
 ALTER TABLE `tbl_ter_clave`
-  MODIFY `pk_Datos_ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `pk_Datos_ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_usuarios`
 --
 ALTER TABLE `tbl_usuarios`
-  MODIFY `pk_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `pk_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `tbl_cat`
+-- Filtros para la tabla `tbl_claves`
 --
-ALTER TABLE `tbl_cat`
+ALTER TABLE `tbl_claves`
   ADD CONSTRAINT `fk_UsuarioCat` FOREIGN KEY (`Usuario_pk`) REFERENCES `tbl_usuarios` (`pk_Usuario`);
 
 --
@@ -338,7 +344,7 @@ ALTER TABLE `tbl_pagos`
 --
 ALTER TABLE `tbl_ter_clave`
   ADD CONSTRAINT `fk_Ley` FOREIGN KEY (`Ley_pk`) REFERENCES `tbl_leyes` (`pk_Datos_Ley`),
-  ADD CONSTRAINT `fk_Ter_Clave` FOREIGN KEY (`Termino_Clave_pk`) REFERENCES `tbl_cat` (`pk_Ter_Clave`);
+  ADD CONSTRAINT `fk_Ter_Clave` FOREIGN KEY (`Termino_Clave_pk`) REFERENCES `tbl_claves` (`pk_Ter_Clave`);
 
 --
 -- Filtros para la tabla `tbl_usuarios`

@@ -4,7 +4,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                Grupo Leyes
+                Grupos de Leyes
                 <small>Listado</small>
                 </h1>
             </section>
@@ -27,7 +27,7 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nombre_de_Grupo</th>
+                                        <th>Nombre del Grupo</th>
                                         <th>Opciones</th>
                                         </tr>
                                     </thead>

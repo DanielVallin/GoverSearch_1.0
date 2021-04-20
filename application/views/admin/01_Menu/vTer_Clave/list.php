@@ -26,11 +26,11 @@
                                     <table id="example1" class="table table-bordered table-hover">
                                         <thead>
                                         <tr>
-                                            <th>Agp_Termino_Clave</th>
-                                            <th>Termino_Clave_pk</th>
-                                            <th>Ley_pk</th>
-                                            <th>Articulo</th>
-                                            <th>opciones</th>
+                                            <th>#</th>
+                                            <th>Término Clave</th>
+                                            <th>Ley</th>
+                                            <th>Artículo</th>
+                                            <th>Opciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -38,16 +38,16 @@
                                                 <?php foreach($terminos as $termino):?>
                                                     <tr>
                                                         <td><?php echo $termino->Agp_Termino_Clave;?></td>
-                                                        <td><?php echo $termino->Termino_Clave_pk;?></td>
-                                                        <td><?php echo $termino->Ley_pk;?></td>
+                                                        <td><?php echo $termino->termino;?></td>
+                                                        <td><?php echo $termino->ley;?></td>
                                                         <td><?php echo $termino->Articulo;?></td>
                                                         <td>
                                                             <div class="btn-group">
                                                                 <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $termino->pk_Datos_ley;?>">
                                                                     <span class="fa fa-search"></span>
                                                                 </button>
-                                                                <a href="<?php echo base_url()?>00_cRoles/Roles/edit/<?php echo $termino->pk_Datos_ley;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                                <a href="<?php echo base_url();?>00_cRoles/Roles/delete/<?php echo $termino->pk_Datos_ley;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
+                                                                <a href="<?php echo base_url()?>00_Menu/cReg_Leyes/edit/<?php echo $termino->Termino_Clave;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                                <a href="<?php echo base_url();?>00_Menu/cReg_Leyes/delete/<?php echo $termino->Termino_Clave;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
                                                             </div>
                                                         </td>
                                                     </tr>

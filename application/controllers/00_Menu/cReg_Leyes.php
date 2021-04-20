@@ -55,5 +55,37 @@ class cReg_Leyes extends CI_Controller {
 		}
 	}
 
+	public function edit($pk_Datos_Ley)
+	{
+		$data = array(
+			'leyes' => $this->Reg_Leyes_Model->getClaveid($pk_Datos_Ley),
+			'gpleyes' =>$this->Grupo_Leyes_Model->getGrupo_Model()
+		);
+		$this->load->view("layouts/header");
+		$this->load->view("layouts/aside");
+		$this->load->view("admin/01_Menu/vReg_Leyes/edit", $data);
+		$this->load->view("layouts/footer");
+	}
+
+	public function update(){
+		$pk_Ter_Clave	= $this->input->post("pk_Ter_Clave");
+		$Termino_Clave	= $this->input->post("Termino_Clave");
+		$Usuario_pk		= $this->input->post("Usuario_pk");
+		$Fecha_Alta		= $this->input->post("Fecha_Alta");
+
+		$data = array(
+			'pk_Ter_Clave' => $pk_Ter_Clave,
+			'Termino_Clave' => $Termino_Clave,
+			'Usuario_pk' => $Usuario_pk,
+			'Fecha_Alta' => $Fecha_Alta,
+		);
+		if($this->Claves_Model->update($pk_Ter_Clave, $data)){
+			redirect(base_url()."00_Menu/cReg_Leyes");
+		}else{
+			$this->session->set_flashdata("error","No se pudo actualizar la informacion");
+			redirect(base_url()."00_Menu/cReg_Leyes/edit/".$pk_Gpo_Ley);
+		}
+	}
+
 
 }
