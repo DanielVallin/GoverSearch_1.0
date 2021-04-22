@@ -24,11 +24,7 @@
                         <?php endif;?>
 
                         <form action="<?php echo base_url();?>00_Menu/cTer_Clave/store" method="POST">
-                            <div class="form-group has-feedback">
-                                <label for="Agp_Termino_Clave">Agrupador de Término Clave:</label>
-                                    <input type="number" placeholder="2" class="form-control" id="Agp_Termino_Clave" name="Agp_Termino_Clave">
-                                    <span class="fa fa-bookmark form-control-feedback"></span>
-                            </div>
+                            
                             <div class="form-group has-feedback">
                                 <label for="Termino_Clave_pk">Término Clave:</label>
                                 <select name="Termino_Clave_pk" id="Termino_Clave_pk" class="form-control">
@@ -37,14 +33,22 @@
                                     <?php endforeach;?>
                                 </select>
                             </div>
+                            <hr>
                             <div class="form-group has-feedback">
                                 <label for="Ley_pk">Ley:</label>
-                                <select name="Ley_pk" id="Ley_pk" class="form-control">
+                                <select name="Ley_pk" id="Ley_pk" class="form-control chosen">
                                     <?php foreach($regleyes as $regley):?>
                                         <option value="<?php echo $regley->pk_Datos_Ley;?>"><?php echo $regley->Nombre_de_Ley;?></option>
                                     <?php endforeach;?>
                                 </select>
                             </div>
+
+                            <div class="form-group has-feedback">
+                                <label for="Descripcion">Descripcion:</label>
+                                    <input type="number" placeholder="2" class="form-control" id="Descripcion" name="Descripcion">
+                                    <span class="fa fa-bookmark form-control-feedback"></span>
+                            </div>
+
                             <div class="form-group has-feedback">
                                 <label for="Articulo">Artículo:</label>
                                     <input type="number" placeholder="2" class="form-control" id="Articulo" name="Articulo">

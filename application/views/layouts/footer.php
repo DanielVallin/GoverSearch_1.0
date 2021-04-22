@@ -38,33 +38,20 @@ $(document).ready(function () {
             }
         });
     });
-    $(".btn-view-producto").on("click", function(){
-        var producto = $(this).val(); 
-        //alert(cliente);
-        var infoproducto = producto.split("*");
-        html = "<p><strong>Codigo:</strong>"+infoproducto[1]+"</p>"
-        html += "<p><strong>Nombre:</strong>"+infoproducto[2]+"</p>"
-        html += "<p><strong>Descripcion:</strong>"+infoproducto[3]+"</p>"
-        html += "<p><strong>Precio:</strong>"+infoproducto[4]+"</p>"
-        html += "<p><strong>Stock:</strong>"+infoproducto[5]+"</p>"
-        html += "<p><strong>Categoria:</strong>"+infoproducto[6]+"</p>";
-        $("#modal-default .modal-body").html(html);
-    });
-  
-    $(".btn-view-cliente").on("click", function(){
-        var cliente = $(this).val(); 
-        //alert(cliente);
-        var infocliente = cliente.split("*");
-        html = "<p><strong>Nombres:</strong>"+infocliente[1]+"</p>"
-        html += "<p><strong>Apellidos:</strong>"+infocliente[2]+"</p>"
-        html += "<p><strong>Telefono:</strong>"+infocliente[3]+"</p>"
-        html += "<p><strong>Direccion:</strong>"+infocliente[4]+"</p>"
-        html += "<p><strong>RUC:</strong>"+infocliente[5]+"</p>"
-        html += "<p><strong>Empresa:</strong>"+infocliente[6]+"</p>";
-        $("#modal-default .modal-body").html(html);
+
+    $(".btn-view-grupol").on("click", function(){
+        var id = $(this).val();
+        $.ajax({
+            url: base_url + "00_Menu/cGrupo_Leyes/view/" + id,
+            type:"POST",
+            success:function(resp){
+                $("#modal-default .modal-body").html(resp);
+                //alert(resp);
+            }
+        });
     });
     
-    $(".btn-view").on("click", function(){
+    $(".btn-view-grupol").on("click", function(){
         var id = $(this).val();
         $.ajax({
             url: base_url + "00_Menu/cGrupo_Leyes/view/" + id,
@@ -91,7 +78,12 @@ $(document).ready(function () {
                 "next": "Siguiente",
                 "previous": "Anterior"
             },
+            dom: 'Bfrtip',
+            buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
         }
+
     });
 	$('.sidebar-menu').tree();
 })

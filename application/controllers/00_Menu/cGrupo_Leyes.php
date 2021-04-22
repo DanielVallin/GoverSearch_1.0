@@ -6,6 +6,7 @@ class cGrupo_Leyes extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("Grupo_Leyes_Model");
+		$this->load->library('export_excel');
 	}
 
 	public function index()
@@ -83,5 +84,7 @@ class cGrupo_Leyes extends CI_Controller {
 		$this->Grupo_Leyes_Model->update($pk_Gpo_Ley, $data);
 		echo "00_Menu/cGrupo_Leyes";
 	}
+
+	
 
 }

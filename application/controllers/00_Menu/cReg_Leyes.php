@@ -40,11 +40,9 @@ class cReg_Leyes extends CI_Controller {
 		$Grupo_pk = $this->input->post("Grupo_pk");
 
 		$data  = array(
-			'Nombre_de_Ley' => $Nombre_de_Ley, 
-			'Numero_de_Articulo' => $Numero_de_Articulo, 
-			'Detalle_Art' => $Detalle_Art, 
-			'Grupo_pk' => $Grupo_pk, 
-			'Estado' => "1"
+			'Nombre_de_Ley' 	 => $Nombre_de_Ley, 
+			'Grupo_pk' 			 => $Grupo_pk, 
+			'Estado' 			 => "1"
 		);
 
 		if ($this->Reg_Leyes_Model->save($data)) {
@@ -68,18 +66,16 @@ class cReg_Leyes extends CI_Controller {
 	}
 
 	public function update(){
-		$pk_Ter_Clave	= $this->input->post("pk_Ter_Clave");
-		$Termino_Clave	= $this->input->post("Termino_Clave");
-		$Usuario_pk		= $this->input->post("Usuario_pk");
-		$Fecha_Alta		= $this->input->post("Fecha_Alta");
+		$pk_Datos_Ley		= $this->input->post("pk_Datos_Ley");
+		$Nombre_de_Ley		= $this->input->post("Nombre_de_Ley");
+		$Grupo_pk			= $this->input->post("Grupo_pk");
 
 		$data = array(
-			'pk_Ter_Clave' => $pk_Ter_Clave,
-			'Termino_Clave' => $Termino_Clave,
-			'Usuario_pk' => $Usuario_pk,
-			'Fecha_Alta' => $Fecha_Alta,
+			'pk_Datos_Ley' 	=> $pk_Datos_Ley,
+			'Nombre_de_Ley' => $Nombre_de_Ley,
+			'Grupo_pk' 	=> $Grupo_pk,
 		);
-		if($this->Claves_Model->update($pk_Ter_Clave, $data)){
+		if($this->Reg_Leyes_Model->update($pk_Datos_Ley, $data)){
 			redirect(base_url()."00_Menu/cReg_Leyes");
 		}else{
 			$this->session->set_flashdata("error","No se pudo actualizar la informacion");

@@ -27,7 +27,6 @@
                                         <thead>
                                         <tr>
                                             <th>Nombre de Ley</th>
-                                            <th>Número de Artículo</th>
                                             <th>Grupo</th>
                                             <th>Opciones</th>
                                             </tr>
@@ -37,7 +36,6 @@
                                                 <?php foreach($regleyes as $regley):?>
                                                     <tr>
                                                         <td><?php echo $regley->Nombre_de_Ley;?></td>
-                                                        <td><?php echo $regley->Numero_de_Articulo;?></td>
                                                         <td><?php echo $regley->grupos;?></td>
                                                         <td>
                                                             <div class="btn-group">

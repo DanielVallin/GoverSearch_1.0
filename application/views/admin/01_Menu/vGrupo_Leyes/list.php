@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <a href="<?php echo base_url();?>00_Menu/cGrupo_Leyes/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Grupo</a>
-                                <a href="<?php echo base_url();?>00_Menu/cReg_Leyes/add" class="btn btn-success btn-flat"><span class="fa fa-file-excel-o"></span> Exportar Excel</a>
+                                <a href="<?php echo base_url();?>00_Menu/cGrupo_Leyes/dExcel" class="btn btn-success btn-flat"><span class="fa fa-file-excel-o"></span> Exportar Excel</a>
                             </div>
                         </div>
                         <hr>
@@ -40,11 +40,12 @@
 
                                                     <td>
                                                         <div class="btn-group">
-                                                            <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $gpley->pk_Gpo_Ley;?>">
+                                                            <button type="button" class="btn btn-info btn-view-grupol" data-toggle="modal" data-target="#modal-default" value="<?php echo $gpley->pk_Gpo_Ley;?>">
                                                                 <span class="fa fa-search"></span>
                                                             </button>
                                                             <a href="<?php echo base_url();?>00_Menu/cGrupo_Leyes/edit/<?php echo $gpley->pk_Gpo_Ley;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                                             <a href="<?php echo base_url();?>00_Menu/cGrupo_Leyes/delete/<?php echo $gpley->pk_Gpo_Ley;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
+                                                            <a href="<?php echo base_url();?>00_Menu/cGrupo_Leyes/PDFD/<?php echo $gpley->pk_Gpo_Ley;?>" class="btn btn-danger btn-remove"><span class="fa fa-file-pdf-o"></span></a>
                                                         </div>
                                                     </td>
                                                 </tr>

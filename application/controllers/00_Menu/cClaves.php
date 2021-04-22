@@ -81,4 +81,9 @@ class cClaves extends CI_Controller {
 			redirect(base_url()."00_Menu/cClaves/edit/".$pk_Gpo_Ley);
 		}
 	}
+
+
+	public function PDFD(){
+		
+	}
 }

@@ -29,18 +29,6 @@
                                 <input type="text" placeholder="Nueva Ley" class="form-control" id="Nombre_de_Ley" name="Nombre_de_Ley">
                                 <span class="fa fa-bookmark form-control-feedback"></span>
                             </div>
-
-                            <div class="form-group has-feedback">
-                                <label for="Numero_de_Articulo">Número de Artículo:</label>
-                                <input type="text" class="form-control" id="Numero_de_Articulo" name="Numero_de_Articulo">
-                                <span class="fa fa-bookmark form-control-feedback"></span>
-                            </div>
-
-                            <div class="form-group has-feedback">
-                                <label for="Detalle_Art">Detalle Art:</label>
-                                <input type="text" class="form-control" id="Detalle_Art" name="Detalle_Art">
-                                <span class="fa fa-bookmark form-control-feedback"></span>
-                            </div>
                             
                             <div class="form-group">
                                 <label for="Grupo_pk">Grupo:</label>

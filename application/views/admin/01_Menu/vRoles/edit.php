@@ -23,9 +23,7 @@
                         <?php endif;?>
 
 
-                        <form action="<?php echo base_url();?>03_cCuenta/roles/update" method="POST">
-
-
+                        <form action="<?php echo base_url();?>00_Menu/cRoles/update" method="POST">
                             <input type="hidden" value="<?php echo $rol->pk_Rol;?>" name="pk_Rol">
 
                             <div class="form-group">
