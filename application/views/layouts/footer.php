@@ -39,28 +39,22 @@ $(document).ready(function () {
         });
     });
 
-    $(".btn-view-grupol").on("click", function(){
-        var id = $(this).val();
-        $.ajax({
-            url: base_url + "00_Menu/cGrupo_Leyes/view/" + id,
-            type:"POST",
-            success:function(resp){
-                $("#modal-default .modal-body").html(resp);
-                //alert(resp);
-            }
-        });
+    $(".btn-view-rol").on("click", function(){
+        var grupos = $(this).val(); 
+        //alert(cliente);
+        var infogrupos = grupos.split("*");
+        html = "<p><strong>Codigo: </strong>"+infogrupos[1]+"</p>"
+        html += "<p><strong>Nombre: </strong>"+infogrupos[2]+"</p>"
+        $("#modal-default .modal-body").html(html);
     });
-    
-    $(".btn-view-grupol").on("click", function(){
-        var id = $(this).val();
-        $.ajax({
-            url: base_url + "00_Menu/cGrupo_Leyes/view/" + id,
-            type:"POST",
-            success:function(resp){
-                $("#modal-default .modal-body").html(resp);
-                //alert(resp);
-            }
-        });
+
+    $(".btn-view-grupos").on("click", function(){
+        var grupos = $(this).val(); 
+        //alert(cliente);
+        var infogrupos = grupos.split("*");
+        html = "<p><strong>Codigo: </strong>"+infogrupos[1]+"</p>"
+        html += "<p><strong>Nombre: </strong>"+infogrupos[2]+"</p>"
+        $("#modal-default .modal-body").html(html);
     });
 
 	$('#example1').DataTable({

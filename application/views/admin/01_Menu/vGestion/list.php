@@ -27,15 +27,21 @@
                                 <table id="example1" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>Campo</th>
-                                        <th>Campo</th>
-                                        <th>Campo</th>
-                                        <th>opciones</th>
+                                        <th>Consecutivo</th>
+                                        <th>Articulo</th>
+                                        <th>Tipo Articulo</th>
+                                        <th>Descripción</th>
+                                        <th>Ultima Reforma</th>
+                                        <th>Estatus</th>
+                                        <th>Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     
                                         <tr>
+                                            <td>Campo</td>
+                                            <td>Campo</td>
+                                            <td>Campo</td>
                                             <td>Campo</td>
                                             <td>Campo</td>
                                             <td>Campo</td>

@@ -28,8 +28,8 @@
                                         <tr>
                                             <th>Consecutivo</th>
                                             <th>Ley</th>
+                                            <th>Descripcion</th>
                                             <th>Artículo</th>
-                                            <th>Término Clave</th>
                                             <th>Opciones</th>
                                             </tr>
                                         </thead>
@@ -37,7 +37,7 @@
                                             <?php if(!empty($terminos)):?>
                                                 <?php foreach($terminos as $termino):?>
                                                     <tr>
-                                                        <td><?php echo $termino->termino;?></td>
+                                                        <td><?php echo $termino->pk_Datos_ley;?></td>
                                                         <td><?php echo $termino->ley;?></td>
                                                         <td><?php echo $termino->Descripcion;?></td>
                                                         <td><?php echo $termino->Articulo;?></td>

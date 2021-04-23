@@ -37,15 +37,15 @@ class cTer_Clave extends CI_Controller {
 	}
 
 	public function store(){
-		$Agp_Termino_Clave 	= $this->input->post("Agp_Termino_Clave");
 		$Termino_Clave_pk 	= $this->input->post("Termino_Clave_pk");
 		$Ley_pk 	= $this->input->post("Ley_pk");
+		$Descripcion 	= $this->input->post("Descripcion");
 		$Articulo 	= $this->input->post("Articulo");
 			$data  		= array(
-				'Agp_Termino_Clave' => $Agp_Termino_Clave, 
 				'Termino_Clave_pk' => $Termino_Clave_pk,
 				'Ley_pk' => $Ley_pk, 
 				'Articulo' => $Articulo,
+				'Descripcion' => $Descripcion, 
 				'Estado' => "1"
 			);
 			if ($this->Ter_Clave_Model->save($data)) {
@@ -71,16 +71,16 @@ class cTer_Clave extends CI_Controller {
 
 	public function update(){
 		$pk_Datos_ley		= $this->input->post("pk_Datos_ley");
-		$Agp_Termino_Clave	= $this->input->post("Agp_Termino_Clave");
 		$Termino_Clave_pk	= $this->input->post("Termino_Clave_pk");
 		$Ley_pk				= $this->input->post("Ley_pk");
+		$Descripcion	= $this->input->post("Descripcion");
 		$Articulo			= $this->input->post("Articulo");
 
 		$data = array(
 			'pk_Datos_ley' 		=> $pk_Datos_ley,
-			'Agp_Termino_Clave' => $Agp_Termino_Clave,
 			'Termino_Clave_pk' 	=> $Termino_Clave_pk,
 			'Ley_pk' 			=> $Ley_pk,
+			'Descripcion' 		=> $Descripcion,
 			'Articulo' 			=> $Articulo,
 		);
 		if($this->Ter_Clave_Model->update($pk_Datos_ley, $data)){

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-04-2021 a las 00:19:18
+-- Tiempo de generación: 23-04-2021 a las 02:08:03
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 5.6.40
 
@@ -43,7 +43,39 @@ CREATE TABLE `tbl_claves` (
 INSERT INTO `tbl_claves` (`pk_Ter_Clave`, `Termino_Clave`, `Usuario_pk`, `Fecha_Alta`, `Estado`) VALUES
 (1, 'CAJA', 2, '2021-04-08', b'1'),
 (2, 'Alta 5', 3, '2021-01-01', b'1'),
-(3, 'Baja', 3, '2022-12-30', b'1');
+(3, 'Baja', 3, '2022-12-30', b'1'),
+(4, 'Norma', 3, '2021-04-16', b'1');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_gestion`
+--
+
+CREATE TABLE `tbl_gestion` (
+  `pk_Gestionid` int(11) NOT NULL,
+  `Ley_pk` int(11) NOT NULL,
+  `Fecha` date NOT NULL,
+  `FUltReforma` date NOT NULL,
+  `FEntradaVigo` date NOT NULL,
+  `EstLey` varchar(50) NOT NULL,
+  `ObjLey` varchar(500) NOT NULL,
+  `TipoLey` varchar(20) NOT NULL,
+  `Articulo` int(11) NOT NULL,
+  `Tipo` varchar(50) NOT NULL,
+  `Descripcion` varchar(500) NOT NULL,
+  `UltReforma` date NOT NULL,
+  `Descripcion2` varchar(500) NOT NULL,
+  `Estatus` varchar(20) NOT NULL,
+  `Estado` bit(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tbl_gestion`
+--
+
+INSERT INTO `tbl_gestion` (`pk_Gestionid`, `Ley_pk`, `Fecha`, `FUltReforma`, `FEntradaVigo`, `EstLey`, `ObjLey`, `TipoLey`, `Articulo`, `Tipo`, `Descripcion`, `UltReforma`, `Descripcion2`, `Estatus`, `Estado`) VALUES
+(1, 1, '2021-04-08', '2021-04-15', '2021-04-14', 'Derogada', 'Capturar', 'Federal', 42, 'Transitorio', 'capturar el texto del articulo', '2021-04-13', '31/12/2020', 'Derogado', b'1');
 
 -- --------------------------------------------------------
 
@@ -76,8 +108,6 @@ INSERT INTO `tbl_gpo_leyes` (`pk_Gpo_Ley`, `Nombre_de_Grupo`, `Estado`) VALUES
 CREATE TABLE `tbl_leyes` (
   `pk_Datos_Ley` int(11) NOT NULL,
   `Nombre_de_Ley` varchar(50) NOT NULL,
-  `Numero_de_Articulo` int(11) NOT NULL,
-  `Detalle_Art` varchar(50) NOT NULL,
   `Grupo_pk` int(11) NOT NULL,
   `Estado` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -86,9 +116,9 @@ CREATE TABLE `tbl_leyes` (
 -- Volcado de datos para la tabla `tbl_leyes`
 --
 
-INSERT INTO `tbl_leyes` (`pk_Datos_Ley`, `Nombre_de_Ley`, `Numero_de_Articulo`, `Detalle_Art`, `Grupo_pk`, `Estado`) VALUES
-(1, 'Ley General de Contabilidad', 1, 'aquí va todo el texto del articulo', 1, b'1'),
-(2, 'Nueva ley', 5, 'Esta ley es nueva', 2, b'1');
+INSERT INTO `tbl_leyes` (`pk_Datos_Ley`, `Nombre_de_Ley`, `Grupo_pk`, `Estado`) VALUES
+(1, 'Ley General de Contabilidad', 1, b'1'),
+(2, 'Nueva ley', 4, b'1');
 
 -- --------------------------------------------------------
 
@@ -146,7 +176,7 @@ CREATE TABLE `tbl_roles` (
 INSERT INTO `tbl_roles` (`pk_Rol`, `Nombre_Rol`, `Descripcion`, `Estado`) VALUES
 (2, 'Administrador', 'Acceso a todo x.', b'1'),
 (4, 'Usuario', 'Solo acceso basico', b'1'),
-(7, 'Subscriptopr', 'asd', b'1');
+(7, 'Subscriptopr', 'asd55', b'1');
 
 -- --------------------------------------------------------
 
@@ -156,10 +186,10 @@ INSERT INTO `tbl_roles` (`pk_Rol`, `Nombre_Rol`, `Descripcion`, `Estado`) VALUES
 
 CREATE TABLE `tbl_ter_clave` (
   `pk_Datos_ley` int(11) NOT NULL,
-  `Agp_Termino_Clave` int(11) NOT NULL,
   `Termino_Clave_pk` int(11) NOT NULL,
   `Ley_pk` int(11) NOT NULL,
   `Articulo` int(11) NOT NULL,
+  `Descripcion` varchar(100) DEFAULT NULL,
   `Estado` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -167,10 +197,11 @@ CREATE TABLE `tbl_ter_clave` (
 -- Volcado de datos para la tabla `tbl_ter_clave`
 --
 
-INSERT INTO `tbl_ter_clave` (`pk_Datos_ley`, `Agp_Termino_Clave`, `Termino_Clave_pk`, `Ley_pk`, `Articulo`, `Estado`) VALUES
-(1, 1, 1, 1, 2, b'1'),
-(2, 5, 2, 2, 5, b'1'),
-(3, 8, 1, 2, 6, b'1');
+INSERT INTO `tbl_ter_clave` (`pk_Datos_ley`, `Termino_Clave_pk`, `Ley_pk`, `Articulo`, `Descripcion`, `Estado`) VALUES
+(1, 1, 1, 2, 'Nueva des\r\n', b'1'),
+(2, 3, 1, 5, NULL, b'1'),
+(3, 1, 2, 6, NULL, b'1'),
+(4, 4, 1, 3, 'asas', b'1');
 
 -- --------------------------------------------------------
 
@@ -210,6 +241,13 @@ ALTER TABLE `tbl_claves`
   ADD PRIMARY KEY (`pk_Ter_Clave`),
   ADD UNIQUE KEY `pk_Ter_Clave` (`pk_Ter_Clave`),
   ADD KEY `fk_UsuarioCat` (`Usuario_pk`);
+
+--
+-- Indices de la tabla `tbl_gestion`
+--
+ALTER TABLE `tbl_gestion`
+  ADD PRIMARY KEY (`pk_Gestionid`),
+  ADD KEY `fk_leyes_gestion` (`Ley_pk`);
 
 --
 -- Indices de la tabla `tbl_gpo_leyes`
@@ -273,7 +311,13 @@ ALTER TABLE `tbl_usuarios`
 -- AUTO_INCREMENT de la tabla `tbl_claves`
 --
 ALTER TABLE `tbl_claves`
-  MODIFY `pk_Ter_Clave` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `pk_Ter_Clave` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_gestion`
+--
+ALTER TABLE `tbl_gestion`
+  MODIFY `pk_Gestionid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_gpo_leyes`
@@ -309,13 +353,13 @@ ALTER TABLE `tbl_roles`
 -- AUTO_INCREMENT de la tabla `tbl_ter_clave`
 --
 ALTER TABLE `tbl_ter_clave`
-  MODIFY `pk_Datos_ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `pk_Datos_ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_usuarios`
 --
 ALTER TABLE `tbl_usuarios`
-  MODIFY `pk_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pk_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
@@ -326,6 +370,12 @@ ALTER TABLE `tbl_usuarios`
 --
 ALTER TABLE `tbl_claves`
   ADD CONSTRAINT `fk_UsuarioCat` FOREIGN KEY (`Usuario_pk`) REFERENCES `tbl_usuarios` (`pk_Usuario`);
+
+--
+-- Filtros para la tabla `tbl_gestion`
+--
+ALTER TABLE `tbl_gestion`
+  ADD CONSTRAINT `fk_leyes_gestion` FOREIGN KEY (`Ley_pk`) REFERENCES `tbl_leyes` (`Grupo_pk`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_leyes`

@@ -39,13 +39,13 @@
                                                         <td><?php echo $cClave->Termino_Clave;?></td>
                                                         <td><?php echo $cClave->Nombre; echo " "; echo $cClave->Apellidos;?></td>
                                                         <td><?php echo $cClave->Fecha_Alta;?></td>
-
-                                                        <?php $dataClave = $cClave->Termino_Clave."*".$cClave->Nombre."*".$cClave->Fecha_Alta;?>
+                                                            <?php $dataClave = $cClave->Termino_Clave."*".$cClave->Nombre."*".$cClave->Fecha_Alta; ?>
+                                                        
                                                         <td>
                                                             <div class="btn-group">
-                                                                <button type="button" class="btn btn-info btn-view-clave" data-toggle="modal" data-target="#modal-default" value="<?php echo $dataClave;?>">
-                                                                    <span class="fa fa-search"></span>
-                                                                </button>
+                                                            <button type="button" class="btn btn-info btn-view-claves" data-toggle="modal" data-target="#modal-default" value="<?php echo $dataClave;?>">
+                                                                <span class="fa fa-search"></span>
+                                                            </button>
                                                                 <a href="<?php echo base_url()?>00_Menu/cClaves/edit/<?php echo $cClave->pk_Ter_Clave;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                                                 <a href="<?php echo base_url();?>00_Menu/cClaves/delete/<?php echo $cClave->pk_Ter_Clave;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
                                                                 <a href="<?php echo base_url();?>00_Menu/cClaves/PDFD/<?php echo $cClave->pk_Ter_Clave;?>" class="btn btn-danger btn-remove"><span class="fa fa-file-pdf-o"></span></a>

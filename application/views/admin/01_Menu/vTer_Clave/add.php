@@ -44,9 +44,9 @@
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label for="Descripcion">Descripcion:</label>
-                                    <input type="number" placeholder="2" class="form-control" id="Descripcion" name="Descripcion">
-                                    <span class="fa fa-bookmark form-control-feedback"></span>
+                                <label for="Descripcion">Descripción:</label>
+                                    <textarea class="form-control" placeholder="Descripción" id="Descripcion" name="Descripcion" rows="8" cols="60"></textarea>
+                                    <span class="form-control-feedback"></span>
                             </div>
 
                             <div class="form-group has-feedback">

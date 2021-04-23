@@ -78,12 +78,22 @@ class cClaves extends CI_Controller {
 			redirect(base_url()."00_Menu/cClaves");
 		}else{
 			$this->session->set_flashdata("error","No se pudo guardar la informacion");
-			redirect(base_url()."00_Menu/cClaves/edit/".$pk_Gpo_Ley);
+			redirect(base_url()."00_Menu/cClaves/edit/".$pk_Ter_Clave);
 		}
 	}
 
+	public function view($pk_Ter_Clave){
+		$data = array(
+			'vista' => $this->Claves_Model->getClaveid($pk_Ter_Clave),
+		);
+		$this->load->view("admin/01_Menu/vClaves/view", $data);
+	}
 
-	public function PDFD(){
-		
+	public function delete($pk_Ter_Clave){
+		$data  = array(
+			'Estado' => "0", 
+		);
+		$this->Claves_Model->update($pk_Ter_Clave, $data);
+		echo "00_Menu/cClaves";
 	}
 }

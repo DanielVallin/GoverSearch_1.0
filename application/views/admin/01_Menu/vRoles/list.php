@@ -37,10 +37,10 @@
                                                     <tr>
                                                         <td><?php echo $rol->Nombre_Rol;?></td>
                                                         <td><?php echo $rol->Descripcion;?></td>
-                                                        
+                                                        <?php $datarol = $rol->Nombre_Rol."*".$rol->Descripcion; ?>
                                                         <td>
                                                             <div class="btn-group">
-                                                                <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $rol->pk_Rol;?>">
+                                                                <button type="button" class="btn btn-info btn-view-rol" data-toggle="modal" data-target="#modal-default" value="<?php echo $datarol;?>">
                                                                     <span class="fa fa-search"></span>
                                                                 </button>
                                                                 <a href="<?php echo base_url()?>00_Menu/cRoles/edit/<?php echo $rol->pk_Rol;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>

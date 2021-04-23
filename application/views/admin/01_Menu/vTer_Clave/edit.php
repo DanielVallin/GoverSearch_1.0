@@ -31,11 +31,10 @@
                                 <label for="Termino_Clave_pk">Término Clave:</label>
                                 <select name="Termino_Clave_pk" id="Termino_Clave_pk" class="form-control">
                                     <?php foreach($cClaves as $cClave):?>
-
                                         <?php if($cClave->pk_Ter_Clave == $terminos->Termino_Clave_pk): ?>
-                                        <option value="<?php echo $cClave->pk_Ter_Clave;?>" selected><?php echo $cClave->Termino_Clave;?></option>
-                                        <?php else: ?>
-                                        <option value="<?php echo $cClave->pk_Ter_Clave;?>"><?php echo $cClave->Termino_Clave;?></option>
+                                            <option value="<?php echo $cClave->pk_Ter_Clave;?>" selected><?php echo $cClave->Termino_Clave;?></option>
+                                                <?php else: ?>
+                                            <option value="<?php echo $cClave->pk_Ter_Clave;?>"><?php echo $cClave->Termino_Clave;?></option>
                                         <?php endif; ?>
                                     <?php endforeach;?>
                                 </select>
@@ -46,24 +45,25 @@
                                 <select name="Ley_pk" id="Ley_pk" class="form-control">
                                     <?php foreach($regleyes as $regley):?>
                                         <?php if($regley->pk_Datos_Ley == $terminos->Ley_pk): ?>
-                                        <option value="<?php echo $regley->pk_Datos_Ley;?>" selected><?php echo $regley->Nombre_de_Ley;?></option>
-                                        <?php else: ?>
-                                        <option value="<?php echo $regley->pk_Datos_Ley;?>" ><?php echo $regley->Nombre_de_Ley;?></option>
+                                            <option value="<?php echo $regley->pk_Datos_Ley;?>" selected><?php echo $regley->Nombre_de_Ley;?></option>
+                                                <?php else: ?>
+                                            <option value="<?php echo $regley->pk_Datos_Ley;?>" ><?php echo $regley->Nombre_de_Ley;?></option>
                                         <?php endif; ?>
                                     <?php endforeach;?>
                                 </select>
                             </div>
 
+
                             <div class="form-group has-feedback">
-                                <label for="Agp_Termino_Clave">Agrupador de Término Clave:</label>
-                                    <input type="number" placeholder="2" class="form-control" id="Agp_Termino_Clave" name="Agp_Termino_Clave" value="<?php echo $terminos->Agp_Termino_Clave;?>">
-                                    <span class="fa fa-bookmark form-control-feedback"></span>
+                                <label for="Descripcion">Descripción:</label>
+                                    <textarea class="form-control" placeholder="Descripción" id="Descripcion" name="Descripcion" value="<?php echo $terminos->Descripcion;?>" rows="8" cols="60"></textarea>
+                                <span class="form-control-feedback"></span>
                             </div>
-                            
+
                             <div class="form-group has-feedback">
                                 <label for="Articulo">Artículo:</label>
                                     <input type="number" placeholder="2" class="form-control" id="Articulo" name="Articulo" value="<?php echo $terminos->Articulo;?>">
-                                    <span class="fa fa-bookmark form-control-feedback"></span>
+                                <span class="fa fa-bookmark form-control-feedback"></span>
                             </div>
 
                             <div class="form-group">
