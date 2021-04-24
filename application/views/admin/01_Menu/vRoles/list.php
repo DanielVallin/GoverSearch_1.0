@@ -40,9 +40,6 @@
                                                         <?php $datarol = $rol->Nombre_Rol."*".$rol->Descripcion; ?>
                                                         <td>
                                                             <div class="btn-group">
-                                                                <button type="button" class="btn btn-info btn-view-rol" data-toggle="modal" data-target="#modal-default" value="<?php echo $datarol;?>">
-                                                                    <span class="fa fa-search"></span>
-                                                                </button>
                                                                 <a href="<?php echo base_url()?>00_Menu/cRoles/edit/<?php echo $rol->pk_Rol;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                                                 <a href="<?php echo base_url();?>00_Menu/cRoles/delete/<?php echo $rol->pk_Rol;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>                                                            </div>
                                                         </td>

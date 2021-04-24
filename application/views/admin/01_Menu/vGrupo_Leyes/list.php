@@ -40,13 +40,8 @@
                                                         <?php $dataGrupos = $gpley->pk_Gpo_Ley."*".$gpley->Nombre_de_Grupo."*".$gpley->pk_Gpo_Ley; ?>
                                                     <td>
                                                         <div class="btn-group">
-                                                            <button type="button" class="btn btn-info btn-view-grupos" data-toggle="modal" data-target="#modal-default" value="<?php echo $dataGrupos;?>">
-                                                                <span class="fa fa-search"></span>
-                                                            </button>
                                                             <a href="<?php echo base_url();?>00_Menu/cGrupo_Leyes/edit/<?php echo $gpley->pk_Gpo_Ley;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                            <a href="<?php echo base_url();?>00_Menu/cGrupo_Leyes/delete/<?php echo $gpley->pk_Gpo_Ley;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
-                                                            <a href="<?php echo base_url();?>00_Menu/cGrupo_Leyes/PDFD/<?php echo $gpley->pk_Gpo_Ley;?>" class="btn btn-danger btn-remove"><span class="fa fa-file-pdf-o"></span></a>
-                                                        </div>
+                                                            <a href="<?php echo base_url();?>00_Menu/cGrupo_Leyes/delete/<?php echo $gpley->pk_Gpo_Ley;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>                                                        </div>
                                                     </td>
                                                 </tr>
                                             <?php endforeach;?>

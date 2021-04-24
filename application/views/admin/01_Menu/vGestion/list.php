@@ -27,12 +27,11 @@
                                 <table id="example1" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>Consecutivo</th>
-                                        <th>Articulo</th>
+                                        <th>No. Articulo</th>
                                         <th>Tipo Articulo</th>
-                                        <th>Descripción</th>
+                                        <th>Descripcion del Articulo</th>
                                         <th>Ultima Reforma</th>
-                                        <th>Estatus</th>
+                                        <th>Status</th>
                                         <th>Opciones</th>
                                         </tr>
                                     </thead>
@@ -47,7 +46,6 @@
                                             <td>Campo</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="#"><span class="fa fa-search"></span></button>
                                                     <a href="#" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                                     <a href="#" class="btn btn-danger btn-trash"><span class="fa fa-remove"></span></a>
                                                 </div>

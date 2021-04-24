@@ -30,6 +30,7 @@
                                         <th>Descripción</th>
                                         <th>Fecha de Pago</th>
                                         <th>Importe</th>
+                                        <th>Folio</th>
                                         <th>Opciones</th>
                                         </tr>
                                     </thead>
@@ -41,11 +42,9 @@
                                             <td><?php echo $pago->Descripcion;?></td>
                                             <td><?php echo $pago->Fecha_Pago;?></td>
                                             <td><?php echo $pago->Importe;?></td>
-                                            
+                                            <td><?php echo $pago->Folio_Pago;?></td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $pago->pk_Pago;?>"><span class="fa fa-search"></span>
-                                                    </button>
                                                     <a href="<?php echo base_url()?>00_Menu/cPagos/edit/<?php echo $pago->pk_Pago;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                                     <a href="<?php echo base_url();?>00_Menu/cPagos/delete/<?php echo $pago->pk_Pago;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
                                                 </div>

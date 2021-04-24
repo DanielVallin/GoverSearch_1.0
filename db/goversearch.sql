@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-04-2021 a las 02:08:03
+-- Tiempo de generación: 24-04-2021 a las 02:10:36
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 5.6.40
 
@@ -61,8 +61,13 @@ CREATE TABLE `tbl_gestion` (
   `EstLey` varchar(50) NOT NULL,
   `ObjLey` varchar(500) NOT NULL,
   `TipoLey` varchar(20) NOT NULL,
-  `Articulo` int(11) NOT NULL,
+  `Num_Articulo` int(11) NOT NULL,
   `Tipo` varchar(50) NOT NULL,
+  `Titulo` varchar(100) NOT NULL,
+  `NomTitulo` varchar(100) NOT NULL,
+  `Capitulo` int(11) NOT NULL,
+  `NomCapitulo` varchar(100) NOT NULL,
+  `Fraccion` varchar(100) NOT NULL,
   `Descripcion` varchar(500) NOT NULL,
   `UltReforma` date NOT NULL,
   `Descripcion2` varchar(500) NOT NULL,
@@ -74,8 +79,8 @@ CREATE TABLE `tbl_gestion` (
 -- Volcado de datos para la tabla `tbl_gestion`
 --
 
-INSERT INTO `tbl_gestion` (`pk_Gestionid`, `Ley_pk`, `Fecha`, `FUltReforma`, `FEntradaVigo`, `EstLey`, `ObjLey`, `TipoLey`, `Articulo`, `Tipo`, `Descripcion`, `UltReforma`, `Descripcion2`, `Estatus`, `Estado`) VALUES
-(1, 1, '2021-04-08', '2021-04-15', '2021-04-14', 'Derogada', 'Capturar', 'Federal', 42, 'Transitorio', 'capturar el texto del articulo', '2021-04-13', '31/12/2020', 'Derogado', b'1');
+INSERT INTO `tbl_gestion` (`pk_Gestionid`, `Ley_pk`, `Fecha`, `FUltReforma`, `FEntradaVigo`, `EstLey`, `ObjLey`, `TipoLey`, `Num_Articulo`, `Tipo`, `Titulo`, `NomTitulo`, `Capitulo`, `NomCapitulo`, `Fraccion`, `Descripcion`, `UltReforma`, `Descripcion2`, `Estatus`, `Estado`) VALUES
+(1, 1, '2021-04-08', '2021-04-15', '2021-04-14', 'Derogada', 'Capturar', 'Federal', 42, 'Transitorio', '', '', 0, '', '', 'capturar el texto del articulo', '2021-04-13', '31/12/2020', 'Derogado', b'1');
 
 -- --------------------------------------------------------
 
@@ -94,10 +99,16 @@ CREATE TABLE `tbl_gpo_leyes` (
 --
 
 INSERT INTO `tbl_gpo_leyes` (`pk_Gpo_Ley`, `Nombre_de_Grupo`, `Estado`) VALUES
-(1, 'Contabilidad', b'1'),
+(1, 'Contabilidad 50', b'1'),
 (2, 'Contabilidad 2', b'1'),
 (3, 'Contabilidad 23', b'1'),
-(4, 'Contabilidad 25', b'1');
+(4, 'Contabilidad 25', b'1'),
+(5, '', b'1'),
+(6, 'ss', b'1'),
+(8, 'hola', b'1'),
+(9, 'Contabilidad 5', b'0'),
+(10, 'Contabilidad', b'1'),
+(11, 'Contabilidad 2	', b'1');
 
 -- --------------------------------------------------------
 
@@ -201,7 +212,9 @@ INSERT INTO `tbl_ter_clave` (`pk_Datos_ley`, `Termino_Clave_pk`, `Ley_pk`, `Arti
 (1, 1, 1, 2, 'Nueva des\r\n', b'1'),
 (2, 3, 1, 5, NULL, b'1'),
 (3, 1, 2, 6, NULL, b'1'),
-(4, 4, 1, 3, 'asas', b'1');
+(4, 4, 1, 3, 'asas', b'1'),
+(5, 3, 1, 55, 'ley 0000', b'1'),
+(6, 1, 1, 455, 'a', b'1');
 
 -- --------------------------------------------------------
 
@@ -254,7 +267,8 @@ ALTER TABLE `tbl_gestion`
 --
 ALTER TABLE `tbl_gpo_leyes`
   ADD PRIMARY KEY (`pk_Gpo_Ley`),
-  ADD UNIQUE KEY `pk_Gpo_Ley` (`pk_Gpo_Ley`);
+  ADD UNIQUE KEY `pk_Gpo_Ley` (`pk_Gpo_Ley`),
+  ADD UNIQUE KEY `Nombre_de_Grupo` (`Nombre_de_Grupo`);
 
 --
 -- Indices de la tabla `tbl_leyes`
@@ -270,6 +284,7 @@ ALTER TABLE `tbl_leyes`
 ALTER TABLE `tbl_pagos`
   ADD PRIMARY KEY (`pk_Pago`),
   ADD UNIQUE KEY `pk_Pago` (`pk_Pago`),
+  ADD UNIQUE KEY `Folio_Pago` (`Folio_Pago`),
   ADD KEY `fk_Pagos` (`Usuario_pk`);
 
 --
@@ -284,7 +299,8 @@ ALTER TABLE `tbl_permisos`
 --
 ALTER TABLE `tbl_roles`
   ADD PRIMARY KEY (`pk_Rol`),
-  ADD UNIQUE KEY `pk_Rol` (`pk_Rol`);
+  ADD UNIQUE KEY `pk_Rol` (`pk_Rol`),
+  ADD UNIQUE KEY `Nombre_Rol` (`Nombre_Rol`);
 
 --
 -- Indices de la tabla `tbl_ter_clave`
@@ -301,6 +317,9 @@ ALTER TABLE `tbl_ter_clave`
 ALTER TABLE `tbl_usuarios`
   ADD PRIMARY KEY (`pk_Usuario`),
   ADD UNIQUE KEY `pk_Usuario` (`pk_Usuario`),
+  ADD UNIQUE KEY `Correo` (`Correo`,`Usuario`),
+  ADD UNIQUE KEY `Correo_2` (`Correo`,`Usuario`),
+  ADD UNIQUE KEY `Correo_3` (`Correo`,`Usuario`),
   ADD KEY `fk_UserRol` (`User_Rol_pk`);
 
 --
@@ -323,7 +342,7 @@ ALTER TABLE `tbl_gestion`
 -- AUTO_INCREMENT de la tabla `tbl_gpo_leyes`
 --
 ALTER TABLE `tbl_gpo_leyes`
-  MODIFY `pk_Gpo_Ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pk_Gpo_Ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_leyes`
@@ -353,7 +372,7 @@ ALTER TABLE `tbl_roles`
 -- AUTO_INCREMENT de la tabla `tbl_ter_clave`
 --
 ALTER TABLE `tbl_ter_clave`
-  MODIFY `pk_Datos_ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pk_Datos_ley` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_usuarios`
