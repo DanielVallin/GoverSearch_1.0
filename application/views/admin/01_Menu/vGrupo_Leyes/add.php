@@ -24,12 +24,10 @@
                         <form action="<?php echo base_url();?>00_Menu/cGrupo_Leyes/store" method="POST">
                             
                             <div class="form-group has-feedback <?php echo form_error('Nombre_de_Grupo') == true ? 'has-error':''?>">
-
                                     <label for="Nombre_de_Grupo">Nombre del Grupo:</label>
                                     <input type="text" class="form-control" id="Nombre_de_Grupo" name="Nombre_de_Grupo">
                                     <?php echo form_error("Nombre_de_Grupo", "<span class='help-block'>","</span>");?>
                                     <span class="glyphicon glyphicon-bookmark form-control-feedback"></span>
-
                             </div>
 
                             <div class="form-group">

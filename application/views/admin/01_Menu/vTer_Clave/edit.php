@@ -56,7 +56,7 @@
 
                             <div class="form-group has-feedback">
                                 <label for="Descripcion">Descripción:</label>
-                                    <textarea class="form-control" placeholder="Descripción" id="Descripcion" name="Descripcion" value="<?php echo $terminos->Descripcion;?>" rows="8" cols="60"></textarea>
+                                    <textarea class="form-control" placeholder="Descripción" id="Descripcion" name="Descripcion" value="<?php echo $terminos->Descripcion;?>" rows="8" cols="60"><?php echo $terminos->Descripcion;?></textarea>
                                 <span class="form-control-feedback"></span>
                             </div>
 

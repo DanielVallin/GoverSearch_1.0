@@ -24,9 +24,10 @@
                         <?php endif;?>
 
                         <form action="<?php echo base_url();?>00_Menu/cClaves/store" method="POST">
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback <?php echo form_error('Termino_Clave') == true ? 'has-error':''?>">
                                 <label for="Termino_Clave">Término Clave:</label>
                                     <input type="text" class="form-control" id="Termino_Clave" name="Termino_Clave">
+                                    <?php echo form_error("Termino_Clave", "<span class='help-block'>","</span>");?>
                                     <span class="fa fa-bookmark form-control-feedback"></span>
                             </div>
                             <div class="form-group has-feedback">
@@ -39,9 +40,10 @@
                                     <?php endforeach;?>
                                 </select>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group has-feedback <?php echo form_error('Fecha_Alta') == true ? 'has-error':''?>">
                                 <label for="Fecha_Alta">Fecha de Alta:</label>
                                 <input type="date" class="form-control" id="Fecha_Alta" name="Fecha_Alta">
+                                <?php echo form_error("Fecha_Alta", "<span class='help-block'>","</span>");?>
                             </div>
                             <div class="form-group">
                                <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>                                

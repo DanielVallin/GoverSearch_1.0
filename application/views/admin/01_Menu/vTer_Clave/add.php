@@ -25,7 +25,7 @@
 
                         <form action="<?php echo base_url();?>00_Menu/cTer_Clave/store" method="POST">
                             
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback <?php echo form_error('Termino_Clave_pk') == true ? 'has-error':''?>">
                                 <label for="Termino_Clave_pk">Término Clave:</label>
                                 <select name="Termino_Clave_pk" id="Termino_Clave_pk" class="form-control">
                                     <?php foreach($cClaves as $cClave):?>
@@ -34,7 +34,7 @@
                                 </select>
                             </div>
                             <hr>
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback <?php echo form_error('Ley_pk') == true ? 'has-error':''?>">
                                 <label for="Ley_pk">Ley:</label>
                                 <select name="Ley_pk" id="Ley_pk" class="form-control chosen">
                                     <?php foreach($regleyes as $regley):?>
@@ -43,15 +43,17 @@
                                 </select>
                             </div>
 
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback <?php echo form_error('Descripcion') == true ? 'has-error':''?>">
                                 <label for="Descripcion">Descripción:</label>
                                     <textarea class="form-control" placeholder="Descripción" id="Descripcion" name="Descripcion" rows="8" cols="60"></textarea>
+                                    <?php echo form_error("Descripcion", "<span class='help-block'>","</span>");?>
                                     <span class="form-control-feedback"></span>
                             </div>
 
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback <?php echo form_error('Articulo') == true ? 'has-error':''?>">
                                 <label for="Articulo">Artículo:</label>
                                     <input type="number" placeholder="2" class="form-control" id="Articulo" name="Articulo">
+                                    <?php echo form_error("Articulo", "<span class='help-block'>","</span>");?>
                                     <span class="fa fa-bookmark form-control-feedback"></span>
                             </div>
 

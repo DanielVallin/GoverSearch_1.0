@@ -30,6 +30,11 @@ class cRoles extends CI_Controller {
 	 public function store(){
 		$Nombre_Rol 	= $this->input->post("Nombre_Rol");
 		$Descripcion 	= $this->input->post("Descripcion");
+
+		$this->form_validation->set_rules("Nombre_Rol","esta en uso, por lo que","required|is_unique[tbl_roles.Nombre_Rol]");
+		$this->form_validation->set_rules("Descripcion","esta en uso, por lo que","required");
+
+		if ($this->form_validation->run()==TRUE) {
 			$data  		= array(
 				'Nombre_Rol' => $Nombre_Rol, 
 				'Descripcion' => $Descripcion,
@@ -41,6 +46,10 @@ class cRoles extends CI_Controller {
 				$this->session->set_flashdata("error","No se pudo guardar la informacion");
 				redirect(base_url()."00_Menu/cRoles/add");
 			}
+		}else{
+			$this->add();
+		}
+			
 	}
 	public function edit($pk_Rol){
 		$data = array(

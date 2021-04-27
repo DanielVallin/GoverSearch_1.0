@@ -41,6 +41,13 @@ class cTer_Clave extends CI_Controller {
 		$Ley_pk 	= $this->input->post("Ley_pk");
 		$Descripcion 	= $this->input->post("Descripcion");
 		$Articulo 	= $this->input->post("Articulo");
+
+		$this->form_validation->set_rules("Termino_Clave_pk","esta en uso, por lo que","required");
+		$this->form_validation->set_rules("Ley_pk","esta en uso, por lo que","required");
+		$this->form_validation->set_rules("Descripcion","esta en uso, por lo que","required");
+		$this->form_validation->set_rules("Articulo","esta en uso, por lo que","required");
+
+		if ($this->form_validation->run()==TRUE) {
 			$data  		= array(
 				'Termino_Clave_pk' => $Termino_Clave_pk,
 				'Ley_pk' => $Ley_pk, 
@@ -54,6 +61,9 @@ class cTer_Clave extends CI_Controller {
 				$this->session->set_flashdata("error","No se pudo guardar la informacion");
 				redirect(base_url()."00_Menu/cTer_Clave/add");
 			}
+		}else{
+			$this->add();
+		}
 	}
 
 	public function edit($pk_Datos_ley)

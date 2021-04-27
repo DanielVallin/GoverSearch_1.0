@@ -36,6 +36,12 @@ class cClaves extends CI_Controller {
 		$Termino_Clave 	= $this->input->post("Termino_Clave");
 		$Usuario_pk 	= $this->input->post("Usuario_pk");
 		$Fecha_Alta 	= $this->input->post("Fecha_Alta");
+
+		$this->form_validation->set_rules("Termino_Clave","esta en uso, por lo que","required|is_unique[tbl_claves.Termino_Clave]");
+		$this->form_validation->set_rules("Usuario_pk","esta en uso, por lo que","required");
+		$this->form_validation->set_rules("Fecha_Alta","esta en uso, por lo que","required");
+
+		if ($this->form_validation->run()==TRUE) {
 			$data  		= array(
 				'Termino_Clave' => $Termino_Clave, 
 				'Usuario_pk' => $Usuario_pk,
@@ -48,6 +54,9 @@ class cClaves extends CI_Controller {
 				$this->session->set_flashdata("error","No se pudo guardar la informacion");
 				redirect(base_url()."00_Menu/cClaves/add");
 			}
+		}else{
+			$this->add();
+		}
 	}
 
 	public function edit($pk_Ter_Clave)

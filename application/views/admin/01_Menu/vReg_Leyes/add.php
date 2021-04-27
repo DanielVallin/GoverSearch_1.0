@@ -24,13 +24,14 @@
                         <?php endif;?>
                         <form action="<?php echo base_url();?>00_Menu/cReg_Leyes/store" method="POST">
 
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback <?php echo form_error('Nombre_de_Ley') == true ? 'has-error':''?>" >
                                 <label for="Nombre_de_Ley">Nombre de Ley:</label>
                                 <input type="text" placeholder="Nueva Ley" class="form-control" id="Nombre_de_Ley" name="Nombre_de_Ley">
+                                <?php echo form_error("Nombre_de_Ley", "<span class='help-block'>","</span>");?>
                                 <span class="fa fa-bookmark form-control-feedback"></span>
                             </div>
                             
-                            <div class="form-group">
+                            <div class="form-group <?php echo form_error('Grupo_pk') == true ? 'has-error':''?>">
                                 <label for="Grupo_pk">Grupo:</label>
                                 <select name="Grupo_pk" id="Grupo_pk" class="form-control">
                                     

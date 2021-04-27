@@ -35,22 +35,28 @@ class cReg_Leyes extends CI_Controller {
 
 	public function store(){
 		$Nombre_de_Ley = $this->input->post("Nombre_de_Ley");
-		$Numero_de_Articulo = $this->input->post("Numero_de_Articulo");
-		$Detalle_Art = $this->input->post("Detalle_Art");
 		$Grupo_pk = $this->input->post("Grupo_pk");
 
-		$data  = array(
-			'Nombre_de_Ley' 	 => $Nombre_de_Ley, 
-			'Grupo_pk' 			 => $Grupo_pk, 
-			'Estado' 			 => "1"
-		);
+		$this->form_validation->set_rules("Nombre_de_Ley","esta en uso, por lo que","required|is_unique[tbl_leyes.Nombre_de_Ley]");
+		$this->form_validation->set_rules("Grupo_pk","campo faltante","required");
 
-		if ($this->Reg_Leyes_Model->save($data)) {
-			redirect(base_url()."00_Menu/cReg_Leyes");
+		if ($this->form_validation->run()==TRUE) {
+			$data  = array(
+				'Nombre_de_Ley' 	 => $Nombre_de_Ley, 
+				'Grupo_pk' 			 => $Grupo_pk, 
+				'Estado' 			 => "1"
+			);
+	
+			if ($this->Reg_Leyes_Model->save($data)) {
+				redirect(base_url()."00_Menu/cReg_Leyes");
+			}else{
+				$this->session->set_flashdata("error","No se pudo guardar la informacion");
+				redirect(base_url()."00_Menu/cReg_Leyes/add");
+			}
 		}else{
-			$this->session->set_flashdata("error","No se pudo guardar la informacion");
-			redirect(base_url()."00_Menu/cReg_Leyes/add");
+			$this->add();
 		}
+		
 	}
 
 	public function edit($pk_Datos_Ley)

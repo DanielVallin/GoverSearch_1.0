@@ -70,13 +70,13 @@
                     <!-- =============================================== -->
                     <li class="treeview">
                             <li>
-                            <a href="<?php echo base_url();?>00_Menu/cTer_Clave"><i class="fa fa-cog fa-spin fa-fw"></i><span> 7_Conf. Terminos Clave</span></a>
+                            <a href="<?php echo base_url();?>00_Menu/cTer_Clave"><i class="fa fa-cogs fa-fw"></i><span> 7_Conf. Terminos Clave</span></a>
                             </li>
                         </li>
                     <!-- =============================================== -->
                     <li class="treeview">
                             <li>
-                            <a href="<?php echo base_url();?>00_Menu/cGestion"><i class="fa fa-cog fa-spin fa-fw"></i><span> 8_Gestion de Leyes</span></a>
+                            <a href="<?php echo base_url();?>00_Menu/cGestion"><i class="fa fa-cogs fa-fw"></i><span> 8_Gestion de Leyes</span></a>
                             </li>
                         </li>
                     <!-- =============================================== -->
