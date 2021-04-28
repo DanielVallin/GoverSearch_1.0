@@ -36,7 +36,7 @@
                 
                 <div class="col-md-12">
                         <a href="<?php echo base_url();?>001_Registrar/cRegistrar" class="btn btn-primary btn-flat col-md-6" > <span class="fa fa-plus"></span> Suscribirse </a>
-                        <a href="<?php echo base_url();?>" class="btn btn-primary btn-flat col-md-6" > <span class="fa fa-caret-square-o-left"></span> DEMO </a>                    
+                        <a href="<?php echo base_url();?>002_Demo/cDemo" class="btn btn-primary btn-flat col-md-6" > <span class="fa fa-caret-square-o-left"></span> DEMO </a>                    
                 </div>
                 <br>
                 <br>

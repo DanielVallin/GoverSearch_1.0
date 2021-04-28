@@ -63,7 +63,11 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success btn-flat"><label for="nombre"><spam class="fa fa-plus"></spam> Continuar</label></button>
+                                <a href="#" class="btn btn-primary btn-flat"><span class="fa fa-plus"> continuar</span></a>
+                            </div>
+                            <div class="form-group">
+                                <a href="#" class="btn btn-primary btn-flat"><span class="fa fa-plus"> Importar</span></a>
+                                <a href="#" class="btn btn-primary btn-flat"><span class="fa fa-plus"> Agregar Art</span></a>
                             </div>
 
                         </div>
