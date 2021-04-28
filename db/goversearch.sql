@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-04-2021 a las 02:01:36
+-- Tiempo de generación: 29-04-2021 a las 01:21:24
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 5.6.40
 
@@ -42,10 +42,10 @@ CREATE TABLE `tbl_claves` (
 
 INSERT INTO `tbl_claves` (`pk_Ter_Clave`, `Termino_Clave`, `Usuario_pk`, `Fecha_Alta`, `Estado`) VALUES
 (1, 'CAJA', 2, '2021-04-08', b'1'),
-(2, 'Alta 500', 3, '2021-01-01', b'1'),
+(2, 'Altass', 2, '2021-01-01', b'1'),
 (3, 'Baja', 3, '2022-12-30', b'1'),
 (4, 'Norma', 3, '2021-04-16', b'1'),
-(5, 'Altass', 2, '2021-04-27', b'1');
+(5, 'Altasss', 2, '2021-04-27', b'1');
 
 -- --------------------------------------------------------
 
@@ -129,10 +129,10 @@ CREATE TABLE `tbl_leyes` (
 --
 
 INSERT INTO `tbl_leyes` (`pk_Datos_Ley`, `Nombre_de_Ley`, `Grupo_pk`, `Estado`) VALUES
-(1, 'Ley General de Contabilidad', 1, b'1'),
-(2, 'Nueva ley', 4, b'1'),
-(3, 'as', 2, b'1'),
-(4, 'Nueva ley 2', 4, b'1');
+(1, 'Nueva ley 22', 1, b'1'),
+(2, 'Nueva ley 2', 4, b'1'),
+(3, 'Nueva ley', 2, b'1'),
+(4, 'Nueva ley', 4, b'1');
 
 -- --------------------------------------------------------
 
@@ -190,7 +190,7 @@ CREATE TABLE `tbl_roles` (
 INSERT INTO `tbl_roles` (`pk_Rol`, `Nombre_Rol`, `Descripcion`, `Estado`) VALUES
 (2, 'Administrador', 'Acceso a todo x.', b'1'),
 (4, 'Usuario', 'Solo acceso basico', b'1'),
-(7, 'Subscriptopr', 'asd55', b'1'),
+(7, 'Subscriptor', 'asd55', b'1'),
 (8, 'Subscriptopr 2', 'ss', b'1');
 
 -- --------------------------------------------------------
@@ -246,8 +246,12 @@ CREATE TABLE `tbl_usuarios` (
 --
 
 INSERT INTO `tbl_usuarios` (`pk_Usuario`, `Nombre`, `Apellidos`, `Telefono`, `Correo`, `Usuario`, `Contrasena`, `Fecha_Alta`, `User_Rol_pk`, `Estado`) VALUES
-(2, 'Daniel', 'Vallin', '4492793463', 'dan@gmail.com', 'Admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '2021-04-08', 2, b'1'),
-(3, 'Admin', '', '4491235555', 'admin@gmail.com', 'Admin', '123', '2021-04-08', 2, b'1');
+(2, 'Daniel', 'Vallin', '4492793463', 'danielvallin11@gmail.com', 'Admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '2021-04-08', 2, b'1'),
+(3, 'pruebas 2', '', '4491235555', 'admin@gmail.com', 'Admin', '123', '2021-04-08', 4, b'1'),
+(4, 'user', 'user', '4492793463', 'use@gmail.com', 'vallin', '123', '2021-01-01', 2, b'1'),
+(5, 'Daniel', 'Vallin', '4492793463', 'danielvallin11@gmail.com', 'wsa', '12', '2021-01-01', 2, b'1'),
+(6, 'Daniel', 'Vallin', '4492793463', 'danielvallin11@gmail.com', 'user1', '123', '2021-01-01', 4, b'1'),
+(7, 'Oscar', 'Beltran', '449885', 'oscar@gmail.com', 'OscarB', '40f7c01f4189510031adccd9c604a128adaf9b00', '2021-01-01', 4, b'1');
 
 --
 -- Índices para tablas volcadas
@@ -384,7 +388,7 @@ ALTER TABLE `tbl_ter_clave`
 -- AUTO_INCREMENT de la tabla `tbl_usuarios`
 --
 ALTER TABLE `tbl_usuarios`
-  MODIFY `pk_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `pk_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas

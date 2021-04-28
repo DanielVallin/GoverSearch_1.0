@@ -37,9 +37,9 @@ class cClaves extends CI_Controller {
 		$Usuario_pk 	= $this->input->post("Usuario_pk");
 		$Fecha_Alta 	= $this->input->post("Fecha_Alta");
 
-		$this->form_validation->set_rules("Termino_Clave","esta en uso, por lo que","required|is_unique[tbl_claves.Termino_Clave]");
-		$this->form_validation->set_rules("Usuario_pk","esta en uso, por lo que","required");
-		$this->form_validation->set_rules("Fecha_Alta","esta en uso, por lo que","required");
+		$this->form_validation->set_rules("Termino_Clave","Termino Clave","required|is_unique[tbl_claves.Termino_Clave]");
+		$this->form_validation->set_rules("Usuario_pk","Usuario","required");
+		$this->form_validation->set_rules("Fecha_Alta","Fecha de Alta","required");
 
 		if ($this->form_validation->run()==TRUE) {
 			$data  		= array(
@@ -77,17 +77,32 @@ class cClaves extends CI_Controller {
 		$Usuario_pk		= $this->input->post("Usuario_pk");
 		$Fecha_Alta		= $this->input->post("Fecha_Alta");
 
-		$data = array(
-			'pk_Ter_Clave' => $pk_Ter_Clave,
-			'Termino_Clave' => $Termino_Clave,
-			'Usuario_pk' => $Usuario_pk,
-			'Fecha_Alta' => $Fecha_Alta,
-		);
-		if($this->Claves_Model->update($pk_Ter_Clave, $data)){
-			redirect(base_url()."00_Menu/cClaves");
+			$claveactual = $this->Claves_Model->getClaveid($pk_Ter_Clave);
+
+		if ($Termino_Clave == $claveactual->Termino_Clave) {
+			$is_unique = "";
 		}else{
-			$this->session->set_flashdata("error","No se pudo guardar la informacion");
-			redirect(base_url()."00_Menu/cClaves/edit/".$pk_Ter_Clave);
+			$is_unique = "|is_unique[tbl_claves.Termino_Clave]";
+		}
+		$this->form_validation->set_rules("Termino_Clave","Termino Clave","required".$is_unique);
+		$this->form_validation->set_rules("Usuario_pk","Usuario","required");
+		$this->form_validation->set_rules("Fecha_Alta","Fecha de Alta","required");
+
+		if ($this->form_validation->run()==TRUE) {
+			$data = array(
+				'pk_Ter_Clave' => $pk_Ter_Clave,
+				'Termino_Clave' => $Termino_Clave,
+				'Usuario_pk' => $Usuario_pk,
+				'Fecha_Alta' => $Fecha_Alta,
+			);
+			if($this->Claves_Model->update($pk_Ter_Clave, $data)){
+				redirect(base_url()."00_Menu/cClaves");
+			}else{
+				$this->session->set_flashdata("error","No se pudo guardar la informacion");
+				redirect(base_url()."00_Menu/cClaves/edit/".$pk_Ter_Clave);
+			}
+		}else{
+			$this->edit($pk_Ter_Clave);
 		}
 	}
 

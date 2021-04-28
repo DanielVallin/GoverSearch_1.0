@@ -16,6 +16,14 @@
 <!-- DataTables -->
 <script src="<?php echo base_url();?>assets/template/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url();?>assets/template/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- DataTables Export -->
+<script src="<?php echo base_url();?>assets/template/datatables-export/js/dataTables.buttons.min.js"></script>
+<script src="<?php echo base_url();?>assets/template/datatables-export/js/buttons.flash.min.js"></script>
+<script src="<?php echo base_url();?>assets/template/datatables-export/js/jszip.min.js"></script>
+<script src="<?php echo base_url();?>assets/template/datatables-export/js/pdfmake.min.js"></script>
+<script src="<?php echo base_url();?>assets/template/datatables-export/js/vfs_fonts.js"></script>
+<script src="<?php echo base_url();?>assets/template/datatables-export/js/buttons.html5.min.js"></script>
+<script src="<?php echo base_url();?>assets/template/datatables-export/js/buttons.print.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url();?>assets/template/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -57,6 +65,42 @@ $(document).ready(function () {
         $("#modal-default .modal-body").html(html);
     });
 
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                title: "Listado de Pagos",
+                exportOptions: {
+                    columns: [ 0, 1,2, 3, 4]
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                title: "Listado de Pagos",
+                exportOptions: {
+                    columns: [ 0, 1,2, 3, 4]
+                }
+                
+            }
+        ],
+        language: {
+            "lengthMenu": "Mostrar _MENU_ registros por pagina",
+            "zeroRecords": "No se encontraron resultados en su busqueda",
+            "searchPlaceholder": "Buscar registros",
+            "info": "Mostrando registros de _START_ al _END_ de un total de  _TOTAL_ registros",
+            "infoEmpty": "No existen registros",
+            "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "search": "Buscar:",
+            "paginate": {
+                "first": "Primero",
+                "last": "Último",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            },
+        }
+    } );
+
 	$('#example1').DataTable({
         "language": {
             "lengthMenu": "Mostrar _MENU_ registros por página",
@@ -71,13 +115,8 @@ $(document).ready(function () {
                 "last": "Último",
                 "next": "Siguiente",
                 "previous": "Anterior"
-            },
-            dom: 'Bfrtip',
-            buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
+            }
         }
-
     });
 	$('.sidebar-menu').tree();
 })

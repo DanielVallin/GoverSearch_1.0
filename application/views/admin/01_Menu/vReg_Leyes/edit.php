@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <?php if($this->session->flashdata("error")):?>
-                            <div class="alert alert-danger alert-dismissible">
+                            <div class="alert alert-danger alert-dismissible ">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                 <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
                              
@@ -25,9 +25,10 @@
                         <form action="<?php echo base_url();?>00_Menu/cReg_Leyes/update" method="POST">
                         <input type="hidden" value="<?php echo $leyes->pk_Datos_Ley;?>" name="pk_Datos_Ley">
 
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback <?php echo form_error('Nombre_de_Ley') == true ? 'has-error':''?>">
                                 <label for="Nombre_de_Ley">Nombre de Ley:</label>
                                 <input type="text" placeholder="Nueva Ley" class="form-control" id="Nombre_de_Ley" name="Nombre_de_Ley" value="<?php echo $leyes->Nombre_de_Ley;?>">
+                                <?php echo form_error("Nombre_de_Ley", "<span class='help-block'>","</span>");?>
                                 <span class="fa fa-bookmark form-control-feedback"></span>
                             </div>
 

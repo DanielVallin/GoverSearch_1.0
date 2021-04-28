@@ -76,18 +76,33 @@ class cReg_Leyes extends CI_Controller {
 		$Nombre_de_Ley		= $this->input->post("Nombre_de_Ley");
 		$Grupo_pk			= $this->input->post("Grupo_pk");
 
-		$data = array(
-			'pk_Datos_Ley' 	=> $pk_Datos_Ley,
-			'Nombre_de_Ley' => $Nombre_de_Ley,
-			'Grupo_pk' 	=> $Grupo_pk,
-		);
-		if($this->Reg_Leyes_Model->update($pk_Datos_Ley, $data)){
-			redirect(base_url()."00_Menu/cReg_Leyes");
+		$leyactual = $this->Reg_Leyes_Model->getClaveid($pk_Datos_Ley);
+
+		if ($Nombre_de_Ley == $leyactual->Nombre_de_Ley) {
+			$is_unique = "";
 		}else{
-			$this->session->set_flashdata("error","No se pudo actualizar la informacion");
-			redirect(base_url()."00_Menu/cReg_Leyes/edit/".$pk_Gpo_Ley);
+			$is_unique = "|is_unique[tbl_leyes.Nombre_de_Ley]";
+		}
+		$this->form_validation->set_rules("Nombre_de_Ley","Nombre de Ley","required".$is_unique);
+		$this->form_validation->set_rules("Grupo_pk","Grupo_pk","required");
+
+		if ($this->form_validation->run()==TRUE) {
+			$data = array(
+				'pk_Datos_Ley' 	=> $pk_Datos_Ley,
+				'Nombre_de_Ley' => $Nombre_de_Ley,
+				'Grupo_pk' 	=> $Grupo_pk,
+			);
+			if($this->Reg_Leyes_Model->update($pk_Datos_Ley, $data)){
+				redirect(base_url()."00_Menu/cReg_Leyes");
+			}else{
+				$this->session->set_flashdata("error","No se pudo actualizar la informacion");
+				redirect(base_url()."00_Menu/cReg_Leyes/edit/".$pk_Gpo_Ley);
+			}
+		}else{
+			$this->edit($pk_Datos_Ley);
 		}
 	}
+
 
 
 }

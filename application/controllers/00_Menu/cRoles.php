@@ -49,8 +49,9 @@ class cRoles extends CI_Controller {
 		}else{
 			$this->add();
 		}
-			
 	}
+
+
 	public function edit($pk_Rol){
 		$data = array(
 			'rol' => $this->Roles_Model->getRol($pk_Rol),
@@ -61,22 +62,37 @@ class cRoles extends CI_Controller {
 		$this->load->view("layouts/footer");
 	 }
 
-	 public function update(){
 
+	 public function update(){
 		$pk_Rol = $this->input->post("pk_Rol");
 		$Nombre_Rol = $this->input->post("Nombre_Rol");
 		$Descripcion = $this->input->post("Descripcion");
-		$data  = array(
-			'Nombre_Rol' => $Nombre_Rol, 
-			'Descripcion' => $Descripcion,
-			'pk_Rol' => $pk_Rol,
-		);
-		if ($this->Roles_Model->update($pk_Rol,$data)) {
-			redirect(base_url()."00_Menu/cRoles");
+
+		$rolactual = $this->Roles_Model->getRol($pk_Rol);
+
+		if ($Nombre_Rol == $rolactual->Nombre_Rol) {
+			$is_unique = "";
+		}else{
+			$is_unique = "|is_unique[tbl_roles.Nombre_Rol]";
 		}
-		else{
-			$this->session->set_flashdata("error","No se pudo actualizar la informacion");
-			redirect(base_url()."00_Menu/cRoles/edit/".$idproducto);
+		$this->form_validation->set_rules("Nombre_Rol","Nombre Rol","required".$is_unique);
+		$this->form_validation->set_rules("Descripcion","Descripcion","required");
+
+		if ($this->form_validation->run()==TRUE) {
+			$data  = array(
+				'Nombre_Rol' => $Nombre_Rol, 
+				'Descripcion' => $Descripcion,
+				'pk_Rol' => $pk_Rol,
+			);
+			if ($this->Roles_Model->update($pk_Rol,$data)) {
+				redirect(base_url()."00_Menu/cRoles");
+			}
+			else{
+				$this->session->set_flashdata("error","No se pudo actualizar la informacion");
+				redirect(base_url()."00_Menu/cRoles/edit/".$idproducto);
+			}
+		}else{
+			$this->edit($pk_Rol);
 		}
 	}
 

@@ -26,9 +26,10 @@
                         <form action="<?php echo base_url();?>00_Menu/cRoles/update" method="POST">
                             <input type="hidden" value="<?php echo $rol->pk_Rol;?>" name="pk_Rol">
 
-                            <div class="form-group">
+                            <div class="form-group <?php echo form_error('Nombre_Rol') == true ? 'has-error':''?>">
                                 <label for="Nombre_Rol">Nombre_Rol:</label>
                                 <input type="text" class="form-control" id="Nombre_Rol" name="Nombre_Rol" value="<?php echo $rol->Nombre_Rol?>">
+                                <?php echo form_error("Nombre_Rol", "<span class='help-block'>","</span>");?>
                             </div>
                             <div class="form-group">
                                 <label for="Descripcion">Descripcion:</label>

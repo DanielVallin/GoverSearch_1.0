@@ -15,20 +15,20 @@
                     <!-- =============================================== -->
                         <li class="treeview">
                             <li>
-                                <a href="<?php echo base_url();?>00_Menu/cBlog"><i class="fa fa-th"></i> <span>Buscador Inteligente</span>
+                                <a href="<?php echo base_url();?>002_Demo/cBuscadorD"><i class="fa fa-th"></i> <span>Buscador Inteligente</span>
                                 </a>
                             </li>
                         </li>
                     <!-- =============================================== -->
                         <li class="treeview">
                             <li>
-                            <a href="<?php echo base_url();?>00_Menu/cCuenta"><i class="fa fa-user-circle-o"></i> <span>Blog</span></a>
+                            <a href="<?php echo base_url();?>002_Demo/cBlogD"><i class="fa fa-user-circle-o"></i> <span>Blog</span></a>
                             </li>
                         </li>
                     <!-- =============================================== -->
                     <li class="treeview">
                             <li>
-                            <a href="<?php echo base_url();?>00_Menu/cBlog"><i class="fa fa-search"></i><span> servicios CIG</span></a>
+                            <a href="<?php echo base_url();?>002_Demo/cServicios"><i class="fa fa-search"></i><span> servicios CIG</span></a>
                             </li>
                         </li>
                     <!-- =============================================== -->

@@ -8,7 +8,7 @@ public function login($Usuario, $Contrasena){
     $this->db->where("Contrasena", $Contrasena);
     
 
-    $resultados = $this->db->get("TBL_Usuarios");
+    $resultados = $this->db->get("tbl_usuarios");
     if ($resultados->num_rows() > 0) {
         return $resultados->row();
     }

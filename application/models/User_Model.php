@@ -13,13 +13,18 @@ class User_Model extends CI_Model {
     }
 
     public function save($data){
-        return $this->db->insert("TBL_Usuarios",$data);
+        return $this->db->insert("tbl_usuarios",$data);
     }
     
-    public function getCategoria($id){
-        $this->db->where("id",$id);
-        $resultado = $this->db->get("categorias");
+    public function getUsuario($pk_Usuario){
+        $this->db->where("pk_Usuario",$pk_Usuario);
+        $resultado = $this->db->get("tbl_usuarios");
         return $resultado->row();
+    }
+
+    public function update($pk_Usuario, $data){
+        $this->db->where("pk_Usuario", $pk_Usuario);
+        return $this->db->update("tbl_usuarios", $data);
     }
 
 }
