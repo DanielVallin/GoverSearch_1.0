@@ -9,6 +9,13 @@ class Grupo_Leyes_Model extends CI_Model {
         return $resultados->result();
     }
 
+    public function getGrupo_ModelCat($Nombre_de_Grupo){
+        $this->db->where("Nombre_de_Grupo", $Nombre_de_Grupo);
+        $this->db->where("Estado","1");
+        $resultados = $this->db->get("tbl_gpo_leyes");
+        return $resultados->result();
+    }
+
     public function save($data){
 		return $this->db->insert("tbl_gpo_leyes",$data);
 	}

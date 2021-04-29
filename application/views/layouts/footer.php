@@ -72,14 +72,14 @@ $(document).ready(function () {
                 extend: 'excelHtml5',
                 title: "Listado de Pagos",
                 exportOptions: {
-                    columns: [ 0, 1,2, 3, 4]
+                    columns: [ 0, 1, 2, 3, 4]
                 }
             },
             {
                 extend: 'pdfHtml5',
                 title: "Listado de Pagos",
                 exportOptions: {
-                    columns: [ 0, 1,2, 3, 4]
+                    columns: [ 0, 1, 2, 3, 4]
                 }
                 
             }
