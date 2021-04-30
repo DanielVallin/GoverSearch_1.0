@@ -34,14 +34,14 @@
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
-                            </a>
+                        </a>
                             <ul class="treeview-menu">
                                 <?php foreach($cGrupos as $cGrupo):?>
-                                    <li><a href="<?php echo base_url()?>Menu/cGrupo_Leyes/lista/<?php echo str_replace("%20"," ", $cGrupo->Nombre_de_Grupo);?>" name="grupo" value="<?php echo $cGrupo->Nombre_de_Grupo;?>"><span><?php echo $cGrupo->Nombre_de_Grupo;?></span></a></li>
+                                    <li><a href="<?php echo base_url()?>Menu/cGrupo_Leyes/lista/<?php echo $cGrupo->pk_Gpo_Ley;?>" name="grupo" value="<?php echo $cGrupo->pk_Gpo_Ley;?>"><span><?php echo $cGrupo->Nombre_de_Grupo;?></span></a></li>
                                 <?php endforeach;?>
                                 
                             </ul>
-                            
+
                             
                         </li>
                     <!-- =============================================== -->
@@ -108,7 +108,8 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="<?php echo base_url();?>Menu/cCuenta"><i class="fa fa-user-circle-o"></i> <span>Mi Cuenta</span></a></li>
-                            <li><a href="<?php echo base_url();?>auth/logout"><i class="fa fa-sign-out"></i><span> Cerrar Sesión</span></a></li>                        
+                            <li><a href="<?php echo base_url();?>administrador/permisos"><i class="fa fa-sign-out"></i><span> Permisos</span></a></li>  
+                            <li><a href="<?php echo base_url();?>auth/logout"><i class="fa fa-sign-out"></i><span> Cerrar Sesión</span></a></li>                                              
                         </ul>
                     </li>
                     <!-- =============================================== -->

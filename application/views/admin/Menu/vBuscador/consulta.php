@@ -5,7 +5,7 @@
             <section class="content-header">
                 <h1>
                 Buscador Inteligente  
-                <small>Busquedas</small>
+                <small>Consulta</small>
                 </h1>
             </section>
             <!-- Main content -->
@@ -14,29 +14,20 @@
                 <div class="box box-solid">
                     <div class="box-body">
                         <!-- AQUI INICIA EL BODY -->
-
-                        <form action="<?php echo current_url();?>" method="POST" class="form-horizontal">
-                                <div class="form-group">
-                                    <label for="" class="col-md-2 control-label">Palabra clave:</label>
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" name="clave" value="<?php echo !empty($clave) ? $clave:'';?>">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="submit" name="buscar" value="Buscar" class="btn btn-primary">
-                                        <a href="<?php echo base_url(); ?>Menu/cBuscador" class="btn btn-danger">Restablecer</a>
-                                    </div>
-                                </div>
-                            </form>
                         <hr>
                         <div class="row">
                                 <div class="col-md-12">
-                                    <table id="example1" class="table table-bordered table-hover">
+                                    <table id="example" class="table table-bordered table-hover">
                                         <thead>
                                         <tr>
-                                            <th>Ter. Clave</th>
                                             <th>Ley</th>
-                                            <th>Artículo</th>
-                                            <th>Descripcion</th>
+                                            <th>Titulo</th>
+                                            <th>seccion</th>
+                                            <th>Articulo</th>
+                                            <th>descripcion</th>
+                                            <th>Tipo</th>
+                                            <th>Titulo</th>
+                                            <th>Nom. Articulo</th>
                                             <th>Consultas</th>
                                             </tr>
                                         </thead>
@@ -44,10 +35,10 @@
                                             <?php if(!empty($terminos)):?>
                                                 <?php foreach($terminos as $termino):?>
                                                     <tr>
-                                                        <td><?php echo $termino->termino;?></td>
-                                                        <td><?php echo $termino->ley;?></td>
-                                                        <td><?php echo $termino->Articulo;?></td>
-                                                        <td><?php echo $termino->Descripcion;?></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
                                                         <td>
                                                             <div class="btn-group"> 
                                                                 <a href="<?php echo base_url(); ?>Menu/cBuscador/consulta" class="btn btn-warning btn-flat"><span class="fa fa-angle-double-right "></span></a>

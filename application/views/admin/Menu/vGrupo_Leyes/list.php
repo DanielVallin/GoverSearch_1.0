@@ -34,13 +34,12 @@
                                         <?php if(!empty($gpleyes)):?>
                                             <?php foreach($gpleyes as $gpley):?>
                                                 <tr>
-                                                    <td><?php echo $gpley->pk_Gpo_Ley;?></td>
-                                                    <td><?php echo $gpley->Nombre_de_Grupo;?></td>
-                                                        <?php $dataGrupos = $gpley->pk_Gpo_Ley."*".$gpley->Nombre_de_Grupo."*".$gpley->pk_Gpo_Ley; ?>
+                                                    <td><?php echo $gpley->Nombre_de_Ley;?></td>
+                                                    <td><?php echo $gpley->grupos;?></td>
                                                     <td>
                                                         <div class="btn-group">
-                                                            <a href="<?php echo base_url();?>Menu/cGrupo_Leyes/edit/<?php echo $gpley->pk_Gpo_Ley;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                            <a href="<?php echo base_url();?>Menu/cGrupo_Leyes/delete/<?php echo $gpley->pk_Gpo_Ley;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>                                                        </div>
+                                                            <a href="#" class="btn btn-warning btn-flat"><span class="fa fa-angle-double-right "></span></a>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             <?php endforeach;?>

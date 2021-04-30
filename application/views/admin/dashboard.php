@@ -4,7 +4,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                Registro de Leyes
+                Listado de Leyes
                 <small>Listado</small>
                 </h1>
             </section>
@@ -16,8 +16,7 @@
                         <!-- AQUI INICIA EL BODY -->
                         <div class="row">
                                 <div class="col-md-12">
-                                    <a href="<?php echo base_url();?>00_Menu/cReg_Leyes/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Ley</a>
-                                    <a href="<?php echo base_url();?>00_Menu/cReg_Leyes/add" class="btn btn-success btn-flat"><span class="fa fa-file-excel-o"></span> Exportar Excel</a>
+                                    <a href="<?php echo base_url();?>Menu/cReg_Leyes/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Ley</a>
                                 </div>
                             </div>
                         <hr>
@@ -40,8 +39,8 @@
                                                         <td>
                                                             <div class="btn-group">
                                                                
-                                                                <a href="<?php echo base_url()?>00_Menu/cReg_Leyes/edit/<?php echo $regley->pk_Datos_Ley;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                                <a href="<?php echo base_url();?>00_Menu/cReg_Leyes/delete/<?php echo $regley->pk_Datos_Ley;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>                                                            </div>
+                                                                <a href="<?php echo base_url()?>Menu/cReg_Leyes/edit/<?php echo $regley->pk_Datos_Ley;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                                <a href="<?php echo base_url();?>Menu/cReg_Leyes/delete/<?php echo $regley->pk_Datos_Ley;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>                                                            </div>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach;?>

@@ -35,22 +35,23 @@
                                         <th>Opciones</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Campo</td>
-                                            <td>Campo</td>
-                                            <td>Campo</td>
-                                            <td>Campo</td>
-                                            <td>Campo</td>
-                                            <td>Campo</td>
-                                            <td>
-                                                <div class="btn-group">
-                                                    <a href="#" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                    <a href="#" class="btn btn-danger btn-trash"><span class="fa fa-remove"></span></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
+                                    <?php if(!empty($cGestion)):?>
+                                            <?php foreach($cGestion as $cGest):?>
+                                                <tr>
+                                                    <td><?php echo $cGest->pk_Gestionid;?></td>
+                                                    <td><?php echo $cGest->Num_Articulo;?></td>
+                                                    <td><?php echo $cGest->Tipo;?></td>
+                                                    <td><?php echo $cGest->Descripcion;?></td>
+                                                    <td><?php echo $cGest->UltReforma;?></td>
+                                                    <td><?php echo $cGest->Estatus;?></td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <a href="<?php echo base_url();?>Menu/cGestion/edit/<?php echo $cGest->pk_Gestionid;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                            <a href="<?php echo base_url();?>Menu/cGestion/delete/<?php echo $cGest->pk_Gestionid;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach;?>
+                                        <?php endif;?>
                                     </tbody>
                                 </table>
                             </div>

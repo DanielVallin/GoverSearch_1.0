@@ -9,6 +9,8 @@ class cGrupo_Leyes extends CI_Controller {
 		$this->load->library('export_excel');
 		//Aside Barra lateral.
 		$this->load->model("Grupo_Leyes_Model");
+		$this->load->model("Reg_Leyes_Model");
+		
 	}
 
 	public function index()
@@ -25,14 +27,14 @@ class cGrupo_Leyes extends CI_Controller {
 		$this->load->view("layouts/footer");
 	}
 
-	public function lista($Nombre_de_Grupo)
+	public function lista($pk_Gpo_Ley)
 	{
 
 		$aside = array(
 			'cGrupos' => $this->Grupo_Leyes_Model->getGrupo_Model(),
 		);
 			$data = array(
-				'gpleyes' =>$this->Grupo_Leyes_Model->getGrupo_ModelCat($Nombre_de_Grupo)
+				'gpleyes' =>$this->Reg_Leyes_Model->getRegLey($pk_Gpo_Ley)
 		);
 		$this->load->view("layouts/header");
 		$this->load->view("layouts/aside", $aside);
