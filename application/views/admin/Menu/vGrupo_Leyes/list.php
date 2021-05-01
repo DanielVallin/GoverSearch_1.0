@@ -34,10 +34,19 @@
                                         <?php if(!empty($gpleyes)):?>
                                             <?php foreach($gpleyes as $gpley):?>
                                                 <tr>
-                                                    <td><?php echo $gpley->Nombre_de_Ley;?></td>
-                                                    <td><?php echo $gpley->grupos;?></td>
+                                                    <td><?php echo $gpley->Nombre_de_Grupo;?></td>
+                                                    <td>
+                                                        <?php if($gpley->Estado == 0): ?>
+                                                            <span class="fa fa-times"> Inactivo</span>
+                                                        <?php else:?>
+                                                            <span class="fa fa-check"> Activo</span>
+                                                        <?php endif;?>
+                                                    </td>
                                                     <td>
                                                         <div class="btn-group">
+                                                            <button type="button" class="btn btn-info btn-view-grupos" data-toggle="modal" data-target="#modal-default" value="<?php echo $dataClave;?>">
+                                                                <span class="fa fa-search"></span>
+                                                            </button>
                                                             <a href="#" class="btn btn-warning btn-flat"><span class="fa fa-angle-double-right "></span></a>
                                                         </div>
                                                     </td>

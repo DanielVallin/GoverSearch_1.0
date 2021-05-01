@@ -16,40 +16,133 @@
                         <!-- AQUI INICIA EL BODY -->
                         <hr>
                         <div class="row">
-                                <div class="col-md-12">
-                                    <table id="example" class="table table-bordered table-hover">
-                                        <thead>
-                                        <tr>
-                                            <th>Ley</th>
-                                            <th>Titulo</th>
-                                            <th>seccion</th>
-                                            <th>Articulo</th>
-                                            <th>descripcion</th>
-                                            <th>Tipo</th>
-                                            <th>Titulo</th>
-                                            <th>Nom. Articulo</th>
-                                            <th>Consultas</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php if(!empty($terminos)):?>
-                                                <?php foreach($terminos as $termino):?>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-                                                            <div class="btn-group"> 
-                                                                <a href="<?php echo base_url(); ?>Menu/cBuscador/consulta" class="btn btn-warning btn-flat"><span class="fa fa-angle-double-right "></span></a>
-                                                                <a href="<?php echo base_url(); ?>Menu/cBuscador" class="btn btn-danger btn-flat"><span class="fa fa-file-pdf-o "></span></a>                                                           
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                <?php endforeach;?>
-                                            <?php endif;?>
-                                        </tbody>
-                                    </table>
+                                <div class="col-md-3">
+                                    <div class="form-group has-feedback">
+                                        <label for="Ley_pk">Ley:</label>
+                                        <select name="Ley_pk" id="Ley_pk" class="form-control chosen">
+                                            <?php foreach($regleyes as $regley):?>
+                                                <option value="<?php echo $regley->pk_Datos_Ley;?>"><?php echo $regley->Nombre_de_Ley;?></option>
+                                            <?php endforeach;?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Capitulo">Fecha de Públicacion:</label>
+                                            <input type="date" class="form-control" id="Capitulo" name="Capitulo">
+                                            <span class="fa fa-bookmark form-control-feedback"></span>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Capitulo">Fecha de Ultima Reforma: </label>
+                                            <input type="date" class="form-control" id="Capitulo" name="Capitulo">
+                                            <span class="fa fa-bookmark form-control-feedback"></span>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Capitulo">Fecha de Entrada en Vigor: </label>
+                                            <input type="date" class="form-control" id="Capitulo" name="Capitulo">
+                                            <span class="fa fa-bookmark form-control-feedback"></span>
+                                    </div>
+                                    <div  class="form-group has-feedback">
+                                        <label for="Ley_pk">Estado de Entrega:</label>
+                                        <select name="Ley_pk" id="Ley_pk" class="form-control chosen">
+                                           
+                                                <option value="Vigente">Vigente</option>
+                                                <option value="Derogada">Derogada</option>
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Capitulo">Objeto de la Ley: </label>
+                                            <input type="text" class="form-control" id="Capitulo" name="Capitulo">
+                                            <span class="fa fa-bookmark form-control-feedback"></span>
+                                    </div>
+                                    <div  class="form-group has-feedback">
+                                        <label for="Ley_pk">Tipo de Ley:</label>
+                                        <select name="Ley_pk" id="Ley_pk" class="form-control chosen">
+                                           
+                                                <option value="Federal">Federal</option>
+                                                <option value="Estatal">Estatal</option>
+                                                <option value="General">General</option>
+                                            
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <a href="<?php echo base_url(); ?>" class="btn btn-primary">Continuar</a>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-9">
+                                    <div>
+                                        <a href="<?php echo base_url(); ?>" class="btn btn-primary">Importar</a>
+                                        <a href="<?php echo base_url(); ?>" class="btn btn-primary">Agregar Articulo/s</a>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Capitulo">Numero de Articulo: </label>
+                                            <input type="text" class="form-control" id="Capitulo" name="Capitulo">
+                                            <span class="fa fa-bookmark form-control-feedback"></span>
+                                    </div>
+                                    <div  class="form-group has-feedback">
+                                        <label for="Ley_pk">Estado de Entrega:</label>
+                                        <select name="Ley_pk" id="Ley_pk" class="form-control chosen">
+                                           
+                                                <option value="Vigente">Normal</option>
+                                                <option value="Derogada">Transitorio</option>
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Capitulo">Titulo: </label>
+                                            <input type="text" class="form-control" id="Capitulo" name="Capitulo">
+                                            <span class="fa fa-bookmark form-control-feedback"></span>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Capitulo">Nombre del Titulo: </label>
+                                            <input type="text" class="form-control" id="Capitulo" name="Capitulo">
+                                            <span class="fa fa-bookmark form-control-feedback"></span>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Capitulo">Capitulo: </label>
+                                            <input type="text" class="form-control" id="Capitulo" name="Capitulo">
+                                            <span class="fa fa-bookmark form-control-feedback"></span>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Capitulo">Nombre del Capitulo: </label>
+                                            <input type="text" class="form-control" id="Capitulo" name="Capitulo">
+                                            <span class="fa fa-bookmark form-control-feedback"></span>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Capitulo">Fraccion: </label>
+                                            <input type="text" class="form-control" id="Capitulo" name="Capitulo">
+                                            <span class="fa fa-bookmark form-control-feedback"></span>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Capitulo">Descripción del Articulo: </label>
+                                            <input type="text" class="form-control" id="Capitulo" name="Capitulo">
+                                            <span class="fa fa-bookmark form-control-feedback"></span>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Capitulo">Ultima reforma: </label>
+                                            <input type="date" class="form-control" id="Capitulo" name="Capitulo">
+                                            <span class="fa fa-bookmark form-control-feedback"></span>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <label for="Capitulo">Concepto de la Reforma: </label>
+                                            <input type="text" class="form-control" id="Capitulo" name="Capitulo">
+                                            <span class="fa fa-bookmark form-control-feedback"></span>
+                                    </div>
+                                    <div  class="form-group has-feedback">
+                                        <label for="Ley_pk">Estado de Entrega:</label>
+                                        <select name="Ley_pk" id="Ley_pk" class="form-control chosen">
+                                           
+                                                <option value="Vigente">Activo</option>
+                                                <option value="Derogada">Derogada</option>
+                                            
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <a href="<?php echo base_url(); ?>" class="btn btn-primary"> Exportar PDF</a>
+                                    </div>
+
                                 </div>
                             </div>
                         <!-- AQUI INICIA EL BODY -->

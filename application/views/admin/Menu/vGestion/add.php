@@ -62,6 +62,11 @@
                                         <option value="General">General</option>
                                 </select>
                             </div>
+                            <div class="form-group has-feedback">
+                                    <label for="Capitulo">Introduccion:</label>
+                                        <input type="text" class="form-control" id="Capitulo" name="Capitulo">
+                                        <span class="fa fa-bookmark form-control-feedback"></span>
+                                </div>
                             <div class="form-group">
                                 <a href="#" class="btn btn-primary btn-flat"><span class="fa fa-plus"> continuar</span></a>
                             </div>
@@ -69,6 +74,7 @@
                                 <a href="#" class="btn btn-primary btn-flat"><span class="fa fa-plus"> Importar</span></a>
                                 <a href="#" class="btn btn-primary btn-flat"><span class="fa fa-plus"> Agregar Art</span></a>
                             </div>
+                            
 
                         </div>
 
@@ -110,6 +116,11 @@
                                 <div class="form-group has-feedback">
                                     <label for="Fraccion">Fraccion:</label>
                                         <input type="text" class="form-control" id="Fraccion" name="Fraccion">
+                                        <span class="fa fa-bookmark form-control-feedback"></span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label for="Capitulo">Parrafo:</label>
+                                        <input type="text" class="form-control" id="Capitulo" name="Capitulo">
                                         <span class="fa fa-bookmark form-control-feedback"></span>
                                 </div>
                                 <div class="form-group has-feedback">

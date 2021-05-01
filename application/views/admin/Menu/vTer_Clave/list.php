@@ -29,6 +29,7 @@
                                             <th>Ley</th>
                                             <th>Artículo</th>
                                             <th>Descripcion</th>
+                                            <th>Estado</th>
                                             <th>Opciones</th>
                                             </tr>
                                         </thead>
@@ -40,6 +41,13 @@
                                                         <td><?php echo $termino->ley;?></td>
                                                         <td><?php echo $termino->Articulo;?></td>
                                                         <td><?php echo $termino->Descripcion;?></td>
+                                                        <td>
+                                                            <?php if($termino->Estado == 0): ?>
+                                                                <span class="fa fa-times"> Inactivo</span>
+                                                            <?php else:?>
+                                                                <span class="fa fa-check"> Activo</span>
+                                                            <?php endif;?>
+                                                        </td>
                                                         <td>
                                                             <div class="btn-group">
                                                                 

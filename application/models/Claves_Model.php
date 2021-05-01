@@ -6,8 +6,11 @@ class Claves_Model extends CI_Model {
     public function getClave(){
         $this->db->select("c.* ,u.Nombre as Nombre");
         $this->db->select("c.* ,u.Apellidos as Apellidos");
+
         $this->db->from("tbl_claves c");
+        
         $this->db->join("tbl_usuarios u","c.Usuario_pk = u.pk_Usuario");
+        
         $this->db->where("c.Estado","1");
         $resultados = $this->db->get();
         return $resultados->result();

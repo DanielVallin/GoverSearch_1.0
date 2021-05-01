@@ -56,7 +56,7 @@ $(document).ready(function () {
         $("#modal-default .modal-body").html(html);
     });
 
-    $(".btn-view-grupos").on("click", function(){
+    $(".btn-view-claves").on("click", function(){
         var grupos = $(this).val(); 
         //alert(cliente);
         var infogrupos = grupos.split("*");

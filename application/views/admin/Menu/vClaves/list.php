@@ -28,6 +28,7 @@
                                                 <th>Termino Clave</th>
                                                 <th>¿Quién lo Registro?</th>
                                                 <th>Fecha de Alta</th>
+                                                <th>Estado</th>
                                                 <th>Opciones</th>
                                             </tr>
                                         </thead>
@@ -39,7 +40,13 @@
                                                         <td><?php echo $cClave->Nombre; echo " "; echo $cClave->Apellidos;?></td>
                                                         <td><?php echo $cClave->Fecha_Alta;?></td>
                                                             <?php $dataClave = $cClave->Termino_Clave."*".$cClave->Nombre."*".$cClave->Fecha_Alta; ?>
-                                                        
+                                                        <td>
+                                                            <?php if($cClave->Estado == 0): ?>
+                                                                <span class="fa fa-times"> Inactivo</span>
+                                                            <?php else:?>
+                                                                <span class="fa fa-check"> Activo</span>
+                                                            <?php endif;?>
+                                                        </td>
                                                         <td>
                                                             <div class="btn-group">
                                                             <button type="button" class="btn btn-info btn-view-claves" data-toggle="modal" data-target="#modal-default" value="<?php echo $dataClave;?>">

@@ -13,13 +13,13 @@ class Permisos_Model extends CI_Model {
         return $resultados->result();
     }
 
-    public function 4this-getMenus(){
-        $resultados = $this->db->get("menus");
+    public function getMenus(){
+        $resultados = $this->db->get("tbl_menus");
         return $resultados->result();
     }
 
     public function save($data){
-        return $this->db->insert("tbl_claves",$data);
+        return $this->db->insert("tbl_permisos",$data);
     }
 
     public function getClaveid($pk_Ter_Clave){

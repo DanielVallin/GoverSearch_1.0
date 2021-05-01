@@ -41,12 +41,17 @@ class cBuscador extends CI_Controller {
 		$aside = array(
 			'cGrupos' => $this->Grupo_Leyes_Model->getGrupo_Model()
 		);
+		$data = array(
+			'regleyes' =>$this->Reg_Leyes_Model->getRegLey(),
+		);
 		$this->load->view("layouts/header");
 		$this->load->view("layouts/aside", $aside);
-		$this->load->view("admin/Menu/vBuscador/consulta");
+		$this->load->view("admin/Menu/vBuscador/consulta", $data);
 		$this->load->view("layouts/footer");
 
 	}
+
+	
 
 	
 }

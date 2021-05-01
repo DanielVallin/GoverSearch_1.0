@@ -27,6 +27,7 @@
                                     <tr>
                                         <th>Nombre de la Ley</th>
                                         <th>Grupo</th>                                        
+                                        <th>Estado</th>
                                         <th>Opciones</th>
                                         </tr>
                                     </thead>
@@ -35,7 +36,14 @@
                                     <?php foreach($regleyes as $regley):?>
                                         <tr>
                                             <td><?php echo $regley->Nombre_de_Ley; ?></td>
-                                            <td><?php echo $regley->Grupo_pk;?></td>
+                                            <td><?php echo $regley->grupos;?></td>
+                                            <td>
+                                                <?php if($regley->Estado == 0): ?>
+                                                    <span class="fa fa-times"> Inactivo</span>
+                                                <?php else:?>
+                                                    <span class="fa fa-check"> Activo</span>
+                                                <?php endif;?>
+                                            </td>
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="<?php echo base_url()?>Menu/cPagos/edit/<?php echo $regley->pk_Datos_Ley;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>

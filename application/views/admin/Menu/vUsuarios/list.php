@@ -42,7 +42,13 @@
                                             <td><?php echo $usuario->Correo;?></td>
                                             <td><?php echo $usuario->Fecha_Alta;?></td>
                                             <td><?php echo $usuario->rol;?></td>
-                                            <td><?php echo $usuario->rol;?></td>
+                                            <td>
+                                                <?php if($usuario->Estado == 0): ?>
+                                                    <span class="fa fa-times"> Inactivo</span>
+                                                <?php else:?>
+                                                    <span class="fa fa-check"> Activo</span>
+                                                <?php endif;?>
+                                            </td>
                                             <td>
                                                 <div class="btn-group">
                                                    

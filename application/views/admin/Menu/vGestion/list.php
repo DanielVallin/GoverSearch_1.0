@@ -32,6 +32,7 @@
                                         <th>Descripcion del Articulo</th>
                                         <th>Ultima Reforma</th>
                                         <th>Status</th>
+                                        <th>Estado</th>
                                         <th>Opciones</th>
                                         </tr>
                                     </thead>
@@ -44,6 +45,13 @@
                                                     <td><?php echo $cGest->Descripcion;?></td>
                                                     <td><?php echo $cGest->UltReforma;?></td>
                                                     <td><?php echo $cGest->Estatus;?></td>
+                                                    <td>
+                                                            <?php if($cGest->Estado == 0): ?>
+                                                                <span class="fa fa-times"> Inactivo</span>
+                                                            <?php else:?>
+                                                                <span class="fa fa-check"> Activo</span>
+                                                            <?php endif;?>
+                                                        </td>
                                                     <td>
                                                         <div class="btn-group">
                                                             <a href="<?php echo base_url();?>Menu/cGestion/edit/<?php echo $cGest->pk_Gestionid;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>

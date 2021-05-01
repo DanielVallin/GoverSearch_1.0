@@ -34,35 +34,35 @@
                                             <?php if(!empty($permisos)):?>
                                                 <?php foreach($permisos as $permiso):?>
                                                     <tr>
-                                                        <td><?php echo $termino->Menu;?></td>
-                                                        <td><?php echo $termino->Rol;?></td>
+                                                        <td><?php echo $permiso->Menu;?></td>
+                                                        <td><?php echo $permiso->Rol;?></td>
                                                         
                                                         <td>
                                                             <?php if($permiso->read == 0): ?>
                                                                 <span class="fa fa-times"></span>
                                                             <?php else:?>
-                                                                <span class="fa fa-ckeck"></span>
+                                                                <span class="fa fa-check"></span>
                                                             <?php endif;?>
                                                         </td>
                                                         <td>
-                                                            <?php if($permiso->inser == 0): ?>
+                                                            <?php if($permiso->insert == 0): ?>
                                                                 <span class="fa fa-times"></span>
                                                             <?php else:?>
-                                                                <span class="fa fa-ckeck"></span>
+                                                                <span class="fa fa-check"></span>
                                                             <?php endif;?>
                                                         </td>
                                                         <td>
                                                             <?php if($permiso->update == 0): ?>
                                                                 <span class="fa fa-times"></span>
                                                             <?php else:?>
-                                                                <span class="fa fa-ckeck"></span>
+                                                                <span class="fa fa-check"></span>
                                                             <?php endif;?>
                                                         </td>
                                                         <td>
                                                             <?php if($permiso->delete == 0): ?>
                                                                 <span class="fa fa-times"></span>
                                                             <?php else:?>
-                                                                <span class="fa fa-ckeck"></span>
+                                                                <span class="fa fa-check"></span>
                                                             <?php endif;?>
                                                         </td>
                                                         <td>
