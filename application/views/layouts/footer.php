@@ -61,6 +61,18 @@ $(document).ready(function () {
             }
         }); 
     });
+    $(".btn-view-buscador").on("click", function(){
+        var pk_Datos_ley = $(this).val();
+        
+        $.ajax({
+            url: base_url + "Menu/cBuscador/view/" + pk_Datos_ley,
+            type: "POST",
+            success: function(resp){
+                $("#modal-default .modal-body").html(resp);
+                    //alert(resp);
+            }
+        }); 
+    });
 
     
 

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Backend_Model extends CI_Model {
+class Backend_model extends CI_Model {
 
     public function getID($link){
         $this->db->like("link", $link);

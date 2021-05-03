@@ -8,6 +8,7 @@ class cBuscador extends CI_Controller {
 		$this->load->model("Ter_Clave_Model");
 		//Aside Barra lateral.
 		$this->load->model("Grupo_Leyes_Model");
+		
 
 		$this->load->model("Claves_Model");
 		$this->load->model("Reg_Leyes_Model");
@@ -15,12 +16,15 @@ class cBuscador extends CI_Controller {
 
 	public function index()
 	{
+		//Llamar boton
 		$clave = $this->input->post("clave");
+		//Llamar boton para busqueda.
 		if($this->input->post("buscar")){
-			$clavename = $this->Ter_Clave_Model->getTerminobyClave($clave);
-		}else{
-			$clavename = $this->Ter_Clave_Model->getTermino();
-		}
+				$clavename = $this->Ter_Clave_Model->getTerminobyClave($clave);
+			}else{
+				$clavename = $this->Ter_Clave_Model->getTermino();
+			}
+		//Llamar variables de otras tablas
 		$aside = array(
 			'cGrupos' => $this->Grupo_Leyes_Model->getGrupo_Model()
 		);
@@ -36,19 +40,11 @@ class cBuscador extends CI_Controller {
 
 	}
 
-	public function consulta()
-	{
-		$aside = array(
-			'cGrupos' => $this->Grupo_Leyes_Model->getGrupo_Model()
-		);
+	public function view($pk_Datos_ley){
 		$data = array(
-			'regleyes' =>$this->Reg_Leyes_Model->getRegLey(),
+			'termino' => $this->Ter_Clave_Model->getTerminoid($pk_Datos_ley)
 		);
-		$this->load->view("layouts/header");
-		$this->load->view("layouts/aside", $aside);
-		$this->load->view("admin/Menu/vBuscador/consulta", $data);
-		$this->load->view("layouts/footer");
-
+		$this->load->view("admin/Menu/vBuscador/view",$data); 
 	}
 
 	

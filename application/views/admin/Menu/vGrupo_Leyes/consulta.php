@@ -60,21 +60,17 @@
                                            
                                                 <option value="Federal">Federal</option>
                                                 <option value="Estatal">Estatal</option>
-                                                <option value="General">General</option>
-                                            
+                                                <option value="General">General</option>             
                                         </select>
                                     </div>
                                     <div>
-                                        <a href="<?php echo base_url(); ?>" class="btn btn-primary">Continuar</a>
-                                    </div>
+                                    <a href="<?php echo base_url(); ?>" class="btn btn-primary">Volver</a>
                                 </div>
-
+                                </div>
+                                
 
                                 <div class="col-md-9">
-                                    <div>
-                                        <a href="<?php echo base_url(); ?>" class="btn btn-primary">Importar</a>
-                                        <a href="<?php echo base_url(); ?>" class="btn btn-primary">Agregar Articulo/s</a>
-                                    </div>
+                                    
                                     <div class="form-group has-feedback">
                                         <label for="Capitulo">Numero de Articulo: </label>
                                             <input type="text" class="form-control" id="Capitulo" name="Capitulo">
@@ -83,10 +79,8 @@
                                     <div  class="form-group has-feedback">
                                         <label for="Ley_pk">Estado de Entrega:</label>
                                         <select name="Ley_pk" id="Ley_pk" class="form-control chosen">
-                                           
                                                 <option value="Vigente">Normal</option>
                                                 <option value="Derogada">Transitorio</option>
-                                            
                                         </select>
                                     </div>
                                     <div class="form-group has-feedback">
@@ -138,11 +132,6 @@
                                             
                                         </select>
                                     </div>
-
-                                    <div>
-                                        <a href="<?php echo base_url(); ?>" class="btn btn-primary"> Exportar PDF</a>
-                                    </div>
-
                                 </div>
                             </div>
                         <!-- AQUI INICIA EL BODY -->

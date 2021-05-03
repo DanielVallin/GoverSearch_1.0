@@ -80,13 +80,6 @@
                                         <?php endif; ?>
 
                                     <?php endforeach;?>        
-
-
-
-                                    <?php foreach($roles as $rol):?>
-                                        <option value="<?php echo $rol->pk_Rol?>"><?php echo $rol->Nombre_Rol;?></option>
-                                    <?php endforeach;?>
-
                                 </select>
                             </div>
 

@@ -19,7 +19,7 @@
                                     <small class="text-muted">Nombre de Usuario </small>
                                     <div class="input-group margin-bottom-sm">
                                         <span class="input-group-addon"><i class="fa fa-credit-card fa-fw" aria-hidden="true"></i></span>
-                                        <input class="form-control" type="text" placeholder="Nombre">
+                                        <input class="form-control" type="text" placeholder="Nombre" value="<?php echo $this->session->userdata("nombre")?>">
                                     </div>      
 
                                     <small class="text-muted">Apellidos </small>

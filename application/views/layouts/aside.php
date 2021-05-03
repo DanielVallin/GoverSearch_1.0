@@ -37,7 +37,7 @@
                         </a>
                             <ul class="treeview-menu">
                                 <?php foreach($cGrupos as $cGrupo):?>
-                                    <li><a href="<?php echo base_url()?>Menu/cGrupo_Leyes/lista/<?php echo $cGrupo->pk_Gpo_Ley;?>" name="grupo" value="<?php echo $cGrupo->pk_Gpo_Ley;?>"><span><?php echo $cGrupo->Nombre_de_Grupo;?></span></a></li>
+                                    <li><a href="<?php echo base_url()?>Menu/cGrupo_Leyes/lista/<?php echo $cGrupo->pk_Gpo_Ley;?>" name="grupo" ><span><?php echo $cGrupo->Nombre_de_Grupo;?></span></a></li>
                                 <?php endforeach;?>
                                 
                             </ul>
@@ -102,7 +102,7 @@
                      <li class="treeview">
                         <a href="#">
                             <i class="fa fa-user"></i> <span>Cuenta</span>
-                            <span class="pull-right-container">
+                                    <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>

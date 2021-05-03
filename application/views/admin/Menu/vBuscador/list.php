@@ -25,6 +25,9 @@
                                         <input type="submit" name="buscar" value="Buscar" class="btn btn-primary">
                                         <a href="<?php echo base_url(); ?>Menu/cBuscador" class="btn btn-danger">Restablecer</a>
                                     </div>
+                                    <div class="col-md-3">
+                                        <a href="<?php echo base_url(); ?>Menu/cBuscador" class="btn btn-danger">Restablecer</a>
+                                    </div>
                                 </div>
                             </form>
                         <hr>
@@ -33,11 +36,11 @@
                                     <table id="example1" class="table table-bordered table-hover">
                                         <thead>
                                         <tr>
-                                            <th>Ter. Clave</th>
-                                            <th>Ley</th>
-                                            <th>Artículo</th>
-                                            <th>Descripcion</th>
-                                            <th>Consultas</th>
+                                            <th class="col-md-1">Ter. Clave</th>
+                                            <th class="col-md-1">Ley</th>
+                                            <th class="col-md-2">Artículo</th>
+                                            <th class="col-md-7">Descripcion</th>
+                                            <th class="col-md-1">Consultas</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -49,9 +52,26 @@
                                                         <td><?php echo $termino->Articulo;?></td>
                                                         <td><?php echo $termino->Descripcion;?></td>
                                                         <td>
-                                                            <div class="btn-group"> 
-                                                                <a href="<?php echo base_url(); ?>Menu/cBuscador/consulta" class="btn btn-warning btn-flat"><span class="fa fa-angle-double-right "></span></a>
-                                                                <a href="<?php echo base_url(); ?>Menu/cBuscador" class="btn btn-danger btn-flat"><span class="fa fa-file-pdf-o "></span></a>                                                           
+                                                            <div class="btn-group">    
+                                                                <a class="btn btn-primary" data-toggle="collapse" href="#<?php echo $termino->pk_Datos_ley ;?>" role="button" aria-expanded="false" aria-controls="collapseExample">                                                                    
+                                                                    <span class="pull-right-container">
+                                                                        <i class="fa fa-angle-left pull-right"></i>
+                                                                    </span>
+                                                                </a> 
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td colspan="5">
+                                                            <div class="collapse" id="<?php echo $termino->pk_Datos_ley ;?>">
+                                                                <div class="card card-body">
+                                                                    Inromacion
+                                                                    <hr>
+                                                                    <?php echo $termino->termino;?>
+                                                                    <?php echo $termino->ley;?>
+                                                                    <?php echo $termino->Articulo;?>
+                                                                    <?php echo $termino->Descripcion;?>
+                                                                </div>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -70,3 +90,26 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
+
+
+
+        <div class="modal fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Informacion</h4>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

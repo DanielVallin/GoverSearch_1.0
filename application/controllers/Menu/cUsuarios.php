@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class cUsuarios extends CI_Controller {
 
-	private $permisos;
 
 	public function __construct(){
 		parent::__construct();
@@ -11,7 +10,6 @@ class cUsuarios extends CI_Controller {
 		//Aside Barra lateral.
 		$this->load->model("Grupo_Leyes_Model");
 
-		$this->permisos = $this->backend_lib->control();
 
 		$this->load->model("User_Model");
 		$this->load->model("Roles_Model");
