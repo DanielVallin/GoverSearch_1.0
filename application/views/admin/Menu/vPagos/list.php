@@ -41,11 +41,13 @@
                                 <table id="example" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Usuario</th>
-                                        <th>Descripción</th>
-                                        <th>Fecha de Pago</th>
-                                        <th>Importe</th>
                                         <th>Folio</th>
+                                        <th>Fecha de Pago</th>
+                                        <th>Descripción</th>
+                                        <th>Importe</th>
+
                                         <th>Opciones</th>
                                         </tr>
                                     </thead>
@@ -53,11 +55,13 @@
                                     <?php if(!empty($pagos)):?>
                                     <?php foreach($pagos as $pago):?>
                                         <tr>
+                                            <td><?php echo $pago->pk_Pago;?></td>
                                             <td><?php echo $pago->Nombre; echo " "; echo $pago->Apellidos; ?></td>
-                                            <td><?php echo $pago->Descripcion;?></td>
-                                            <td><?php echo $pago->Fecha_Pago;?></td>
-                                            <td><?php echo $pago->Importe;?></td>
                                             <td><?php echo $pago->Folio_Pago;?></td>
+                                            <td><?php echo $pago->Fecha_Pago;?></td>
+                                            <td><?php echo $pago->Descripcion;?></td>
+                                            <td><?php echo $pago->Importe;?></td>
+
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="<?php echo base_url()?>Menu/cPagos/edit/<?php echo $pago->pk_Pago;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>

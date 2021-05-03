@@ -22,15 +22,20 @@ class Permisos_Model extends CI_Model {
         return $this->db->insert("tbl_permisos",$data);
     }
 
-    public function getClaveid($pk_Ter_Clave){
-		$this->db->where("pk_Ter_Clave",$pk_Ter_Clave);
-		$resultado = $this->db->get("tbl_claves");
+    public function getPermiso($pk_Permiso){
+		$this->db->where("pk_Permiso",$pk_Permiso);
+		$resultado = $this->db->get("tbl_permisos");
 		return $resultado->row();
 	}
 
-    public function update($pk_Ter_Clave, $data){
-        $this->db->where("pk_Ter_Clave", $pk_Ter_Clave);
-        return $this->db->update("tbl_claves", $data);
+    public function update($pk_Permiso, $data){
+        $this->db->where("pk_Permiso", $pk_Permiso);
+        return $this->db->update("tbl_permisos", $data);
+    }
+
+    public function delete($pk_Permiso){
+        $this->db->where("pk_Permiso", $pk_Permiso);
+        return $this->db->delete("tbl_permisos");
     }
 
 

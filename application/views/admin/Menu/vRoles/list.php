@@ -25,8 +25,9 @@
                                     <table id="example1" class="table table-bordered table-hover">
                                         <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Rol</th>
-                                            <th>Descripción</th>
+                                            <th>Estatus</th>
                                             <th>Opciones</th>
                                             </tr>
                                         </thead>
@@ -34,9 +35,15 @@
                                             <?php if(!empty($roles)):?>
                                                 <?php foreach($roles as $rol):?>
                                                     <tr>
+                                                        <td><?php echo $rol->pk_Rol;?></td>
                                                         <td><?php echo $rol->Nombre_Rol;?></td>
-                                                        <td><?php echo $rol->Descripcion;?></td>
-                                                        <?php $datarol = $rol->Nombre_Rol."*".$rol->Descripcion; ?>
+                                                        <td>
+                                                        <?php if($rol->Estado == 0): ?>
+                                                            <span class="fa fa-times"> Inactivo</span>
+                                                        <?php else:?>
+                                                            <span class="fa fa-check"> Activo</span>
+                                                        <?php endif;?>
+                                                    </td>
                                                         <td>
                                                             <div class="btn-group">
                                                                 <a href="<?php echo base_url()?>Menu/cRoles/edit/<?php echo $rol->pk_Rol;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>

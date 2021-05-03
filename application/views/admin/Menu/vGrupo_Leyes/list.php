@@ -25,8 +25,9 @@
                                 <table id="example1" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>ID</th>
                                         <th>Nombre del Grupo</th>
+                                        <th>Estatus</th>
                                         <th>Opciones</th>
                                         </tr>
                                     </thead>
@@ -34,6 +35,7 @@
                                         <?php if(!empty($gpleyes)):?>
                                             <?php foreach($gpleyes as $gpley):?>
                                                 <tr>
+                                                    <td><?php echo $gpley->pk_Gpo_Ley ;?></td>
                                                     <td><?php echo $gpley->Nombre_de_Grupo;?></td>
                                                     <td>
                                                         <?php if($gpley->Estado == 0): ?>
@@ -44,7 +46,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group">
-                                                            <button type="button" class="btn btn-info btn-view-grupos" data-toggle="modal" data-target="#modal-default" value="<?php echo $dataClave;?>">
+                                                            <button type="button" class="btn btn-info btn-view-grupos" data-toggle="modal" data-target="#modal-default" >
                                                                 <span class="fa fa-search"></span>
                                                             </button>
                                                             <a href="#" class="btn btn-warning btn-flat"><span class="fa fa-angle-double-right "></span></a>

@@ -22,10 +22,11 @@ class User_Model extends CI_Model {
         return $resultado->row();
     }
 
-    public function update($pk_Usuario, $data){
-        $this->db->where("pk_Usuario", $pk_Usuario);
-        return $this->db->update("tbl_usuarios",$data);
-    }
+
+    public function update($pk_Usuario,$data){
+		$this->db->where("pk_Usuario",$pk_Usuario);
+		return $this->db->update("tbl_usuarios",$data);
+	}
 
 }
 

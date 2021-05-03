@@ -3,13 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class cUsuarios extends CI_Controller {
 
+	private $permisos;
+
 	public function __construct(){
 		parent::__construct();
-		$this->load->model("User_Model");
-		$this->load->model("Roles_Model");
 
 		//Aside Barra lateral.
 		$this->load->model("Grupo_Leyes_Model");
+
+		$this->permisos = $this->backend_lib->control();
+
+		$this->load->model("User_Model");
+		$this->load->model("Roles_Model");
 	}
 
 	public function index()
@@ -20,20 +25,20 @@ class cUsuarios extends CI_Controller {
 		$data = array(
 			 'usuarios' =>$this->User_Model->getUsuarios()
 		);
-		$this->load->view("layouts/header");
-		$this->load->view("layouts/aside", $aside);
-		$this->load->view("admin/Menu/vUsuarios/list",$data);
-		$this->load->view("layouts/footer");
+			$this->load->view("layouts/header");
+			$this->load->view("layouts/aside", $aside);
+			$this->load->view("admin/Menu/vUsuarios/list",$data);
+			$this->load->view("layouts/footer");
 	}
 
 	public function add(){
 		$data = array(
 			'roles' =>$this->Roles_Model->getRoles()
 	   );
-	   $this->load->view("layouts/header");
-	   $this->load->view("layouts/aside");
-	   $this->load->view("admin/Menu/vUsuarios/add", $data);
-	   $this->load->view("layouts/footer");
+		$this->load->view("layouts/header");
+		$this->load->view("layouts/aside");
+		$this->load->view("admin/Menu/vUsuarios/add", $data);
+		$this->load->view("layouts/footer");
 	}
 
 	public function store(){
@@ -55,42 +60,44 @@ class cUsuarios extends CI_Controller {
 		$this->form_validation->set_rules("Fecha_Alta","Fecha_Alta","required");
 		$this->form_validation->set_rules("User_Rol_pk","User_Rol_pk","required");
 
-		if ($this->form_validation->run()==TRUE) {
-			$data  	= array(
-				'Nombre' => $Nombre, 
-				'Apellidos' => $Apellidos,
-				'Telefono' => $Telefono,
-				'Correo' => $Correo,
-				'Usuario' => $Usuario,
-				'Contrasena' => sha1($Contrasena),
-				'Fecha_Alta' => $Fecha_Alta,
-				'User_Rol_pk' => $User_Rol_pk,
-				'Estado' => "1"
-			);
-			if ($this->User_Model->save($data)) {
-				redirect(base_url()."Menu/cUsuarios");
+			if ($this->form_validation->run()==TRUE) {
+				$data  	= array(
+					'Nombre' => $Nombre, 
+					'Apellidos' => $Apellidos,
+					'Telefono' => $Telefono,
+					'Correo' => $Correo,
+					'Usuario' => $Usuario,
+					'Contrasena' => sha1($Contrasena),
+					'Fecha_Alta' => $Fecha_Alta,
+					'User_Rol_pk' => $User_Rol_pk,
+					'Estado' => "1"
+				);
+				if ($this->User_Model->save($data)) {
+					redirect(base_url()."Menu/cUsuarios");
+				}else{
+					$this->session->set_flashdata("error","No se pudo guardar la informacion");
+					redirect(base_url()."Menu/cUsuarios/add");
+				}
 			}else{
-				$this->session->set_flashdata("error","No se pudo guardar la informacion");
-				redirect(base_url()."Menu/cUsuarios/add");
-			}
-		}else{
-			$this->add();
-		}	
+				$this->add();
+			}	
 	}
 
 
-	public function edit($pk_Usuario){
+	public function edit($pk_Usuario)
+	{
 		$data = array(
 			'usuarios' =>$this->User_Model->getUsuario($pk_Usuario),
 			'roles' =>$this->Roles_Model->getRoles(),
 		);
 		$this->load->view("layouts/header");
-	   $this->load->view("layouts/aside");
-	   $this->load->view("admin/Menu/vUsuarios/edit", $data);
-	   $this->load->view("layouts/footer");
+		$this->load->view("layouts/aside");
+		$this->load->view("admin/Menu/vUsuarios/edit", $data);
+		$this->load->view("layouts/footer");
 	}
 
-	public function update(){
+	public function update()
+	{
 		$pk_Usuario 	= $this->input->post("pk_Usuario");
 		$Nombre 	= $this->input->post("Nombre");
 		$Apellidos 	= $this->input->post("Apellidos");
@@ -99,56 +106,61 @@ class cUsuarios extends CI_Controller {
 		$Usuario 	= $this->input->post("Usuario");
 		$Fecha_Alta = $this->input->post("Fecha_Alta");
 		$User_Rol_pk 	= $this->input->post("User_Rol_pk");
+
 			$usuarioactual = $this->User_Model->getUsuario($pk_Usuario);
 
-		if ($Correo == $usuarioactual->Correo) {
-			$is_unique = "";
-		}else{
-			$is_unique = "|is_unique[tbl_usuarios.Correo]";
-		}
-		if ($Usuario == $usuarioactual->Usuario) {
-			$is_unique = "";
-		}else{
-			$is_unique = "|is_unique[tbl_usuarios.Usuario]";
-		}
-
-		$this->form_validation->set_rules("Nombre","Nombre","required");
-		$this->form_validation->set_rules("Apellidos","Apellidos","required");
-		$this->form_validation->set_rules("Telefono","Telefono","required");
-		$this->form_validation->set_rules("Correo","Correo","required".$is_unique);
-		$this->form_validation->set_rules("Usuario","Usuario","required".$is_unique);
-		$this->form_validation->set_rules("Fecha_Alta","Fecha_Alta","required");
-		$this->form_validation->set_rules("User_Rol_pk","User_Rol_pk","required");
-
-		if ($this->form_validation->run()==TRUE) {
-			$data = array(
-				'pk_Usuario' => $pk_Usuario,
-				'Nombre' => $Nombre,
-				'Apellidos' => $Apellidos,
-				'Telefono' => $Telefono,
-				'Correo' => $Correo,
-				'Usuario' => $Usuario,
-				'Fecha_Alta' => $Fecha_Alta,
-				'User_Rol_pk' => $User_Rol_pk,
-			);
-			if($this->User_Model->update($pk_Usuario, $data)){
-				redirect(base_url()."Menu/cUsuarios");
+			if ($Correo == $usuarioactual->Correo) {
+				$is_unique = "";
 			}else{
-				$this->session->set_flashdata("error","No se pudo guardar la informacion");
-				redirect(base_url()."Menu/cUsuarios/edit/".$pk_Usuario);
+				$is_unique = "|is_unique[tbl_usuarios.Correo]";
 			}
-		}else{
-			$this->edit($pk_Usuario);
-		}
+			if ($Usuario == $usuarioactual->Usuario) {
+				$is_unique = "";
+			}else{
+				$is_unique = "|is_unique[tbl_usuarios.Usuario]";
+			}
+
+			$this->form_validation->set_rules("Nombre","Nombre","required");
+			$this->form_validation->set_rules("Apellidos","Apellidos","required");
+			$this->form_validation->set_rules("Telefono","Telefono","required");
+			$this->form_validation->set_rules("Correo","Correo","required".$is_unique);
+			$this->form_validation->set_rules("Usuario","Usuario","required".$is_unique);
+			$this->form_validation->set_rules("Fecha_Alta","Fecha_Alta","required");
+			$this->form_validation->set_rules("User_Rol_pk","User_Rol_pk","required");
+
+			if ($this->form_validation->run()==TRUE) {
+				$data = array(
+					'pk_Usuario' => $pk_Usuario,
+					'Nombre' => $Nombre,
+					'Apellidos' => $Apellidos,
+					'Telefono' => $Telefono,
+					'Correo' => $Correo,
+					'Usuario' => $Usuario,
+					'Fecha_Alta' => $Fecha_Alta,
+					'User_Rol_pk' => $User_Rol_pk,
+				);
+				if($this->User_Model->update($pk_Usuario, $data)){
+					redirect(base_url()."Menu/cUsuarios");
+				}else{
+					$this->session->set_flashdata("error","No se pudo guardar la informacion");
+					redirect(base_url()."Menu/cUsuarios/edit/".$pk_Usuario);
+				}
+			}else{
+				$this->edit($pk_Usuario);
+			}
 	}
 
-	public function delete($pk_Usuario){
+	public function view($pk_Usuario){
 		$data = array(
-			'Estado' => "0",
+			'usuario' => $this->User_Model->getUsuario($pk_Usuario),
 		);
-		$this->User_Model->update($pk_Usuario, $data);
-		echo "Menu/cUsuarios/list";
+		$this->load->view("admin/Menu/vUsuarios/view",$data);
 	}
-
-
+		public function delete($pk_Usuario){
+			$data  = array(
+				'Estado' => "0", 
+			);
+			$this->User_Model->update($pk_Usuario,$data);
+			echo "Menu/cUsuarios";
+		}
 }

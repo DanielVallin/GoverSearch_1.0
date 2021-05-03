@@ -31,7 +31,7 @@
                                         <th>Tipo Articulo</th>
                                         <th>Descripcion del Articulo</th>
                                         <th>Ultima Reforma</th>
-                                        <th>Status</th>
+                                        <th>Estatus</th>
                                         <th>Estado</th>
                                         <th>Opciones</th>
                                         </tr>

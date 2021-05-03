@@ -11,7 +11,6 @@ class Permisos extends CI_Controller {
 		$this->load->model("Permisos_Model");
         $this->load->model("User_Model");
 		$this->load->model("Roles_Model");
-		
 	}
 
 	public function index()
@@ -43,7 +42,6 @@ class Permisos extends CI_Controller {
 		$this->load->view("layouts/aside", $aside);
 		$this->load->view("admin/Menu/permisos/add", $data);
 		$this->load->view("layouts/footer");
-
 	}
 
 	public function store(){
@@ -70,42 +68,47 @@ class Permisos extends CI_Controller {
 			}
 	}
 
-	public function edit($pk_Ter_Clave)
-	{
-		$data = array(
-			'claves' => $this->Claves_Model->getClaveid($pk_Ter_Clave),
-			'usuarios' =>$this->User_Model->getUsuarios(),
-		);
+	public function edit($pk_Permiso){
+		$aside = array(
+			'cGrupos' =>$this->Grupo_Leyes_Model->getGrupo_Model(),
+        );
+        $data = array(
+			'roles' =>$this->Roles_Model->getRoles(),
+			'menus' =>$this->Permisos_Model->getMenus(),
+			'permiso' =>$this->Permisos_Model->getPermiso($pk_Permiso)
+        );
 		$this->load->view("layouts/header");
-		$this->load->view("layouts/aside");
-		$this->load->view("admin/Menu/vClaves/edit", $data);
+		$this->load->view("layouts/aside", $aside);
+		$this->load->view("admin/Menu/permisos/edit", $data);
 		$this->load->view("layouts/footer");
 	}
 
 	public function update(){
-		$pk_Permiso	= $this->input->post("pk_Permiso");
-		$rol_pk		= $this->input->post("rol_pk");
-		$menu_pk	= $this->input->post("menu_pk");
-		$read		= $this->input->post("read");
-		$insert		= $this->input->post("insert");
-		$update		= $this->input->post("update");
-		$delete		= $this->input->post("delete");
+		$pk_Permiso 	= $this->input->post("pk_Permiso");
+		$menu 	= $this->input->post("menu");
+		$rol 	= $this->input->post("rol");
+		$read 	= $this->input->post("read");
+		$insert 	= $this->input->post("insert");
+		$update 	= $this->input->post("update");
+		$delete 	= $this->input->post("delete");
 
-		$data = array(
-				'pk_Permiso'=> $pk_Permiso,
-				'rol_pk' 	=> $rol_pk,
-				'menu_pk' 	=> $menu_pk,
-				'read' 		=> $read,
-				'insert' 	=> $insert,
-				'update' 	=> $update,
-				'delete' 	=> $delete
-		);
-			if($this->Claves_Model->update($pk_Permiso, $data)){
+			$data  		= array(
+				'read' => $read,
+				'insert' => $insert,
+				'update' => $update,
+				'delete' => $delete
+			);
+			if ($this->Permisos_Model->update($pk_Permiso, $data)) {
 				redirect(base_url()."administrador/Permisos");
 			}else{
 				$this->session->set_flashdata("error","No se pudo guardar la informacion");
-				redirect(base_url()."administrador/Permisos/edit/".$pk_Permiso);
+				redirect(base_url()."administrador/Permisos/edit");
 			}
+	}
+
+	public function delete($pk_Permiso){
+		$this->Permisos_Model->delete($pk_Permiso);
+		redirect(base_url()."administrador/permisos");
 	}
 
 }

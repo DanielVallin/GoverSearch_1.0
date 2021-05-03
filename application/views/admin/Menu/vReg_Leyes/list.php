@@ -25,6 +25,7 @@
                                 <table id="example" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Nombre de la Ley</th>
                                         <th>Grupo</th>                                        
                                         <th>Estado</th>
@@ -35,6 +36,7 @@
                                     <?php if(!empty($regleyes)):?>
                                     <?php foreach($regleyes as $regley):?>
                                         <tr>
+                                            <td><?php echo $regley->pk_Datos_Ley; ?></td>
                                             <td><?php echo $regley->Nombre_de_Ley; ?></td>
                                             <td><?php echo $regley->grupos;?></td>
                                             <td>

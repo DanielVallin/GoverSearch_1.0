@@ -67,8 +67,8 @@
                                                         </td>
                                                         <td>
                                                             <div class="btn-group"> 
-                                                                <a href="<?php echo base_url(); ?>administrador/Permisos/edit/<?php $permiso->pk_Permiso ?>" class="btn btn-warning btn-flat"><span class="fa fa-angle-double-right "></span></a>
-                                                                <a href="<?php echo base_url(); ?>administrador/Permisos/delete/<?php $permiso->pk_Permiso ?>" class="btn btn-danger btn-flat"><span class="fa fa-file-pdf-o "></span></a>                                                           
+                                                                <a href="<?php echo base_url()?>administrador/Permisos/edit/<?php echo $permiso->pk_Permiso ?>" class="btn btn-warning btn-flat"><span class="fa fa-edit "></span></a>
+                                                                <a href="<?php echo base_url(); ?>administrador/Permisos/delete/<?php echo $permiso->pk_Permiso ?>" class="btn btn-danger btn-flat"><span class="fa fa-file-pdf-o "></span></a>                                                           
                                                             </div>
                                                         </td>
                                                     </tr>

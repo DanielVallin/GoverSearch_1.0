@@ -32,7 +32,9 @@
 <script src="<?php echo base_url();?>assets/template/dist/js/demo.js"></script>
 <script>
 $(document).ready(function () {
+    
     var base_url= "<?php echo base_url();?>";
+    
     $(".btn-remove").on("click", function(e){
         e.preventDefault();
         var ruta = $(this).attr("href");
@@ -41,29 +43,26 @@ $(document).ready(function () {
             url: ruta,
             type:"POST",
             success:function(resp){
-               //http://localhost/ventas_ci/ mantenimiento/productos
-               window.location.href = base_url + resp;
+                //http://localhost/ventas_ci/mantenimiento/productos
+                window.location.href = base_url + resp;
             }
         });
     });
 
-    $(".btn-view-rol").on("click", function(){
-        var grupos = $(this).val(); 
-        //alert(cliente);
-        var infogrupos = grupos.split("*");
-        html = "<p><strong>Codigo: </strong>"+infogrupos[1]+"</p>"
-        html += "<p><strong>Nombre: </strong>"+infogrupos[2]+"</p>"
-        $("#modal-default .modal-body").html(html);
+    $(".btn-view-usuarios").on("click", function(){
+        var pk_Usuario = $(this).val();
+        
+        $.ajax({
+            url: base_url + "Menu/cUsuarios/view/" + pk_Usuario,
+            type: "POST",
+            success: function(resp){
+                $("#modal-default .modal-body").html(resp);
+                    //alert(resp);
+            }
+        }); 
     });
 
-    $(".btn-view-claves").on("click", function(){
-        var grupos = $(this).val(); 
-        //alert(cliente);
-        var infogrupos = grupos.split("*");
-        html = "<p><strong>Codigo: </strong>"+infogrupos[1]+"</p>"
-        html += "<p><strong>Nombre: </strong>"+infogrupos[2]+"</p>"
-        $("#modal-default .modal-body").html(html);
-    });
+    
 
     $('#example').DataTable( {
         dom: 'Bfrtip',
