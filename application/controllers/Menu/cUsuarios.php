@@ -125,6 +125,7 @@ class cUsuarios extends CI_Controller {
 			$this->form_validation->set_rules("Usuario","Usuario","required".$is_unique);
 			$this->form_validation->set_rules("Fecha_Alta","Fecha_Alta","required");
 			$this->form_validation->set_rules("User_Rol_pk","User_Rol_pk","required");
+			$this->form_validation->set_rules("Estado","Estado","required");
 
 			if ($this->form_validation->run()==TRUE) {
 				$data = array(
@@ -136,6 +137,7 @@ class cUsuarios extends CI_Controller {
 					'Usuario' => $Usuario,
 					'Fecha_Alta' => $Fecha_Alta,
 					'User_Rol_pk' => $User_Rol_pk,
+					'Estado' => $Estado,
 				);
 				if($this->User_Model->update($pk_Usuario, $data)){
 					redirect(base_url()."Menu/cUsuarios");
@@ -154,11 +156,10 @@ class cUsuarios extends CI_Controller {
 		);
 		$this->load->view("admin/Menu/vUsuarios/view",$data);
 	}
+
 		public function delete($pk_Usuario){
-			$data  = array(
-				'Estado' => "0", 
-			);
-			$this->User_Model->update($pk_Usuario,$data);
-			echo "Menu/cUsuarios";
+			$this->User_Model->delete($pk_Usuario);
+			redirect(base_url()."Menu/cUsuarios");
 		}
+		
 }

@@ -5,3 +5,7 @@ https://www.youtube.com/watch?v=TsTtqGAxvWk
 
 
 TOTAL DE LA NOMINA
+https://www.webslesson.info/2018/06/codeigniter-dynamic-dependent-select-box-using-ajax.html
+
+https://www.webslesson.info/2018/11/how-to-delete-multiple-records-using-checkbox-in-codeigniter.html#:~:text=%20How%20to%20Delete%20Multiple%20Records%20using%20Checkbox,Multiple_delete_model.php%20%28Models%29.%20Generally%2C%20In%20Codeigniter%20models...%20More%20
+https://www.bing.com/search?q=Delete+multiple+data+with+checkboxes+in+codeigniter&cvid=c3f3b17fdf77475fb75b971bd6ed3d5d&pglt=2339&FORM=ANNTA1&PC=LCTS`

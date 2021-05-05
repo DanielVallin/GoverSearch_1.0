@@ -55,7 +55,7 @@
                                                         <span class="fa fa-search"></span>
                                                     </button>
                                                     <a href="<?php echo base_url()?>Menu/cUsuarios/edit/<?php echo $usuario->pk_Usuario;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                    <a href="<?php echo base_url();?>Menu/cUsuarios/delete/<?php echo $usuario->pk_Usuario;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
+                                                    <a href="<?php echo base_url();?>Menu/cUsuarios/delete/<?php echo $usuario->pk_Usuario;?>" class="btn btn-danger btn-flat"><span class="fa fa-remove"></span></a>
                                                 </div>
                                             </td>
                                         </tr>

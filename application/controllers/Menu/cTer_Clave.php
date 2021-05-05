@@ -25,7 +25,6 @@ class cTer_Clave extends CI_Controller {
 		$this->load->view("layouts/aside", $aside);
 		$this->load->view("admin/Menu/vTer_Clave/list", $data);
 		$this->load->view("layouts/footer");
-
 	}
 
 	public function add()

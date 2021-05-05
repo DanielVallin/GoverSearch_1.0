@@ -11,9 +11,7 @@ class Buscador_Model extends CI_Model {
         $this->db->from("tbl_gestion g");
 
         $this->db->join("tbl_ter_clave t","c.Usuario_pk = u.pk_Usuario");
-
-
-        
+                
         $resultados = $this->db->get();
         return $resultados->result();
     }

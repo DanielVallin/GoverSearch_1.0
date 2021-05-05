@@ -28,5 +28,10 @@ class User_Model extends CI_Model {
 		return $this->db->update("tbl_usuarios",$data);
 	}
 
+    public function delete($pk_Usuario){
+		$this->db->where("pk_Usuario",$pk_Usuario);
+		return $this->db->delete("tbl_usuarios");
+	}
+    
 }
 

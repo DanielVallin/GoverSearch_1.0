@@ -6,7 +6,6 @@ class cGrupo_Leyes extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 
-		$this->load->library('export_excel');
 		//Aside Barra lateral.
 		$this->load->model("Grupo_Leyes_Model");
 		$this->load->model("Reg_Leyes_Model");

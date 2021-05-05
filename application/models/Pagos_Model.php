@@ -26,4 +26,27 @@ class Pagos_Model extends CI_Model {
         return $resultados->result();
     }
 
+
+
+    public function save($data){
+        return $this->db->insert("tbl_pagos",$data);
+    }
+
+    public function getPago($pk_Permiso){
+		$this->db->where("pk_Permiso",$pk_Permiso);
+		$resultado = $this->db->get("tbl_pagos");
+		return $resultado->row();
+	}
+
+    public function update($pk_Permiso, $data){
+        $this->db->where("pk_Permiso", $pk_Permiso);
+        return $this->db->update("tbl_pagos", $data);
+    }
+
+    public function delete($pk_Permiso){
+        $this->db->where("pk_Permiso", $pk_Permiso);
+        return $this->db->delete("tbl_pagos");
+    }
+    
+
 }
