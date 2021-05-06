@@ -82,12 +82,13 @@
                                     <?php endforeach;?>        
                                 </select>
                             </div>
+
                             <div class="form-group has-feedback <?php echo form_error('User_Rol_pk') == true ? 'has-error':''?>">
-                                <label for="Estado">Estado:</label>
+                                <label for="Estado">Estado: </label>
                                 <select name="Estado" id="Estado" class="form-control">
                                    
-                                    <option value="1" selected>Activo</option>
-                                    <option value="0" selected>Inactivo</option>
+                                    <option value="1" >Activo</option>
+                                    <option value="0" >Inactivo</option>
                                                     
                                 </select>
                             </div>

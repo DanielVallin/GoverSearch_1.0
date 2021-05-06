@@ -53,6 +53,7 @@ class cBuscador extends CI_Controller {
 			{
 				$checkedEmp = $this->input->post('checkbox_value');
 				
+				
 				$checked_id = [];
 				
 				foreach($checkedEmp as $row){
@@ -62,9 +63,9 @@ class cBuscador extends CI_Controller {
 				
 
 				$data = array(
-					'termino' => $this->Ter_Clave_Model->pdfSelectEmp($checked_id)
+					'terminos' => $this->Ter_Clave_Model->pdfSelectEmp($checked_id)
 				);
-				$this->load->view("admin/Menu/vBuscador/view",$data); 
+				$this->load->view("admin/Menu/vBuscador/view",$row); 
 				
 				//redirect(base_url()."Menu/cBuscador");			
 			}

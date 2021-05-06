@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Roles_Model extends CI_Model {
 
     public function getRoles(){
-        $this->db->where("Estado","1");
         $resultados = $this->db->get("TBL_Roles");
         return $resultados->result();
     }
@@ -22,6 +21,11 @@ class Roles_Model extends CI_Model {
     public function update($pk_Rol, $data){
         $this->db->where("pk_Rol",$pk_Rol);
         return $this->db->update("TBL_Roles",$data);
+    }
+
+    public function delete($pk_Rol){
+        $this->db->where("pk_Rol",$pk_Rol);
+        return $this->db->delete("TBL_Roles");
     }
 
 }

@@ -103,6 +103,7 @@ class cUsuarios extends CI_Controller {
 		$Correo 	= $this->input->post("Correo");
 		$Usuario 	= $this->input->post("Usuario");
 		$Fecha_Alta = $this->input->post("Fecha_Alta");
+		$Estado 	= $this->input->post("Estado");
 		$User_Rol_pk 	= $this->input->post("User_Rol_pk");
 
 			$usuarioactual = $this->User_Model->getUsuario($pk_Usuario);

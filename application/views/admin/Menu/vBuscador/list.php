@@ -59,14 +59,12 @@
                                                             <td style="text-align:center" >
                                                                 <input type="checkbox" name="checkbox_value[]" value="<?= $termino->pk_Datos_ley; ?>">
                                                             </td>
-                                                            <td style="text-align:center" >
-                                                                <p name="ley" ><?php echo $termino->ley;?></p>
-                                                            </td>
+                                                            <td style="text-align:center" ><?php echo $termino->ley;?></td>
                                                             <td style="text-align:center" ><?php echo $termino->Articulo;?></td>
                                                             <td><?php echo $termino->Descripcion;?></td>
                                                             <td>
                                                                 <div class="btn-group">    
-                                                                    <a class="btn btn-primary" data-toggle="collapse" href="#<?php echo $termino->pk_Datos_ley ;?>" role="button" aria-expanded="false" aria-controls="collapseExample">                                                                    
+                                                                    <a class="btn btn-primary" data-toggle="collapse" href="" role="button" aria-expanded="false" aria-controls="collapseExample">                                                                    
                                                                         <span class="pull-right-container">
                                                                             <i class="fa fa-angle-left pull-right"></i>
                                                                         </span>

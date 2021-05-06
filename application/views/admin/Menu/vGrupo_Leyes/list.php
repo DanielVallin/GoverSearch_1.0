@@ -47,7 +47,7 @@
                                                     <td>
                                                         <div class="btn-group">
                                                             <a href="<?php echo base_url()?>Menu/cUsuarios/edit/<?php echo $gpley->pk_Gpo_Ley;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                            <a href="<?php echo base_url();?>Menu/cUsuarios/delete/<?php echo $gpley->pk_Gpo_Ley;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a> 
+                                                            <a href="<?php echo base_url();?>Menu/cUsuarios/delete/<?php echo $gpley->pk_Gpo_Ley;?>" class="btn btn-danger btn-flat"><span class="fa fa-remove"></span></a> 
                                                         </div>
                                                     </td>
                                                 </tr>

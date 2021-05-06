@@ -69,9 +69,11 @@ class cRoles extends CI_Controller {
 
 
 							public function update(){
-								$pk_Rol = $this->input->post("pk_Rol");
-								$Nombre_Rol = $this->input->post("Nombre_Rol");
-								$Descripcion = $this->input->post("Descripcion");
+								$pk_Rol 		= $this->input->post("pk_Rol");
+								$Nombre_Rol 	= $this->input->post("Nombre_Rol");
+								$Descripcion 	= $this->input->post("Descripcion");
+								$Estado 		= $this->input->post("Estado");
+			
 
 								$rolactual = $this->Roles_Model->getRol($pk_Rol);
 
@@ -82,12 +84,14 @@ class cRoles extends CI_Controller {
 								}
 								$this->form_validation->set_rules("Nombre_Rol","Nombre Rol","required".$is_unique);
 								$this->form_validation->set_rules("Descripcion","Descripcion","required");
+								$this->form_validation->set_rules("Estado","Estado","required");
 
 								if ($this->form_validation->run()==TRUE) {
 									$data  = array(
+										'pk_Rol' => $pk_Rol,
 										'Nombre_Rol' => $Nombre_Rol, 
 										'Descripcion' => $Descripcion,
-										'pk_Rol' => $pk_Rol,
+										'Estado' => $Estado,
 									);
 									if ($this->Roles_Model->update($pk_Rol,$data)) {
 										redirect(base_url()."Menu/cRoles");
@@ -109,8 +113,8 @@ class cRoles extends CI_Controller {
 	}
 	
 	public function delete($pk_Rol){
-		$this->Roles_Model->update($pk_Rol, $data);
-		echo "Menu/cRoles";
+		$this->Roles_Model->delete($pk_Rol);
+		redirect(base_url()."Menu/cRoles");
 	}
 
 }
