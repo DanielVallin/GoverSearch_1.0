@@ -45,7 +45,6 @@ class Permisos extends CI_Controller {
 	}
 
 	public function store(){
-		$menu 	= $this->input->post("menu");
 		$rol 	= $this->input->post("rol");
 		$read 	= $this->input->post("read");
 		$insert 	= $this->input->post("insert");
@@ -53,7 +52,6 @@ class Permisos extends CI_Controller {
 		$delete 	= $this->input->post("delete");
 
 			$data  		= array(
-				'menu_pk' => $menu,
 				'rol_pk' => $rol, 
 				'read' => $read,
 				'insert' => $insert,
@@ -85,7 +83,6 @@ class Permisos extends CI_Controller {
 
 	public function update(){
 		$pk_Permiso 	= $this->input->post("pk_Permiso");
-		$menu 	= $this->input->post("menu");
 		$rol 	= $this->input->post("rol");
 		$read 	= $this->input->post("read");
 		$insert 	= $this->input->post("insert");

@@ -43,7 +43,7 @@
                                             <thead>
                                             <tr>
                                                 <th style="text-align:center" class="col-md-1">
-                                                    <button type="submit" name="delete_all" class="btn btn-success btn-sm">Delete</button>
+                                                    <button type="submit" name="delete_all" class="btn btn-danger btn-sm"><span class="fa fa-file-pdf-o"> PDF</span></button>
                                                 </th>
                                                 <th style="text-align:center" class="col-md-2">Ley</th>
                                                 <th style="text-align:center" class="col-md-1">Artículo</th>
@@ -64,11 +64,10 @@
                                                             <td><?php echo $termino->Descripcion;?></td>
                                                             <td>
                                                                 <div class="btn-group">    
-                                                                    <a class="btn btn-primary" data-toggle="collapse" href="" role="button" aria-expanded="false" aria-controls="collapseExample">                                                                    
-                                                                        <span class="pull-right-container">
-                                                                            <i class="fa fa-angle-left pull-right"></i>
-                                                                        </span>
-                                                                    </a> 
+                                                                    <button type="button" class="btn btn-info btn-view-buscador" data-toggle="modal" data-target="#modal-default" value="<?php echo $termino->pk_Datos_ley ;?>">
+                                                                        <span class="fa fa-search"></span>
+                                                                    </button>
+                                                                    <a class="btn btn-primary btn-flat" type="button" onclick="Show()"><span class="fa fa-plus"></span></a>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -78,6 +77,19 @@
                                             </tbody>
                                         </table>
                                     </form>
+
+                                    <br>
+                                    <hr>
+                                    <div class="panel panel-default" id="info" style="visibility:hidden;">
+                                        <div class="panel-heading">Ley: </div>
+                                        <div class="panel-body">
+                                            Contenido:
+                                        </div>
+                                        <div class="btn-group">    
+
+                                            <a class="btn btn-primary btn-flat" type="button" onclick="Hide()"><span class="fa fa-minus"></span></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         <!-- AQUI INICIA EL BODY -->
@@ -90,3 +102,11 @@
         </div>
         <!-- /.content-wrapper -->
 
+<script>
+    function Show() {
+    document.getElementById("info").style.visibility = "visible";
+    }
+    function Hide() {
+    document.getElementById("info").style.visibility = "hidden";
+    }
+</script>

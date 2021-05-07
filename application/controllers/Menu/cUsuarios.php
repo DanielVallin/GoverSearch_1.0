@@ -97,14 +97,15 @@ class cUsuarios extends CI_Controller {
 	public function update()
 	{
 		$pk_Usuario 	= $this->input->post("pk_Usuario");
-		$Nombre 	= $this->input->post("Nombre");
-		$Apellidos 	= $this->input->post("Apellidos");
-		$Telefono 	= $this->input->post("Telefono");
-		$Correo 	= $this->input->post("Correo");
-		$Usuario 	= $this->input->post("Usuario");
-		$Fecha_Alta = $this->input->post("Fecha_Alta");
-		$Estado 	= $this->input->post("Estado");
+		$Nombre 		= $this->input->post("Nombre");
+		$Apellidos 		= $this->input->post("Apellidos");
+		$Telefono 		= $this->input->post("Telefono");
+		$Correo 		= $this->input->post("Correo");
+		$Usuario 		= $this->input->post("Usuario");
+		$Fecha_Alta 	= $this->input->post("Fecha_Alta");
+		
 		$User_Rol_pk 	= $this->input->post("User_Rol_pk");
+		$Estado 		= $this->input->post("Estado");
 
 			$usuarioactual = $this->User_Model->getUsuario($pk_Usuario);
 
@@ -151,12 +152,14 @@ class cUsuarios extends CI_Controller {
 			}
 	}
 
+
 	public function view($pk_Usuario){
 		$data = array(
 			'usuario' => $this->User_Model->getUsuario($pk_Usuario),
 		);
 		$this->load->view("admin/Menu/vUsuarios/view",$data);
 	}
+
 
 		public function delete($pk_Usuario){
 			$this->User_Model->delete($pk_Usuario);

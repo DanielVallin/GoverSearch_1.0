@@ -56,8 +56,8 @@ $(document).ready(function () {
             url: base_url + "Menu/cUsuarios/view/" + pk_Usuario,
             type: "POST",
             success: function(resp){
-                $("#modal-default .modal-body").html(resp);
-                    //alert(resp);
+                //$("#modal-default .modal-body").html(resp);
+                    alert(resp);
             }
         }); 
     });
@@ -68,8 +68,8 @@ $(document).ready(function () {
             url: base_url + "Menu/cBuscador/view/" + pk_Datos_ley,
             type: "POST",
             success: function(resp){
-                $("#modal-default .modal-body").html(resp);
-                    //alert(resp);
+                //$("#modal-default .modal-body").html(resp);
+                    alert(resp);
             }
         }); 
     });

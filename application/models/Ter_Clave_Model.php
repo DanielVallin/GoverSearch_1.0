@@ -75,7 +75,6 @@ class Ter_Clave_Model extends CI_Model {
         $this->db->join("tbl_leyes l", "t.Ley_pk = l.pk_Datos_Ley");
         
         $this->db->where_in("t.pk_Datos_ley", $checked_id);
-        $this->db->order_by ("t.pk_Datos_ley", "asc");
 
         $resultado = $this->db->get("tbl_ter_clave");
 		return $resultado->row();

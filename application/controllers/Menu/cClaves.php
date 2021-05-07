@@ -115,6 +115,7 @@ class cClaves extends CI_Controller {
 		$this->load->view("admin/Menu/vClaves/view", $data);
 	}
 
+	
 	public function delete($pk_Ter_Clave){
 		$data  = array(
 			'Estado' => "0", 

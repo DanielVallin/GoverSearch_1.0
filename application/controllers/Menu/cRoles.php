@@ -33,6 +33,7 @@ class cRoles extends CI_Controller {
 	 }
 
 							public function store(){
+								
 								$Nombre_Rol 	= $this->input->post("Nombre_Rol");
 								$Descripcion 	= $this->input->post("Descripcion");
 
@@ -41,9 +42,9 @@ class cRoles extends CI_Controller {
 
 								if ($this->form_validation->run()==TRUE) {
 									$data  		= array(
-										'Nombre_Rol' => $Nombre_Rol, 
-										'Descripcion' => $Descripcion,
-										'Estado' => "1"
+										'Nombre_Rol' 	=> $Nombre_Rol, 
+										'Descripcion' 	=> $Descripcion,
+										'Estado' 		=> "1"
 									);
 									if ($this->Roles_Model->save($data)) {
 										redirect(base_url()."Menu/cRoles");
