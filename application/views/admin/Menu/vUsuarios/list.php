@@ -16,7 +16,8 @@
                         <!-- AQUI INICIA EL BODY -->
                         <div class="row">
                             <div class="col-md-12">
-                                <a href="<?php echo base_url();?>Menu/cUsuarios/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Usuario</a>                            </div>
+                                <a href="<?php echo base_url();?>Menu/cUsuarios/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Usuario</a>                            
+                            </div>
                         </div>
                         <hr>
                         <div class="row">

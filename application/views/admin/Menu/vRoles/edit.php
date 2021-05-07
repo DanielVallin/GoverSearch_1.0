@@ -49,6 +49,7 @@
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success btn-flat">Guardar</button>
+                                <a href="<?php echo base_url();?>Menu/cRoles" class="btn btn-primary btn-flat"><span class="fa fa-backward"></span> Volver</a>
                             </div>
 
 

@@ -5,7 +5,8 @@
             <section class="content-header">
                 <h1>
                 Gestion de Leyes  
-                <small>List</small>
+                <small>Lista</small>
+                <a href="<?php echo base_url();?>Menu/cGestion/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Gestion</a>
                 </h1>
             </section>
             <!-- Main content -->
@@ -19,7 +20,7 @@
                                 <small class="text-muted"></small>
                             </div>
                         </div>
-                        <a href="<?php echo base_url();?>Menu/cGestion/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Gestion</a>
+                        
                         <hr>
                         <div class="row">
                             <div class="col-md-12">

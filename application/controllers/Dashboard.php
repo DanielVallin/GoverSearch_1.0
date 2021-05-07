@@ -7,6 +7,7 @@ class Dashboard extends CI_Controller {
 			parent::__construct();
 			//Aside Barra lateral.
 			$this->load->model("Grupo_Leyes_Model");
+			$this->load->model("Reg_Leyes_Model");
 			if (!$this->session->userdata("login")) {
 				redirect(base_url());
 			}
@@ -16,9 +17,12 @@ class Dashboard extends CI_Controller {
 			$aside = array(
 				'cGrupos' => $this->Grupo_Leyes_Model->getGrupo_Model()
 			);
+			$data = array(
+				'regleyes' =>$this->Reg_Leyes_Model->getRegLey(),
+		   	);
 			$this->load->view("layouts/header");
 			$this->load->view("layouts/aside", $aside);
-			$this->load->view("admin/dashboard");
+			$this->load->view("admin/dashboard", $data);
 			$this->load->view("layouts/footer");
 	
 		}

@@ -22,6 +22,8 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Nombrede la Ley</th>
+                                        <th>a Ley</th>
+                                        <th>grupos</th>
                                         <th>Estatus</th>
                                         <th>Opciones</th>
                                         </tr>
@@ -31,6 +33,8 @@
                                             <?php foreach($gpleyes as $gpley):?>
                                                 <tr>
                                                     <td><?php echo $gpley->pk_Datos_Ley;?></td>
+                                                    <td><?php echo $gpley->grupos;?></td>
+                                                    <td><?php echo $gpley->grupos;?></td>
                                                     <td><?php echo $gpley->Nombre_de_Ley;?></td>
                                                     <td>
                                                         <?php if($gpley->Estado == 0): ?>
@@ -41,7 +45,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group">
-                                                            <a href="<?php echo base_url(); ?>Menu/cGrupo_Leyes/consulta" class="btn btn-warning btn-flat"><span class="fa fa-angle-double-right "></span></a>                                                          
+                                                            <a href="<?php echo base_url(); ?>Menu/cGrupo_Leyes/consulta/<?php echo $gpley->pk_Datos_Ley;?>" class="btn btn-warning btn-flat"><span class="fa fa-angle-double-right "></span></a>                                                          
                                                         </div>
                                                     </td>
                                                 </tr>

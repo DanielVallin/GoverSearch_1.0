@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class cCuenta extends CI_Controller {
 
+
+	//---------------------------------  VISTAS ----------------------------------------------------------------------------
 	public function index()
 	{
 
@@ -12,4 +14,7 @@ class cCuenta extends CI_Controller {
 		$this->load->view("layouts/footer");
 
 	}
+	//---------------------------------  METODOS ----------------------------------------------------------------------------
+
+
 }

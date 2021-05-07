@@ -15,9 +15,15 @@
                     <div class="box-body">
                         <!-- AQUI INICIA EL BODY -->
                         
-                           
+                        <?php foreach($regleyes as $regley):?>
+
+                            <td><?php echo $regley->ley;?></td>
+
+
+                        <?php endforeach;?>
                    
-                            
+
+                            <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Generar PDF</button>
                         <!-- AQUI INICIA EL BODY -->
                     </div>
                     <!-- /.box-body -->

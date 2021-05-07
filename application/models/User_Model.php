@@ -5,7 +5,9 @@ class User_Model extends CI_Model {
 
     public function getUsuarios(){
         $this->db->select("u.* ,r.Nombre_Rol as rol");
+        
         $this->db->from("tbl_usuarios u");
+
         $this->db->join("tbl_roles r","u.User_Rol_pk = r.pk_Rol");
         
         $resultados = $this->db->get();

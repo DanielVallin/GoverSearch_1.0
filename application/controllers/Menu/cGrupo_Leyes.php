@@ -9,6 +9,8 @@ class cGrupo_Leyes extends CI_Controller {
 		//Aside Barra lateral.
 		$this->load->model("Grupo_Leyes_Model");
 		$this->load->model("Reg_Leyes_Model");
+		$this->load->model("Gestion_Model");
+		
 		
 	}
 
@@ -114,13 +116,16 @@ class cGrupo_Leyes extends CI_Controller {
 								}
 						}
 
-	public function consulta()
+	
+	
+	
+	public function consulta($pk_Datos_Ley)
 	{
 		$aside = array(
 		'cGrupos' => $this->Grupo_Leyes_Model->getGrupo_Model()
 		);
 		$data = array(
-		'regleyes' =>$this->Reg_Leyes_Model->getRegLey(),
+		'regleyes' =>$this->Gestion_Model->getConsultaid($pk_Datos_Ley),
 		);
 		$this->load->view("layouts/header");
 		$this->load->view("layouts/aside", $aside);

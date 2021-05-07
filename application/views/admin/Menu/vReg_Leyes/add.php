@@ -45,6 +45,7 @@
 
                             <div class="form-group">
                                 <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>
+                                <a href="<?php echo base_url();?>Menu/cReg_Leyes/" class="btn btn-primary btn-flat"><span class="fa fa-backward"></span> Volver</a>
                             </div>
                         </form>
                     </div>

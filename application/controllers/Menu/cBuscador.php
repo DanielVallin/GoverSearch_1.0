@@ -14,6 +14,7 @@ class cBuscador extends CI_Controller {
 		
 	}
 
+	//---------------------------------  VISTAS -----------------------------------------------------------------------------
 	public function index()
 	{
 		//Llamar boton
@@ -37,12 +38,12 @@ class cBuscador extends CI_Controller {
 		$this->load->view("admin/Menu/vBuscador/list", $data);
 		$this->load->view("layouts/footer");
 	}
-
+	//---------------------------------  METODOS ----------------------------------------------------------------------------
 	public function view($pk_Datos_ley){
 		$data = array(
 			'termino' => $this->Ter_Clave_Model->getTerminoid($pk_Datos_ley)
 		);
-		$this->load->view("admin/Menu/vBuscador/view",$data); 
+		$this->load->view("admin/Menu/vBuscador/list",$data); 
 	}
 	
 	public function deleteall()
@@ -50,24 +51,18 @@ class cBuscador extends CI_Controller {
 		if(isset($_POST['delete_all']))
 		{
 			if(!empty($this->input->post('checkbox_value')))
-			{
+			{	
 				$checkedEmp = $this->input->post('checkbox_value');
-				
-				
 				$checked_id = [];
 				
 				foreach($checkedEmp as $row){
 					array_push($checked_id, $row);
-					echo $row;
+					//echo $row;
 				}
-				
-
 				$data = array(
 					'terminos' => $this->Ter_Clave_Model->pdfSelectEmp($checked_id)
 				);
-				$this->load->view("admin/Menu/vBuscador/view",$row); 
-				
-				//redirect(base_url()."Menu/cBuscador");			
+				$this->load->view("admin/Menu/vBuscador/view",$data); 
 			}
 			else
 			{
@@ -77,6 +72,7 @@ class cBuscador extends CI_Controller {
 		}
 	}
 
+	
 	
 
 

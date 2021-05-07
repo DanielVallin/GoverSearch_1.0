@@ -48,8 +48,8 @@
                                             </td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="<?php echo base_url()?>Menu/cPagos/edit/<?php echo $regley->pk_Datos_Ley;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                    <a href="<?php echo base_url();?>Menu/cPagos/delete/<?php echo $regley->pk_Datos_Ley;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
+                                                    <a href="<?php echo base_url()?>Menu/cReg_Leyes/edit/<?php echo $regley->pk_Datos_Ley;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                    <a href="<?php echo base_url();?>Menu/cReg_Leyes/delete/<?php echo $regley->pk_Datos_Ley;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
                                                 </div>
                                             </td>
                                         </tr>

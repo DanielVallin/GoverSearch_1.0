@@ -1,16 +1,17 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class cTer_Clave extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model("Ter_Clave_Model");
 
-		$this->load->model("Claves_Model");
-		$this->load->model("Reg_Leyes_Model");
 		//Aside Barra lateral.
 		$this->load->model("Grupo_Leyes_Model");
+
+		$this->load->model("Ter_Clave_Model");
+		$this->load->model("Claves_Model");
+		$this->load->model("Reg_Leyes_Model");
+		
 	}
 
 	public function index()
@@ -29,13 +30,16 @@ class cTer_Clave extends CI_Controller {
 
 	public function add()
 	{
+		$aside = array(
+			'cGrupos' => $this->Grupo_Leyes_Model->getGrupo_Model()
+		);
 		$data = array(
 			'cClaves' =>$this->Claves_Model->getClave(),
 			'regleyes' =>$this->Reg_Leyes_Model->getRegLey(),
 	   );
 		
 		$this->load->view("layouts/header");
-		$this->load->view("layouts/aside");
+		$this->load->view("layouts/aside", $aside);
 		$this->load->view("admin/Menu/vTer_Clave/add", $data);
 		$this->load->view("layouts/footer");
 	}
@@ -72,13 +76,16 @@ class cTer_Clave extends CI_Controller {
 
 	public function edit($pk_Datos_ley)
 	{
+		$aside = array(
+			'cGrupos' => $this->Grupo_Leyes_Model->getGrupo_Model()
+		);
 		$data = array(
-			'terminos' =>$this->Ter_Clave_Model->getTerminoid($pk_Datos_ley),
 			'cClaves' =>$this->Claves_Model->getClave(),
 			'regleyes' =>$this->Reg_Leyes_Model->getRegLey(),
+			'terminos' =>$this->Ter_Clave_Model->getTerminoid($pk_Datos_ley)
 	   );
 		$this->load->view("layouts/header");
-		$this->load->view("layouts/aside");
+		$this->load->view("layouts/aside", $aside);
 		$this->load->view("admin/Menu/vTer_Clave/edit", $data);
 		$this->load->view("layouts/footer");
 	}

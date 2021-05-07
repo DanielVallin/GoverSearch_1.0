@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        Registro de Trminos Clave
+            Registro de Trminos Clave
         <small>Nuevo</small>
         </h1>
     </section>
@@ -46,7 +46,8 @@
                                 <?php echo form_error("Fecha_Alta", "<span class='help-block'>","</span>");?>
                             </div>
                             <div class="form-group">
-                               <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>                                
+                               <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>
+                               <a href="<?php echo base_url();?>Menu/cClaves/" class="btn btn-primary btn-flat"><span class="fa fa-backward"></span> Volver</a>                         
                             </div>
                         </form>
                     </div>

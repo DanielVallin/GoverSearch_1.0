@@ -48,13 +48,26 @@
                                     <?php endforeach;?>
                                 </select>
                             </div>
+
                             <div class="form-group">
                                 <label for="Fecha_Alta">Fecha de Alta:</label>
                                 <input type="date" class="form-control" id="Fecha_Alta" name="Fecha_Alta" value="<?php echo $claves->Fecha_Alta;?>">
                             </div>
+
+                            <div class="form-group">
+                                <label for="Estado">Estado:</label>
+                                <select name="Estado" id="Estado" class="form-control">
+                                   
+                                    <option value="1" >Activo</option>
+                                    <option value="0" >Inactivo</option>
+                                                    
+                                </select>
+                            </div>
+
+
                             <div class="form-group">
                                <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>  
-                               <a href="<?php echo base_url();?>00_Menu/cClaves/" class="btn btn-primary btn-flat"><span class="fa fa-backward"></span> Volver</a>                              
+                               <a href="<?php echo base_url();?>Menu/cClaves/" class="btn btn-primary btn-flat"><span class="fa fa-backward"></span> Volver</a>                       
                             </div>
                         </form>
                     </div>

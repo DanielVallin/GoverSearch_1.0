@@ -29,12 +29,16 @@ class cUsuarios extends CI_Controller {
 			$this->load->view("layouts/footer");
 	}
 
-	public function add(){
+	public function add()
+	{
+		$aside = array(
+			'cGrupos' => $this->Grupo_Leyes_Model->getGrupo_Model()
+		);
 		$data = array(
 			'roles' =>$this->Roles_Model->getRoles()
 	   );
 		$this->load->view("layouts/header");
-		$this->load->view("layouts/aside");
+		$this->load->view("layouts/aside", $aside);
 		$this->load->view("admin/Menu/vUsuarios/add", $data);
 		$this->load->view("layouts/footer");
 	}
@@ -84,12 +88,15 @@ class cUsuarios extends CI_Controller {
 
 	public function edit($pk_Usuario)
 	{
+		$aside = array(
+			'cGrupos' => $this->Grupo_Leyes_Model->getGrupo_Model()
+		);
 		$data = array(
 			'usuarios' =>$this->User_Model->getUsuario($pk_Usuario),
 			'roles' =>$this->Roles_Model->getRoles(),
 		);
 		$this->load->view("layouts/header");
-		$this->load->view("layouts/aside");
+		$this->load->view("layouts/aside", $aside);
 		$this->load->view("admin/Menu/vUsuarios/edit", $data);
 		$this->load->view("layouts/footer");
 	}
@@ -97,14 +104,15 @@ class cUsuarios extends CI_Controller {
 	public function update()
 	{
 		$pk_Usuario 	= $this->input->post("pk_Usuario");
-		$Nombre 	= $this->input->post("Nombre");
-		$Apellidos 	= $this->input->post("Apellidos");
-		$Telefono 	= $this->input->post("Telefono");
-		$Correo 	= $this->input->post("Correo");
-		$Usuario 	= $this->input->post("Usuario");
-		$Fecha_Alta = $this->input->post("Fecha_Alta");
-		$Estado 	= $this->input->post("Estado");
+		$Nombre 		= $this->input->post("Nombre");
+		$Apellidos 		= $this->input->post("Apellidos");
+		$Telefono 		= $this->input->post("Telefono");
+		$Correo 		= $this->input->post("Correo");
+		$Usuario 		= $this->input->post("Usuario");
+		$Fecha_Alta 	= $this->input->post("Fecha_Alta");
+		
 		$User_Rol_pk 	= $this->input->post("User_Rol_pk");
+		$Estado 		= $this->input->post("Estado");
 
 			$usuarioactual = $this->User_Model->getUsuario($pk_Usuario);
 
@@ -151,12 +159,14 @@ class cUsuarios extends CI_Controller {
 			}
 	}
 
+
 	public function view($pk_Usuario){
 		$data = array(
 			'usuario' => $this->User_Model->getUsuario($pk_Usuario),
 		);
 		$this->load->view("admin/Menu/vUsuarios/view",$data);
 	}
+
 
 		public function delete($pk_Usuario){
 			$this->User_Model->delete($pk_Usuario);

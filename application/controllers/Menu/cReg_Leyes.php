@@ -10,6 +10,7 @@ class cReg_Leyes extends CI_Controller {
 		$this->load->model("Grupo_Leyes_Model");
 	}
 
+	//---------------------------------  VISTAS -----------------------------------------------------------------------------
 	public function index()
 	{
 		$aside = array(
@@ -27,16 +28,36 @@ class cReg_Leyes extends CI_Controller {
 
 	public function add()
 	{
+		$aside = array(
+			'cGrupos' => $this->Grupo_Leyes_Model->getGrupo_Model()
+		);
 		$data = array(
 			'gpleyes' =>$this->Grupo_Leyes_Model->getGrupo_Model()
 	   );
 		$this->load->view("layouts/header");
-		$this->load->view("layouts/aside");
+		$this->load->view("layouts/aside", $aside);
 		$this->load->view("admin/Menu/vReg_Leyes/add", $data);
 		$this->load->view("layouts/footer");
 
 	}
 
+	public function edit($pk_Datos_Ley)
+	{
+		$aside = array(
+			'cGrupos' => $this->Grupo_Leyes_Model->getGrupo_Model()
+		);
+		$data = array(
+			'leyes' => $this->Reg_Leyes_Model->getClaveid($pk_Datos_Ley),
+			'gpleyes' =>$this->Grupo_Leyes_Model->getGrupo_Model()
+		);
+		$this->load->view("layouts/header");
+		$this->load->view("layouts/aside", $aside);
+		$this->load->view("admin/Menu/vReg_Leyes/edit", $data);
+		$this->load->view("layouts/footer");
+	}
+
+	//---------------------------------  METODOS-----------------------------------------------------------------------------
+	
 	public function store(){
 		$Nombre_de_Ley = $this->input->post("Nombre_de_Ley");
 		$Grupo_pk = $this->input->post("Grupo_pk");
@@ -63,18 +84,7 @@ class cReg_Leyes extends CI_Controller {
 		
 	}
 
-	public function edit($pk_Datos_Ley)
-	{
-		$data = array(
-			'leyes' => $this->Reg_Leyes_Model->getClaveid($pk_Datos_Ley),
-			'gpleyes' =>$this->Grupo_Leyes_Model->getGrupo_Model()
-		);
-		$this->load->view("layouts/header");
-		$this->load->view("layouts/aside");
-		$this->load->view("admin/Menu/vReg_Leyes/edit", $data);
-		$this->load->view("layouts/footer");
-	}
-
+	
 	public function update(){
 		$pk_Datos_Ley		= $this->input->post("pk_Datos_Ley");
 		$Nombre_de_Ley		= $this->input->post("Nombre_de_Ley");

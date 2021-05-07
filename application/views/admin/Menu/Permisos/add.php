@@ -33,14 +33,7 @@
                                     <?php endforeach;?>
                                 </select>
                             <div>
-                            <div class="form-group">
-                                <label for="menu">menu</label>
-                                <select name="menu" id="menu" class="form-control">
-                                    <?php foreach($menus as $menu): ?>
-                                        <option value="<?php echo $menu->pk_menu?>"> <?php echo $menu->nombre ?> </option>
-                                    <?php endforeach;?>
-                                </select>
-                            <div>
+                            
                             <hr>
                             <div class="form-group">
                                         <label for="read">Leer: </label>

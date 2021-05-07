@@ -4,9 +4,11 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                Terminos Clave
+                Configuración de Terminos Clave
                 <small>Listado</small>
+                <a href="<?php echo base_url();?>Menu/cTer_Clave/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Termino</a>
                 </h1>
+               
             </section>
             <!-- Main content -->
             <section class="content">
@@ -16,7 +18,7 @@
                         <!-- AQUI INICIA EL BODY -->
                         <div class="row">
                                 <div class="col-md-12">
-                                    <a href="<?php echo base_url();?>Menu/cTer_Clave/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Termino</a>
+                                    
                                 </div>
                             </div>
                             <hr>
