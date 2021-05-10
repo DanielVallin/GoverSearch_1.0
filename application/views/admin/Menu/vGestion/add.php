@@ -59,10 +59,12 @@
                                 <input type="date" class="form-control" id="FUltReforma" name="FUltReforma">
                             </div>
                             
-                            <div class="form-group has-feedback <?php echo form_error('FEntradaVigo') == true ? 'has-error':''?>">
-                                <label for="FEntradaVigo">Fecha de Entrada en Vigor:</label>
-                                <?php echo form_error("FEntradaVigo", "<span class='help-block'>","</span>");?>
-                                <input type="date" class="form-control" id="FEntradaVigo" name="FEntradaVigo">
+
+
+                            <div class="form-group has-feedback <?php echo form_error('FentradaVigo') == true ? 'has-error':''?>">
+                                <label for="FentradaVigo">Fecha de Entrada en Vigor:</label>
+                                <?php echo form_error("FentradaVigo", "<span class='help-block'>","</span>");?>
+                                <input type="date" class="form-control" id="FentradaVigo" name="FentradaVigo">
                             </div>
                             
                             <div class="form-group has-feedback <?php echo form_error('EstLey') == true ? 'has-error':''?>">
@@ -100,8 +102,7 @@
 
                             <div class="form-group"> 
                                 <a href="#" class="btn btn-primary btn-flat"><span class="fa fa-plus"> Agregar Art</span></a>
-                                <a class="btn btn-primary btn-flat" type="button" onclick="ListaF()"><span class="fa fa-plus"> Continuar</span></a>
-                                <a href="<?php echo base_url();?>Menu/cGestion/" class="btn btn-primary btn-flat"><span class="fa fa-backward"></span> Volver</a>                            
+                                <a class="btn btn-primary btn-flat" type="button" onclick="ListaF()"><span class="fa fa-plus"> continuar</span></a>
                             </div>
                         </div>
 
@@ -191,7 +192,8 @@
                                     <a class="btn btn-primary btn-flat" type="button" onclick="ListaF2()"><span class="fa fa-plus"> Volver</span></a>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>         
+
+                                    <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>                                
                                 </div>
                             </div>
                         </form>

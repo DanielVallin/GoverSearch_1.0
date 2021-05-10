@@ -6,6 +6,7 @@
                 <h1>
                 Grupos de Leyes
                 <small>Listado</small>
+                <a href="<?php echo base_url();?>Menu/cGrupo_Leyes/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Grupo</a>
                 </h1>
             </section>
             <!-- Main content -->
@@ -15,9 +16,6 @@
                     <div class="box-body">
                         <!-- AQUI INICIA EL BODY -->
                         <div class="row">
-                            <div class="col-md-12">
-                                <a href="<?php echo base_url();?>Menu/cGrupo_Leyes/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Grupo</a>
-                            </div>
                         </div>
                         <hr>
                         <div class="row">

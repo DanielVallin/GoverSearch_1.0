@@ -6,6 +6,7 @@
                 <h1>
                 Usuarios
                 <small>Listado</small>
+                <a href="<?php echo base_url();?>Menu/cUsuarios/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Usuario</a>                            
                 </h1>
             </section>
             <!-- Main content -->
@@ -15,9 +16,7 @@
                     <div class="box-body">
                         <!-- AQUI INICIA EL BODY -->
                         <div class="row">
-                            <div class="col-md-12">
-                                <a href="<?php echo base_url();?>Menu/cUsuarios/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Usuario</a>                            
-                            </div>
+                            
                         </div>
                         <hr>
                         <div class="row">
@@ -64,6 +63,22 @@
                                     <?php endif;?>
                                     </tbody>
                                 </table>
+
+                                <br>
+                                    <hr>
+                                    <div class="panel panel-default" id="info" style="visibility:hidden;">
+                                        <div class="panel-heading" ><label for="" onclick="Show()">Ley: <?php echo $termino->ley;?></label> </div>
+                                        <div class="panel-body">
+                                            Contenido:
+                                            <?php echo $termino->pk_Datos_ley;?>
+                                            
+                                            <?php echo $termino->Articulo;?>
+                                            
+                                        </div>
+                                        <div class="btn-group">    
+
+                                            <a class="btn btn-primary btn-flat" type="button" onclick="Hide()"><span class="fa fa-minus"></span></a>
+                                        </div>
                             </div>
                         </div>
                         <!-- AQUI INICIA EL BODY -->

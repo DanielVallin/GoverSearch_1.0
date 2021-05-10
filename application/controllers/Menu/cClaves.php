@@ -25,7 +25,6 @@ class cClaves extends CI_Controller {
 		$this->load->view("layouts/aside", $aside);
 		$this->load->view("admin/Menu/vClaves/list", $data);
 		$this->load->view("layouts/footer");
-
 	}
 
 	public function add()
@@ -40,7 +39,7 @@ class cClaves extends CI_Controller {
 		$this->load->view("layouts/aside", $aside);
 		$this->load->view("admin/Menu/vClaves/add", $data);
 		$this->load->view("layouts/footer");
-
+	}
 	public function edit($pk_Ter_Clave)
 	{
 		$aside = array(
@@ -54,7 +53,6 @@ class cClaves extends CI_Controller {
 		$this->load->view("layouts/aside", $aside);
 		$this->load->view("admin/Menu/vClaves/edit", $data);
 		$this->load->view("layouts/footer");
-	}
 	}
 	//---------------------------------  METODOS ----------------------------------------------------------------------------
 

@@ -68,8 +68,9 @@ $(document).ready(function () {
             url: base_url + "Menu/cBuscador/view/" + pk_Datos_ley,
             type: "POST",
             success: function(resp){
-                //$("#modal-default .modal-body").html(resp);
+                $("#modal-default .modal-body").html(resp);
                     alert(resp);
+                    alert(pk_Datos_ley);
             }
         }); 
     });

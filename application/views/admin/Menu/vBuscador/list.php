@@ -39,7 +39,7 @@
                                 <div class="col-md-12">
                                     <form action="<?php echo base_url();?>Menu/cBuscador/deleteall" method="POST">
                                     
-                                        <table id="example" class="table table-bordered table-striped table-bordered">
+                                        <table id="example" class="table table-hover table table-bordered">
                                             <thead>
                                             <tr>
                                                 <th style="text-align:center" class="col-md-1">
@@ -64,13 +64,14 @@
                                                             <td><?php echo $termino->Descripcion;?></td>
                                                             <td>
                                                                 <div class="btn-group">    
-                                                                    <button type="button" class="btn btn-info btn-view-buscador" data-toggle="modal" data-target="#modal-default" value="<?php echo $termino->pk_Datos_ley ;?>">
+                                                                    <button type="button" onclick="Show()" class="btn btn-info btn-view-buscador" data-toggle="modal" data-target="#modal-default" value="<?php echo $termino->pk_Datos_ley ;?>"><?php echo $termino->pk_Datos_ley ;?>
                                                                         <span class="fa fa-search"></span>
                                                                     </button>
-                                                                    <a class="btn btn-primary btn-flat" type="button" onclick="Show()"><span class="fa fa-plus"></span></a>
+                                                                    <a class="btn btn-primary btn-flat" type="button" onclick="Show()" ><span class="fa fa-plus"></span></a>
                                                                 </div>
                                                             </td>
                                                         </tr>
+                                                        
                                                     <?php endforeach;?>
                                                 <?php endif;?>
 
@@ -81,9 +82,13 @@
                                     <br>
                                     <hr>
                                     <div class="panel panel-default" id="info" style="visibility:hidden;">
-                                        <div class="panel-heading">Ley: </div>
+                                        <div class="panel-heading" ><label for="" onclick="Show()">Ley: <?php echo $termino->ley;?></label> </div>
                                         <div class="panel-body">
                                             Contenido:
+                                            <?php echo $termino->pk_Datos_ley;?>
+                                            
+                                            <?php echo $termino->Articulo;?>
+                                            
                                         </div>
                                         <div class="btn-group">    
 

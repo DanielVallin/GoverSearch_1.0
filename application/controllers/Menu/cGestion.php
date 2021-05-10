@@ -12,7 +12,6 @@ class cGestion extends CI_Controller {
 		$this->load->model("User_Model");
 		$this->load->model("Gestion_Model");
 		$this->load->model("Reg_Leyes_Model");
-		
 	}
 
 	public function index()
@@ -35,6 +34,7 @@ class cGestion extends CI_Controller {
 			'cGrupos' => $this->Grupo_Leyes_Model->getGrupo_Model()
 		);
 		$data = array(
+
 			'leyes' =>$this->Reg_Leyes_Model->getRegLey()
 	   );
 		$this->load->view("layouts/header");
@@ -43,8 +43,8 @@ class cGestion extends CI_Controller {
 		$this->load->view("layouts/footer");
 	}
 
-	public function store(){
-
+	public function store()
+	{
 			$Ley_pk 		= $this->input->post("Ley_pk");
 			$Fecha 			= $this->input->post("Fecha");
 			$FUltReforma 	= $this->input->post("FUltReforma");
@@ -117,7 +117,8 @@ class cGestion extends CI_Controller {
 					}
 				}else{
 					$this->add();
-				}	
+				}
+					
 	}
 	
 
@@ -162,8 +163,6 @@ class cGestion extends CI_Controller {
 		$Estatus		= $this->input->post("Estatus");
 		$Estado			= $this->input->post("Estado");
 
-
-		
 				$data = array(
 					'Num_Articulo' => $Num_Articulo,
 				);
@@ -173,12 +172,7 @@ class cGestion extends CI_Controller {
 					$this->session->set_flashdata("error","No se pudo guardar la informacion");
 					redirect(base_url()."Menu/cGestion/edit/".$Ley_pk);
 				}
-		
 	}
-
-	public function delete($pk_Gestionid ){
-		$this->Gestion_Model->delete($pk_Gestionid );
-		redirect(base_url()."Menu/cGestion");
-	}
+	
 
 }

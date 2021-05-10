@@ -34,9 +34,10 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <a href="#" class="btn btn-primary">Continuar</a>
+                                <a class="btn btn-primary btn-flat" type="button" onclick="Open()"><span class="fa fa-plus"> continuar</span></a>
                             </div>
                             <hr>
+                         <div id="divlist" style="visibility:hidden;">
                             <div class="form-group has-feedback">
                                 <label for="Ley_pk">Ley:</label>
                                 <select name="Ley_pk" id="Ley_pk" class="form-control chosen">
@@ -61,9 +62,11 @@
                             </div>
 
                             <div class="form-group">
-                            <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>         
+                            <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button> 
+                            <a class="btn btn-primary btn-flat" type="button" onclick="Close()"><span class="fa fa-plus"> Volver</span></a>        
                             <a href="<?php echo base_url();?>Menu/cTer_Clave/" class="btn btn-primary btn-flat"><span class="fa fa-backward"></span> Volver</a>                             
                             </div>
+                        </div>   
                         </form>
                     </div>
                 </div>
@@ -75,3 +78,11 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script>
+    function Open() {
+    document.getElementById("divlist").style.visibility = "visible";
+    }
+        function Close() {
+        document.getElementById("divlist").style.visibility = "hidden";
+        }
+</script>

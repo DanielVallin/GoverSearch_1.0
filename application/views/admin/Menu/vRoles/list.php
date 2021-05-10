@@ -6,6 +6,7 @@
                 <h1>
                 Roles
                 <small>Listado</small>
+                <a href="<?php echo base_url();?>Menu/cRoles/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Rol</a>
                 </h1>
             </section>
             <!-- Main content -->
@@ -15,9 +16,6 @@
                     <div class="box-body">
                         <!-- AQUI INICIA EL BODY -->
                             <div class="row">
-                                <div class="col-md-12">
-                                    <a href="<?php echo base_url();?>Menu/cRoles/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Rol</a>
-                                </div>
                             </div>
                         <hr>
                             <div class="row">

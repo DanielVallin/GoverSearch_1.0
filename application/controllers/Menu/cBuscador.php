@@ -7,11 +7,9 @@ class cBuscador extends CI_Controller {
 		parent::__construct();
 		//Aside Barra lateral.
 		$this->load->model("Grupo_Leyes_Model");
-
 		$this->load->model("Claves_Model");
 		$this->load->model("Reg_Leyes_Model");
 		$this->load->model("Ter_Clave_Model");
-		
 	}
 
 	//---------------------------------  VISTAS -----------------------------------------------------------------------------
@@ -42,7 +40,8 @@ class cBuscador extends CI_Controller {
 	public function view($pk_Datos_ley){
 		$data = array(
 			'termino' => $this->Ter_Clave_Model->getTerminoid($pk_Datos_ley)
-		);
+			
+		);		
 		$this->load->view("admin/Menu/vBuscador/list",$data); 
 	}
 	
@@ -54,10 +53,8 @@ class cBuscador extends CI_Controller {
 			{	
 				$checkedEmp = $this->input->post('checkbox_value');
 				$checked_id = [];
-				
 				foreach($checkedEmp as $row){
 					array_push($checked_id, $row);
-					//echo $row;
 				}
 				$data = array(
 					'terminos' => $this->Ter_Clave_Model->pdfSelectEmp($checked_id)
