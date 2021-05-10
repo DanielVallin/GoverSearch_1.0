@@ -41,8 +41,13 @@
                             <div class="form-group has-feedback <?php echo form_error('Ley_pk') == true ? 'has-error':''?>">
                                 <label for="Ley_pk">Ley:</label>
                                 <select name="Ley_pk" id="Ley_pk" class="form-control">
+<<<<<<< HEAD
                                     <?php foreach($leyes as $ley):?>
                                         <option value="<?php echo $ley->pk_Datos_Ley; ?>"><?php echo $ley->Nombre_de_Ley;?></option>
+=======
+                                    <?php foreach($usuarios as $usuario):?>
+                                        <option value="<?php echo $usuario->pk_Usuario?>"><?php echo $usuario->Nombre, $usuario->Apellidos;?></option>
+>>>>>>> master
                                     <?php endforeach;?>
                                 </select>
                             </div>
@@ -59,10 +64,17 @@
                                 <input type="date" class="form-control" id="FUltReforma" name="FUltReforma">
                             </div>
                             
+<<<<<<< HEAD
                             <div class="form-group has-feedback <?php echo form_error('FEntradaVigo') == true ? 'has-error':''?>">
                                 <label for="FEntradaVigo">Fecha de Entrada en Vigor:</label>
                                 <?php echo form_error("FEntradaVigo", "<span class='help-block'>","</span>");?>
                                 <input type="date" class="form-control" id="FEntradaVigo" name="FEntradaVigo">
+=======
+                            <div class="form-group has-feedback <?php echo form_error('FentradaVigo') == true ? 'has-error':''?>">
+                                <label for="FentradaVigo">Fecha de Entrada en Vigor:</label>
+                                <?php echo form_error("FentradaVigo", "<span class='help-block'>","</span>");?>
+                                <input type="date" class="form-control" id="FentradaVigo" name="FentradaVigo">
+>>>>>>> master
                             </div>
                             
                             <div class="form-group has-feedback <?php echo form_error('EstLey') == true ? 'has-error':''?>">
@@ -100,8 +112,12 @@
 
                             <div class="form-group"> 
                                 <a href="#" class="btn btn-primary btn-flat"><span class="fa fa-plus"> Agregar Art</span></a>
+<<<<<<< HEAD
                                 <a class="btn btn-primary btn-flat" type="button" onclick="ListaF()"><span class="fa fa-plus"> Continuar</span></a>
                                 <a href="<?php echo base_url();?>Menu/cGestion/" class="btn btn-primary btn-flat"><span class="fa fa-backward"></span> Volver</a>                            
+=======
+                                <a class="btn btn-primary btn-flat" type="button" onclick="ListaF()"><span class="fa fa-plus"> continuar</span></a>
+>>>>>>> master
                             </div>
                         </div>
 
@@ -191,7 +207,11 @@
                                     <a class="btn btn-primary btn-flat" type="button" onclick="ListaF2()"><span class="fa fa-plus"> Volver</span></a>
                                 </div>
                                 <div class="form-group">
+<<<<<<< HEAD
                                     <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>         
+=======
+                                    <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>                                
+>>>>>>> master
                                 </div>
                             </div>
                         </form>

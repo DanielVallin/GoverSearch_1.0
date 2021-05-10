@@ -72,6 +72,12 @@ class Ter_Clave_Model extends CI_Model {
         $this->db->join("tbl_claves c", "t.Termino_Clave_pk = c.pk_Ter_Clave");
         $this->db->join("tbl_leyes l", "t.Ley_pk = l.pk_Datos_Ley");
         $this->db->where_in("t.pk_Datos_ley", $checked_id);
+<<<<<<< HEAD
+=======
+
+        $resultado = $this->db->get("tbl_ter_clave");
+		return $resultado->row();
+>>>>>>> master
         
         $arreglo=$this->db->get();
        
