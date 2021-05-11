@@ -63,13 +63,13 @@
                                         <option value="Derogada">Derogada</option>
                                 </select>
                             </div>
-                            
-                            <div class="form-group has-feedback <?php echo form_error('ObjLey') == true ? 'has-error':''?>">
+
+                            <div class="form-group has-feedback">
                                 <label for="ObjLey">Objeto de la Ley:</label>ObjLey
-                                    <input type="text" class="form-control" id="ObjLey" name="ObjLey" value="<?php echo $gestion->ObjLey;?>">
-                                    <?php echo form_error("ObjLey", "<span class='help-block'>","</span>");?>
-                                    <span class="fa fa-bookmark form-control-feedback"></span>
+                                    <textarea class="form-control" placeholder="Introduccion" id="Introduccion" name="Introduccion" value="<?php echo $gestion->ObjLey;?>" rows="20" cols="60"><?php echo $gestion->ObjLey;?></textarea>
+                                <span class="form-control-feedback"></span>
                             </div>
+
                             
                             <div class="form-group has-feedback <?php echo form_error('TipoLey') == true ? 'has-error':''?>">
                                 <label for="TipoLey">Tipo de Ley:</label>
@@ -82,10 +82,16 @@
                             
                             <div class="form-group has-feedback <?php echo form_error('Introduccion') == true ? 'has-error':''?>">
                                     <label for="Introduccion">Introduccion:</label>
-                                        <input type="text" class="form-control" id="Introduccion" name="Introduccion" value="<?php echo $gestion->Introduccion;?>">
+                                        <input type="text" class="form-control" id="Introduccion" name="Introduccion" ">
                                         <?php echo form_error("Introduccion", "<span class='help-block'>","</span>");?>
                                         <span class="fa fa-bookmark form-control-feedback"></span>
                                 </div>
+                            
+                            <div class="form-group has-feedback">
+                                <label for="Introduccion">Introduccion:</label>
+                                    <textarea class="form-control" placeholder="Introduccion" id="Introduccion" name="Introduccion" value="<?php echo $gestion->Introduccion;?>" rows="8" cols="60"><?php echo $gestion->Introduccion;?></textarea>
+                                <span class="form-control-feedback"></span>
+                            </div>
 
                            
 
@@ -190,10 +196,8 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>   
                                     <a class="btn btn-primary btn-flat" type="button" onclick="ListaF2()"><span class="fa fa-plus"> Volver</span></a>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>         
                                 </div>
                             </div>
                         </form>

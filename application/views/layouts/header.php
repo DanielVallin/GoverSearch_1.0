@@ -8,7 +8,6 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/template/bootstrap/css/bootstrap.min.css">
-    
      <!-- DataTables -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/template/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <!-- DataTables Export-->
@@ -22,7 +21,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/template/dist/css/skins/_all-skins.min.css">
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-yellow sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
         <header class="main-header">
@@ -34,7 +33,7 @@
                 <span class="logo-lg"><b>GoverSearch</b></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top">
+            <nav class="navbar navbar-static-top ">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="sr-only">Toggle navigation</span>

@@ -35,9 +35,11 @@
                             </div>
                             <div class="form-group">
                                 <a class="btn btn-primary btn-flat" type="button" onclick="Open()"><span class="fa fa-plus"> continuar</span></a>
+                                <a href="<?php echo base_url();?>Menu/cTer_Clave/" class="btn btn-primary btn-flat"><span class="fa fa-backward"></span> Volver</a>                             
                             </div>
                             <hr>
                          <div id="divlist" style="visibility:hidden;">
+                            
                             <div class="form-group has-feedback">
                                 <label for="Ley_pk">Ley:</label>
                                 <select name="Ley_pk" id="Ley_pk" class="form-control chosen">
@@ -47,11 +49,13 @@
                                 </select>
                             </div>
 
-                            <div class="form-group has-feedback <?php echo form_error('Articulo') == true ? 'has-error':''?>">
-                                <label for="Articulo">Artículo:</label>
-                                    <input type="number" placeholder="2" class="form-control" id="Articulo" name="Articulo">
-                                    <?php echo form_error("Articulo", "<span class='help-block'>","</span>");?>
-                                    <span class="fa fa-bookmark form-control-feedback"></span>
+                            <div class="form-group has-feedback <?php echo form_error('Articulo_pk') == true ? 'has-error':''?>">
+                                <label for="Articulo_pk">Articulo: </label>
+                                <select name="Articulo_pk" id="Articulo_pk" class="form-control chosen">
+                                    <?php foreach($cGestion as $cGestio):?>
+                                        <option value="<?php echo $cGestio->Articulo_pk;?>"><?php echo $cGestio->Articulo_pk;?></option>
+                                    <?php endforeach;?>
+                                </select>
                             </div>
 
                             <div class="form-group has-feedback <?php echo form_error('Descripcion') == true ? 'has-error':''?>">
@@ -64,7 +68,6 @@
                             <div class="form-group">
                             <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button> 
                             <a class="btn btn-primary btn-flat" type="button" onclick="Close()"><span class="fa fa-plus"> Volver</span></a>        
-                            <a href="<?php echo base_url();?>Menu/cTer_Clave/" class="btn btn-primary btn-flat"><span class="fa fa-backward"></span> Volver</a>                             
                             </div>
                         </div>   
                         </form>

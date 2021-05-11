@@ -59,8 +59,8 @@
                                                             <td style="text-align:center" >
                                                                 <input type="checkbox" name="checkbox_value[]" value="<?= $termino->pk_Datos_ley; ?>">
                                                             </td>
-                                                            <td style="text-align:center" ><?php echo $termino->ley;?></td>
-                                                            <td style="text-align:center" ><?php echo $termino->Articulo;?></td>
+                                                            <td style="text-align:center" onclick="Show()"><?php echo $termino->ley;?></td>
+                                                            <td style="text-align:center" ><?php echo $termino->Articulo_pk ;?></td>
                                                             <td><?php echo $termino->Descripcion;?></td>
                                                             <td>
                                                                 <div class="btn-group">    

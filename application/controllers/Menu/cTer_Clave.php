@@ -11,6 +11,7 @@ class cTer_Clave extends CI_Controller {
 		$this->load->model("Ter_Clave_Model");
 		$this->load->model("Claves_Model");
 		$this->load->model("Reg_Leyes_Model");
+		$this->load->model("Gestion_Model");
 		
 	}
 
@@ -36,6 +37,7 @@ class cTer_Clave extends CI_Controller {
 		$data = array(
 			'cClaves' =>$this->Claves_Model->getClave(),
 			'regleyes' =>$this->Reg_Leyes_Model->getRegLey(),
+			'cGestion' => $this->Gestion_Model->getGestiones(),
 	   );
 		
 		$this->load->view("layouts/header");
@@ -48,7 +50,7 @@ class cTer_Clave extends CI_Controller {
 		$Termino_Clave_pk 	= $this->input->post("Termino_Clave_pk");
 		$Ley_pk 	= $this->input->post("Ley_pk");
 		$Descripcion 	= $this->input->post("Descripcion");
-		$Articulo 	= $this->input->post("Articulo");
+		$Articulo_pk 	= $this->input->post("Articulo_pk");
 
 		$this->form_validation->set_rules("Termino_Clave_pk","esta en uso, por lo que","required");
 		$this->form_validation->set_rules("Ley_pk","esta en uso, por lo que","required");
@@ -59,7 +61,7 @@ class cTer_Clave extends CI_Controller {
 			$data  		= array(
 				'Termino_Clave_pk' => $Termino_Clave_pk,
 				'Ley_pk' => $Ley_pk, 
-				'Articulo' => $Articulo,
+				'Articulo_pk' => $Articulo_pk,
 				'Descripcion' => $Descripcion, 
 				'Estado' => "1"
 			);
@@ -95,14 +97,14 @@ class cTer_Clave extends CI_Controller {
 		$Termino_Clave_pk	= $this->input->post("Termino_Clave_pk");
 		$Ley_pk				= $this->input->post("Ley_pk");
 		$Descripcion	= $this->input->post("Descripcion");
-		$Articulo			= $this->input->post("Articulo");
+		$Articulo_pk			= $this->input->post("Articulo_pk");
 
 		$data = array(
 			'pk_Datos_ley' 		=> $pk_Datos_ley,
 			'Termino_Clave_pk' 	=> $Termino_Clave_pk,
 			'Ley_pk' 			=> $Ley_pk,
 			'Descripcion' 		=> $Descripcion,
-			'Articulo' 			=> $Articulo,
+			'Articulo_pk' 			=> $Articulo_pk,
 		);
 		if($this->Ter_Clave_Model->update($pk_Datos_ley, $data)){
 			redirect(base_url()."Menu/cTer_Clave");

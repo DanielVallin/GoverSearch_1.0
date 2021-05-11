@@ -18,10 +18,10 @@ class Gestion_Model extends CI_Model {
             $this->db->select("g.* ,l.Nombre_de_Ley as ley");
             $this->db->from("tbl_gestion g");
             $this->db->join("tbl_leyes l","g.Ley_pk  = l.pk_Datos_Ley");
+
             $this->db->where("g.pk_Gestionid",$pk_Gestionid);  
             $resultado = $this->db->get();
             return $resultado->row();
-            echo '<pre>'; print_r($resultado); echo '</pre>';
     }
 
     public function save($data){

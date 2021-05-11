@@ -27,7 +27,6 @@
                                 <table id="example1" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>Consecutivo</th>
                                         <th>No. Articulo</th>
                                         <th>Tipo Articulo</th>
                                         <th>Descripcion del Articulo</th>
@@ -40,7 +39,6 @@
                                     <?php if(!empty($cGestion)):?>
                                             <?php foreach($cGestion as $cGest):?>
                                                 <tr>
-                                                    <td><?php echo $cGest->pk_Gestionid;?></td>
                                                     <td><?php echo $cGest->Num_Articulo;?></td>
                                                     <td><?php echo $cGest->Tipo;?></td>
                                                     <td><?php echo $cGest->Descripcion;?></td>

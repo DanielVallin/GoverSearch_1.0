@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Grupo_Leyes_Model extends CI_Model {
 
     public function getGrupo_Model(){
-        $this->db->where("Estado","1");
         $resultados = $this->db->get("tbl_gpo_leyes");
         return $resultados->result();
     }
@@ -14,7 +13,6 @@ class Grupo_Leyes_Model extends CI_Model {
         $this->db->from("tbl_leyes l");
         $this->db->join("tbl_gpo_leyes g","l.Grupo_pk = g.pk_Gpo_Ley");
         $this->db->where("g.pk_Gpo_Ley", $pk_Gpo_Ley);
-        $this->db->where("l.Estado","1");
         $resultados = $this->db->get();
         return $resultados->result();
     }
