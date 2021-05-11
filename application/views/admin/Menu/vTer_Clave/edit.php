@@ -61,8 +61,8 @@
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label for="Articulo_pk">Artículo:</label>
-                                    <input type="number" placeholder="2" class="form-control" id="Articulo_pk" name="Articulo_pk" value="<?php echo $terminos->Articulo_pk;?>">
+                                <label for="Articulo">Artículo:</label>
+                                    <input type="number" placeholder="2" class="form-control" id="Articulo" name="Articulo" value="<?php echo $terminos->Articulo;?>">
                                 <span class="fa fa-bookmark form-control-feedback"></span>
                             </div>
 

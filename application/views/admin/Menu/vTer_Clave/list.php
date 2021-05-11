@@ -41,7 +41,7 @@
                                                     <tr>
                                                         <td><?php echo $termino->pk_Datos_ley;?></td>
                                                         <td><?php echo $termino->ley;?></td>
-                                                        <td><?php echo $termino->Articulo_pk;?></td>
+                                                        <td><?php echo $termino->Articulo;?></td>
                                                         <td><?php echo $termino->Descripcion;?></td>
                                                         <td>
                                                             <?php if($termino->Estado == 0): ?>

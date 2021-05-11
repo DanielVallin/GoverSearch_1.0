@@ -23,44 +23,89 @@
                              </div>
                         <?php endif;?>
 
-                            <form action="<?php echo base_url();?>Menu/cGestion/store" method="POST">
+
+
+                        <div class="form-group">                                
+                            <form method="post" id="import_form" enctype="multipart/form-data">
+                                <p><label>Select Excel File</label>
+                                <input type="file" name="file" id="file" required accept=".xls, .xlsx" /></p>
+                                    <br />
+                                <input type="submit" name="import" value="Import" class="btn btn-info" />
+                            </form>
+                        </div>
+
+                        <form action="<?php echo base_url();?>Menu/cGestion/store" method="POST">
+                        
                             <!-- Formulario #1 -->
+
                             <div class="form-group has-feedback <?php echo form_error('Ley_pk') == true ? 'has-error':''?>">
                                 <label for="Ley_pk">Ley:</label>
                                 <select name="Ley_pk" id="Ley_pk" class="form-control">
+<<<<<<< HEAD
                                     <?php foreach($leyes as $ley):?>
                                         <option value="<?php echo $ley->pk_Datos_Ley; ?>"><?php echo $ley->Nombre_de_Ley;?></option>
+=======
+<<<<<<< HEAD
+                                    <?php foreach($leyes as $ley):?>
+                                        <option value="<?php echo $ley->pk_Datos_Ley; ?>"><?php echo $ley->Nombre_de_Ley;?></option>
+=======
+                                    <?php foreach($usuarios as $usuario):?>
+                                        <option value="<?php echo $usuario->pk_Usuario?>"><?php echo $usuario->Nombre, $usuario->Apellidos;?></option>
+>>>>>>> master
+>>>>>>> master
                                     <?php endforeach;?>
                                 </select>
                             </div>
-                            <div class="form-group has-feedback">
-                                <label for="Fecha">Fecha de Publicación:</label>
+
+                            <div class="form-group has-feedback <?php echo form_error('Fecha') == true ? 'has-error':''?>">
+                                <label for="Fecha">Fecha:</label>
                                 <?php echo form_error("Fecha", "<span class='help-block'>","</span>");?>
                                 <input type="date" class="form-control" id="Fecha" name="Fecha">
                             </div>
                             
-                            <div class="form-group has-feedback">
-                                <label for="FUltReforma">Fecha de Ultima Reforma:</label>
-                                <input type="date" class="form-control" id="FUltReforma" name="FUltReforma" >
+                            <div class="form-group has-feedback <?php echo form_error('FUltReforma') == true ? 'has-error':''?>">
+                                <label for="FUltReforma">Fecha de Publicacion:</label>
+                                <?php echo form_error("FUltReforma", "<span class='help-block'>","</span>");?>
+                                <input type="date" class="form-control" id="FUltReforma" name="FUltReforma">
                             </div>
                             
-                            <div class="form-group has-feedback">
+<<<<<<< HEAD
+
+
+=======
+<<<<<<< HEAD
+                            <div class="form-group has-feedback <?php echo form_error('FEntradaVigo') == true ? 'has-error':''?>">
                                 <label for="FEntradaVigo">Fecha de Entrada en Vigor:</label>
-                                <input type="date" class="form-control" id="FEntradaVigo" name="FEntradaVigo" >
+                                <?php echo form_error("FEntradaVigo", "<span class='help-block'>","</span>");?>
+                                <input type="date" class="form-control" id="FEntradaVigo" name="FEntradaVigo">
+=======
+>>>>>>> master
+                            <div class="form-group has-feedback <?php echo form_error('FentradaVigo') == true ? 'has-error':''?>">
+                                <label for="FentradaVigo">Fecha de Entrada en Vigor:</label>
+                                <?php echo form_error("FentradaVigo", "<span class='help-block'>","</span>");?>
+                                <input type="date" class="form-control" id="FentradaVigo" name="FentradaVigo">
+<<<<<<< HEAD
+=======
+>>>>>>> master
+>>>>>>> master
                             </div>
-                            <div class="form-group has-feedback">
+                            
+                            <div class="form-group has-feedback <?php echo form_error('EstLey') == true ? 'has-error':''?>">
                                 <label for="EstLey">Estado de la Ley:</label>
                                 <select name="EstLey" id="EstLey" class="form-control">
                                         <option value="Vigente">Vigente</option>
                                         <option value="Derogada">Derogada</option>
                                 </select>
                             </div>
-                            <div class="form-group has-feedback">
-                                <label for="ObjLey">Objeto de la Ley:</label>
-                                    <input type="text" class="form-control" id="ObjLey" name="ObjLey" >
+                            
+                            <div class="form-group has-feedback <?php echo form_error('ObjLey') == true ? 'has-error':''?>">
+                                <label for="ObjLey">Objeto de la Ley:</label>ObjLey
+                                    <input type="text" class="form-control" id="ObjLey" name="ObjLey">
+                                    <?php echo form_error("ObjLey", "<span class='help-block'>","</span>");?>
                                     <span class="fa fa-bookmark form-control-feedback"></span>
                             </div>
-                            <div class="form-group has-feedback">
+                            
+                            <div class="form-group has-feedback <?php echo form_error('TipoLey') == true ? 'has-error':''?>">
                                 <label for="TipoLey">Tipo de Ley:</label>
                                 <select name="TipoLey" id="TipoLey" class="form-control">
                                         <option value="Federal">Federal</option>
@@ -68,24 +113,38 @@
                                         <option value="General">General</option>
                                 </select>
                             </div>
-                            <div class="form-group has-feedback ">
-                                <label for="Introduccion">Introduccion:</label>
-                                <input type="text" class="form-control" id="Introduccion" name="Introduccion" >
-                                <span class="fa fa-bookmark form-control-feedback"></span>
-                            </div>
+                            
+                            <div class="form-group has-feedback <?php echo form_error('Introduccion') == true ? 'has-error':''?>">
+                                    <label for="Introduccion">Introduccion:</label>
+                                        <input type="text" class="form-control" id="Introduccion" name="Introduccion">
+                                        <?php echo form_error("Introduccion", "<span class='help-block'>","</span>");?>
+                                        <span class="fa fa-bookmark form-control-feedback"></span>
+                                </div>
+
+                           
+
                             <div class="form-group"> 
                                 <a href="#" class="btn btn-primary btn-flat"><span class="fa fa-plus"> Agregar Art</span></a>
+<<<<<<< HEAD
+                                <a class="btn btn-primary btn-flat" type="button" onclick="ListaF()"><span class="fa fa-plus"> continuar</span></a>
+=======
+<<<<<<< HEAD
                                 <a class="btn btn-primary btn-flat" type="button" onclick="ListaF()"><span class="fa fa-plus"> Continuar</span></a>
                                 <a href="<?php echo base_url();?>Menu/cGestion/" class="btn btn-primary btn-flat"><span class="fa fa-backward"></span> Volver</a>                            
+=======
+                                <a class="btn btn-primary btn-flat" type="button" onclick="ListaF()"><span class="fa fa-plus"> continuar</span></a>
+>>>>>>> master
+>>>>>>> master
                             </div>
                         </div>
-                        
 
                         <!-- Formulario #2 -->
+                        
                             <div class="col-md-6" id="divlist" style="visibility:hidden;">
-                                <div class="form-group has-feedback">
+                                <div class="form-group has-feedback <?php echo form_error('Num_Articulo') == true ? 'has-error':''?>">
                                     <label for="Num_Articulo">Numero de Articulo</label>                        
                                         <input type="text" class="form-control" id="Num_Articulo" name="Num_Articulo">
+                                        <?php echo form_error("Num_Articulo", "<span class='help-block'>","</span>");?>
                                         <span class="fa fa-bookmark form-control-feedback"></span>
                                 </div>
                                 <div class="form-group has-feedback">
@@ -161,22 +220,20 @@
                                                 <option value = "Transitorio">Derogado</option>
                                         </select>
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="Estado">Estado:</label>
-                                    <select name="Estado" id="Estado" class="form-control">
-                                    
-                                        <option value="1" >Activo</option>
-                                        <option value="0" >Inactivo</option>
-                                                        
-                                    </select>
-                                </div>
-
                                 <div class="form-group">
                                     <a class="btn btn-primary btn-flat" type="button" onclick="ListaF2()"><span class="fa fa-plus"> Volver</span></a>
                                 </div>
                                 <div class="form-group">
+<<<<<<< HEAD
+
+                                    <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>                                
+=======
+<<<<<<< HEAD
                                     <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>         
+=======
+                                    <button type="submit" class="fa fa-plus btn btn-success btn-flat"> Guardar</button>                                
+>>>>>>> master
+>>>>>>> master
                                 </div>
                             </div>
                         </form>

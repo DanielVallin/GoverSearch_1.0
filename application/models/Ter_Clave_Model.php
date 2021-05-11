@@ -27,11 +27,13 @@ class Ter_Clave_Model extends CI_Model {
         $this->db->join("tbl_claves c", "t.Termino_Clave_pk = c.pk_Ter_Clave");
         $this->db->join("tbl_leyes l", "t.Ley_pk = l.pk_Datos_Ley");
         
+        $this->db->where("t.Estado","1");
         $this->db->like("c.Termino_Clave ", $clave);
         
         $resultados = $this->db->get();
         return $resultados->result();
     }
+
 
     public function save($data){
         return $this->db->insert("tbl_ter_clave",$data);
@@ -56,6 +58,7 @@ class Ter_Clave_Model extends CI_Model {
         return $this->db->update("tbl_ter_clave", $data);
     }
 
+
     public function deleteSelectEmp($checked_id){
         $this->db->where_in("pk_Datos_ley", $checked_id);
         return $this->db->delete("tbl_ter_clave");
@@ -64,21 +67,36 @@ class Ter_Clave_Model extends CI_Model {
 
     public function pdfSelectEmp($checked_id){
         
+
         $this->db->from("tbl_ter_clave t");
-        $this->db->join("tbl_gestion g", "t.Articulo_pk = g.Num_Articulo");
+        $this->db->join("tbl_claves c", "t.Termino_Clave_pk = c.pk_Ter_Clave");
+<<<<<<< HEAD
+=======
+        $this->db->join("tbl_leyes l", "t.Ley_pk = l.pk_Datos_Ley");
+        $this->db->where_in("t.pk_Datos_ley", $checked_id);
+<<<<<<< HEAD
+=======
+
+        $resultado = $this->db->get("tbl_ter_clave");
+		return $resultado->row();
+>>>>>>> master
+>>>>>>> master
         
+        $this->db->from("tbl_gestion g");
+        $this->db->join("tbl_leyes l", "g.Ley_pk = l.pk_Datos_Ley", "t.Ley_pk = l.pk_Datos_Ley");
         
+
         $this->db->where_in("t.pk_Datos_ley", $checked_id);
         $arreglo=$this->db->get();
         $array = $arreglo->result_array();
 		return $array;
+
 
         //$this->db->select("t.* ,c.Termino_Clave as termino");
         //$this->db->select("t.* ,l.Nombre_de_Ley as ley");
         //$this->db->from("tbl_ter_clave t");
         //$this->db->join("tbl_claves c", "t.Termino_Clave_pk = c.pk_Ter_Clave");
         //$this->db->join("tbl_leyes l", "t.Ley_pk = l.pk_Datos_Ley");
-        
         //$arr = array_column($array,"termino");
         //echo '<pre>'; print_r($array); echo '</pre>';
         
