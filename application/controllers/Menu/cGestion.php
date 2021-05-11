@@ -11,15 +11,15 @@ class cGestion extends CI_Controller {
 
 		$this->load->model("User_Model");
 		$this->load->model("Gestion_Model");
-<<<<<<< HEAD
+
 		$this->load->model("Reg_Leyes_Model");
-=======
-<<<<<<< HEAD
+
+
 		$this->load->model("Reg_Leyes_Model");
 		
-=======
->>>>>>> master
->>>>>>> master
+
+
+
 	}
 
 	public function index()
@@ -42,11 +42,11 @@ class cGestion extends CI_Controller {
 			'cGrupos' => $this->Grupo_Leyes_Model->getGrupo_Model()
 		);
 		$data = array(
-<<<<<<< HEAD
+
 
 			'leyes' =>$this->Reg_Leyes_Model->getRegLey()
-=======
-<<<<<<< HEAD
+
+
 			'leyes' =>$this->Reg_Leyes_Model->getRegLey()
 	   );
 		$this->load->view("layouts/header");
@@ -192,9 +192,9 @@ class cGestion extends CI_Controller {
 		$this->Gestion_Model->delete($pk_Gestionid );
 		redirect(base_url()."Menu/cGestion");
 	}
-=======
+
 			'usuarios' =>$this->User_Model->getUsuarios()
->>>>>>> master
+
 	   );
 		$this->load->view("layouts/header");
 		$this->load->view("layouts/aside", $aside);
@@ -280,7 +280,7 @@ class cGestion extends CI_Controller {
 					
 	}
 	
-<<<<<<< HEAD
+
 
 	public function edit($pk_Gestionid)
 	{
@@ -334,8 +334,8 @@ class cGestion extends CI_Controller {
 				}
 	}
 	
-=======
->>>>>>> master
->>>>>>> master
+
+
+
 
 }
